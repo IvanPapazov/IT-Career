@@ -15,6 +15,8 @@ namespace MoviesApp.Data.Model
         public string MovieCountry { get; set; }
         public string Description { get; set; }
         public IList<MovieActor> MoviesActors { get; set; }
+        public IList<MovieGenre> MoviesGenres { get; set; }
+        public IList<MoviePlaylist> MoviesPlaylists { get; set; }
         public Movie(string movieTitle, int movieYear, int duration, string movieCountry, string description)
         {
             MovieTitle = movieTitle;
