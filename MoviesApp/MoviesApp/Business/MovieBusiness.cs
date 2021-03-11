@@ -65,6 +65,47 @@ namespace MoviesApp.Business
                 productContext.SaveChanges();
             }
         }
+        public void Add(Genre genre)
+        {
+            using (productContext = new MovieContext())
+            {
+                productContext.Genres.Add(genre);
+                productContext.SaveChanges();
+            }
+        }
+        public void Add(MovieGenre movieGenre)
+        {
+            using (productContext = new MovieContext())
+            {
+                productContext.MoviesGenres.Add(movieGenre);
+                productContext.SaveChanges();
+            }
+        }
+        public void Add(Director director)
+        {
+            using (productContext = new MovieContext())
+            {
+                productContext.Directors.Add(director);
+                productContext.SaveChanges();
+            }
+        }
+        public void Add(Playlist playlist)
+        {
+            using (productContext = new MovieContext())
+            {
+                productContext.Playlists.Add(playlist);
+                productContext.SaveChanges();
+            }
+        }
+        //public void Add(MoviePlaylist moviePlaylist)
+        //{
+        //    using (productContext = new MovieContext())
+        //    {
+        //        productContext.MoviesPlaylists.Add(moviePlaylist);
+        //        productContext.SaveChanges();
+        //    }
+        //}
+
         public void Update(Movie product)
         {
             using (productContext = new MovieContext())

@@ -14,11 +14,12 @@ namespace MoviesApp.Data
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Playlist> Playlists { get; set; }
+        public DbSet<Director> Directors { get; set; }
         public DbSet<MovieActor> MoviesActors { get; set; }
         public DbSet<MovieGenre> MoviesGenres { get; set; }
         public DbSet<MoviePlaylist> MoviesPlaylists { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        { // Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;
             string connectionString = "Server=(localdb)\\MSSQLLocalDB;Initial Catalog=MovieDb;Integrated Security=True";
             optionsBuilder.UseSqlServer(connectionString);
         }
@@ -50,18 +51,24 @@ namespace MoviesApp.Data
             .WithMany(a => a.MoviesGenres)
             .HasForeignKey(mg => mg.GenreId);
 
-            //Create a MoviePlaylist mapping table              To do
-            modelBuilder.Entity<MovieGenre>().HasKey(mp => new { mp.MovieId, mp.GenreId});
+            //Create a MoviePlaylist mapping table             
+            modelBuilder.Entity<MoviePlaylist>().HasKey(mp => new { mp.MovieId, mp.PlaylistId});
 
-            modelBuilder.Entity<MovieGenre>()
+            modelBuilder.Entity<MoviePlaylist>()
             .HasOne<Movie>(mp => mp.Movie)
-            .WithMany(m => m.MoviesGenres)
+            .WithMany(m => m.MoviesPlaylists)
             .HasForeignKey(mp => mp.MovieId);
 
-            modelBuilder.Entity<MovieGenre>()
-            .HasOne<Genre>(mp => mp.Genre)
-            .WithMany(a => a.MoviesGenres)
-            .HasForeignKey(mp => mp.GenreId);
+            modelBuilder.Entity<MoviePlaylist>()
+            .HasOne<Playlist>(mp => mp.Playlist)
+            .WithMany(p => p.MoviesPlaylists)
+            .HasForeignKey(mp => mp.PlaylistId);
+
+            // Create a Director-Movie relationship
+            modelBuilder.Entity<Movie>()
+            .HasOne<Director>(m => m.Director)
+            .WithMany(d => d.Movies)
+            .HasForeignKey(m => m.DirectorId);
         }
     }
 }
