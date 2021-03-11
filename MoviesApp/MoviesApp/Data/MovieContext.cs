@@ -36,10 +36,5 @@ namespace MoviesApp.Data
             .WithMany(a => a.MoviesActors)
             .HasForeignKey(ma => ma.ActorId);
         }
-
-        public bool Exists()
-        {
-            return (this.Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator).Exists();
-        }
     }
 }

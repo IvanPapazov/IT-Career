@@ -8,22 +8,6 @@ namespace MoviesApp.Business
     class MovieBusiness
     {
         private MovieContext productContext;
-        public bool IsCreated { get; set; }
-        public bool IsFulled { get; set; }
-        public void CheckIsCreated()
-        {
-            using (productContext = new MovieContext())
-            {
-                if (productContext.Exists())
-                {
-                    this.IsCreated = true;
-                }
-                else
-                {
-                    this.IsCreated = false;
-                }
-            }
-        }
         public bool CheckIsFulled()
         {
             using (productContext = new MovieContext())
