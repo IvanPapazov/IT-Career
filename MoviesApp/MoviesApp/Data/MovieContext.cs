@@ -18,6 +18,7 @@ namespace MoviesApp.Data
         public DbSet<MovieActor> MoviesActors { get; set; }
         public DbSet<MovieGenre> MoviesGenres { get; set; }
         public DbSet<MoviePlaylist> MoviesPlaylists { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         { // Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;
             string connectionString = "Server=(localdb)\\MSSQLLocalDB;Initial Catalog=MovieDb;Integrated Security=True";
@@ -52,17 +53,17 @@ namespace MoviesApp.Data
             .HasForeignKey(mg => mg.GenreId);
 
             //Create a MoviePlaylist mapping table             
-            modelBuilder.Entity<MoviePlaylist>().HasKey(mp => new { mp.MovieId, mp.PlaylistId});
+            modelBuilder.Entity<MoviePlaylist>().HasKey(mp => new {mp.PlaylistId, mp.MovieId });
+          
+            modelBuilder.Entity<MoviePlaylist>()
+            .HasOne<Playlist>(mp => mp.Playlist)
+            .WithMany(p => p.MoviesPlaylists)
+            .HasForeignKey(mp => mp.PlaylistId);
 
             modelBuilder.Entity<MoviePlaylist>()
             .HasOne<Movie>(mp => mp.Movie)
             .WithMany(m => m.MoviesPlaylists)
             .HasForeignKey(mp => mp.MovieId);
-
-            modelBuilder.Entity<MoviePlaylist>()
-            .HasOne<Playlist>(mp => mp.Playlist)
-            .WithMany(p => p.MoviesPlaylists)
-            .HasForeignKey(mp => mp.PlaylistId);
 
             // Create a Director-Movie relationship
             modelBuilder.Entity<Movie>()

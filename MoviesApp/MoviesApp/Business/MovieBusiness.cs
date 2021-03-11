@@ -97,14 +97,14 @@ namespace MoviesApp.Business
                 productContext.SaveChanges();
             }
         }
-        //public void Add(MoviePlaylist moviePlaylist)
-        //{
-        //    using (productContext = new MovieContext())
-        //    {
-        //        productContext.MoviesPlaylists.Add(moviePlaylist);
-        //        productContext.SaveChanges();
-        //    }
-        //}
+        public void Add(MoviePlaylist moviePlaylist)
+        {
+            using (productContext = new MovieContext())
+            {
+                productContext.MoviesPlaylists.Add(moviePlaylist);
+                productContext.SaveChanges();
+            }
+        }
 
         public void Update(Movie product)
         {

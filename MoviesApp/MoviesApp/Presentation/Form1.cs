@@ -37,8 +37,8 @@ namespace MoviesApp
                 bc.Add(movieGenre);
                 Playlist playList = new Playlist("Oscar films");
                 bc.Add(playList);
-                //MoviePlaylist moviePlaylist = new MoviePlaylist(1,1);
-                //bc.Add(moviePlaylist);
+                MoviePlaylist moviePlaylist = new MoviePlaylist(1,1);
+                bc.Add(moviePlaylist);
             }
         }
     }
