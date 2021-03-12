@@ -5703,19 +5703,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Petar\\.nuget\\packages\\": {}
+    "C:\\Users\\User_1\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Petar\\Desktop\\FinalVer\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+      "projectUniqueName": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
       "projectName": "MoviesApp",
-      "projectPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
-      "packagesPath": "C:\\Users\\Petar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MoviesApp\\MoviesApp\\obj\\",
+      "projectPath": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+      "packagesPath": "C:\\Users\\User_1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\MoviesApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Petar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User_1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5727,6 +5727,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -5738,6 +5739,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -5766,7 +5768,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

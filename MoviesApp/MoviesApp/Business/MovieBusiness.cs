@@ -33,6 +33,13 @@ namespace MoviesApp.Business
                 return movieContext.Actors.ToList();
             }
         }
+        public List<Director> GetAllDirectors()
+        {
+            using (movieContext = new MovieContext())
+            {
+                return movieContext.Directors.ToList();
+            }
+        } 
         public Movie GetMovie(int id)
         {
             using (movieContext = new MovieContext())
@@ -47,6 +54,59 @@ namespace MoviesApp.Business
                 return movieContext.Actors.Find(id);
             }
         }
+        public Director GetDirector(int id)
+        {
+            using (movieContext = new MovieContext())
+            {
+                return movieContext.Directors.Find(id);
+            }
+        }
+        public void Add(object obj)
+        {
+            using (movieContext = new MovieContext())
+            {
+                if (obj.GetType() == typeof(Movie))
+                {
+                    movieContext.Movies.Add((Movie)obj);
+                    movieContext.SaveChanges();
+                }
+                else if (obj.GetType() == typeof(Actor))
+                {
+                    movieContext.Actors.Add((Actor)obj);
+                    movieContext.SaveChanges();
+                }
+                else if (obj.GetType() == typeof(MovieActor))
+                {
+                    movieContext.MoviesActors.Add((MovieActor)obj);
+                    movieContext.SaveChanges();
+                }
+                else if (obj.GetType() == typeof(Genre))
+                {
+                    movieContext.Genres.Add((Genre)obj);
+                    movieContext.SaveChanges();
+                }
+                else if (obj.GetType() == typeof(MovieGenre))
+                {
+                    movieContext.MoviesGenres.Add((MovieGenre)obj);
+                    movieContext.SaveChanges();
+                }
+                else if (obj.GetType() == typeof(Playlist))
+                {
+                    movieContext.Playlists.Add((Playlist)obj);
+                    movieContext.SaveChanges();
+                }
+                else if (obj.GetType() == typeof(MoviePlaylist))
+                {
+                    movieContext.MoviesPlaylists.Add((MoviePlaylist)obj);
+                    movieContext.SaveChanges();
+                }
+                else if (obj.GetType() == typeof(Director))
+                {
+                    movieContext.Directors.Add((Director)obj);
+                    movieContext.SaveChanges();
+                }
+            }
+        } 
         public void UpdatePlaylistName(Playlist playlist)
         {
             using (movieContext = new MovieContext())
