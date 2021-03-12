@@ -16,6 +16,7 @@ namespace MoviesApp.Data.Model
         public string Description { get; set; }
         public int DirectorId { get; set; }
         public Director Director { get; set; }
+        public bool IsLiked { get; set; }
         public IList<MovieActor> MoviesActors { get; set; }
         public IList<MovieGenre> MoviesGenres { get; set; }
         public IList<MoviePlaylist> MoviesPlaylists { get; set; }
@@ -27,7 +28,8 @@ namespace MoviesApp.Data.Model
             this.Duration = duration;
             this.MovieCountry = movieCountry;
             this.DirectorId = directorId;
-            this.Description = description;     
+            this.Description = description;
+            this.IsLiked = false;
         }
     }
 }

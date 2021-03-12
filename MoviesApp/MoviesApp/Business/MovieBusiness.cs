@@ -7,126 +7,88 @@ namespace MoviesApp.Business
 {
     class MovieBusiness
     {
-        private MovieContext productContext;
+        private MovieContext movieContext;
         public bool CheckIsFulled()
         {
-            using (productContext = new MovieContext())
+            using (movieContext = new MovieContext())
             {
-                if (!productContext.Movies.Any())
+                if (!movieContext.Movies.Any())
                 {
                     return false;
                 }
                 return true;
             }
         }
-        public List<Movie> GetAll()
+        public List<Movie> GetAllMovies()
         {
-            using (productContext = new MovieContext())
+            using (movieContext = new MovieContext())
             {
-                return productContext.Movies.ToList();
+                return movieContext.Movies.ToList();
+            }
+        } 
+        public List<Actor> GetAllActors()
+        {
+            using (movieContext = new MovieContext())
+            {
+                return movieContext.Actors.ToList();
             }
         }
-
         public Movie GetMovie(int id)
         {
-            using (productContext = new MovieContext())
+            using (movieContext = new MovieContext())
             {
-                return productContext.Movies.Find(id);
+                return movieContext.Movies.Find(id);
             }
         }
         public Actor GetActor(int id)
         {
-            using (productContext = new MovieContext())
+            using (movieContext = new MovieContext())
             {
-                return productContext.Actors.Find(id);
+                return movieContext.Actors.Find(id);
             }
         }
-        public void Add(MovieActor ma)
+        public void UpdatePlaylistName(Playlist playlist)
         {
-            using (productContext = new MovieContext())
+            using (movieContext = new MovieContext())
             {
-                productContext.MoviesActors.Add(ma);
-                productContext.SaveChanges();
-            }
-        }
-        public void Add(Actor actor)
-        {
-            using (productContext = new MovieContext())
-            {
-                productContext.Actors.Add(actor);
-                productContext.SaveChanges();
-            }
-        }
-        public void Add(Movie movie)
-        {
-            using (productContext = new MovieContext())
-            {
-                productContext.Movies.Add(movie);
-                productContext.SaveChanges();
-            }
-        }
-        public void Add(Genre genre)
-        {
-            using (productContext = new MovieContext())
-            {
-                productContext.Genres.Add(genre);
-                productContext.SaveChanges();
-            }
-        }
-        public void Add(MovieGenre movieGenre)
-        {
-            using (productContext = new MovieContext())
-            {
-                productContext.MoviesGenres.Add(movieGenre);
-                productContext.SaveChanges();
-            }
-        }
-        public void Add(Director director)
-        {
-            using (productContext = new MovieContext())
-            {
-                productContext.Directors.Add(director);
-                productContext.SaveChanges();
-            }
-        }
-        public void Add(Playlist playlist)
-        {
-            using (productContext = new MovieContext())
-            {
-                productContext.Playlists.Add(playlist);
-                productContext.SaveChanges();
-            }
-        }
-        public void Add(MoviePlaylist moviePlaylist)
-        {
-            using (productContext = new MovieContext())
-            {
-                productContext.MoviesPlaylists.Add(moviePlaylist);
-                productContext.SaveChanges();
-            }
-        }
-
-        public void Update(Movie product)
-        {
-            using (productContext = new MovieContext())
-            {
-                Movie item = productContext.Movies.Find(product.Id);
+                Playlist item = movieContext.Playlists.Find(playlist.Id);
                 if (item != null)
                 {
-                    productContext.Entry(item).CurrentValues.SetValues(product);
-                    productContext.SaveChanges();
+                    movieContext.Entry(item).CurrentValues.SetValues(playlist);
+                    movieContext.SaveChanges();
                 }
             }
         }
-        public void Delete(int id)
+        public void UpdateLike(Movie movie)
         {
-            using (productContext = new MovieContext())
+            using (movieContext = new MovieContext())
             {
-                Movie product = productContext.Movies.Find(id);
-                if (product != null)
+                Movie item = movieContext.Movies.Find(movie.Id);
+                if (item != null)
                 {
-                    productContext.Movies.Remove(product);
-                    productContext.SaveChanges();
+                    //movieContext.Entry(item).CurrentValues.SetValues(movie);
+                    item.IsLiked = true;
+                    movieContext.SaveChanges();
+                }
+            }
+        }
+        public void DeleteFilmFromPlaylist(int playListId, int movieId)
+        {
+            using (movieContext = new MovieContext())
+            {
+                Playlist playlist = movieContext.Playlists.Find(playListId);
+                Movie movie = movieContext.Movies.Find(movieId);
+                if (playlist != null && movie != null)
+                {
+                    foreach (var playListMovie in movieContext.MoviesPlaylists)
+                    {
+                        if (playListMovie.PlaylistId == playListId && playListMovie.MovieId == movieId)
+                        {
+                            movieContext.MoviesPlaylists.Remove(playListMovie);
+                            movieContext.SaveChanges();
+                            break;
+                        }
+                    }
                 }
             }
         }
