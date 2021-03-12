@@ -33,6 +33,20 @@ namespace MoviesApp.Business
                 return movieContext.Actors.ToList();
             }
         }
+        public List<Genre> GetAllGenres()
+        {
+            using (movieContext = new MovieContext())
+            {
+                return movieContext.Genres.ToList();
+            }
+        }
+        public List<Playlist> GetAllPlaylists()
+        {
+            using (movieContext = new MovieContext())
+            {
+                return movieContext.Playlists.ToList();
+            }
+        }
         public List<Director> GetAllDirectors()
         {
             using (movieContext = new MovieContext())
@@ -52,6 +66,20 @@ namespace MoviesApp.Business
             using (movieContext = new MovieContext())
             {
                 return movieContext.Actors.Find(id);
+            }
+        }
+        public Genre GetGenre(int id)
+        {
+            using (movieContext = new MovieContext())
+            {
+                return movieContext.Genres.Find(id);
+            }
+        }
+        public Playlist GetPlaylist(int id)
+        {
+            using (movieContext = new MovieContext())
+            {
+                return movieContext.Playlists.Find(id);
             }
         }
         public Director GetDirector(int id)
@@ -126,8 +154,41 @@ namespace MoviesApp.Business
                 Movie item = movieContext.Movies.Find(movie.Id);
                 if (item != null)
                 {
-                    //movieContext.Entry(item).CurrentValues.SetValues(movie);
                     item.IsLiked = true;
+                    movieContext.SaveChanges();
+                }
+            }
+        }
+        public void UpdateDislike(Movie movie)
+        {
+            using (movieContext = new MovieContext())
+            {
+                Movie item = movieContext.Movies.Find(movie.Id);
+                if (item != null)
+                {
+                    item.IsLiked = false;
+                    movieContext.SaveChanges();
+                }
+            }
+        } 
+        public void Delete(int id)
+        {
+            using (movieContext = new MovieContext())
+            {
+                Playlist playlist = movieContext.Playlists.Find(id);
+                if (playlist != null)
+                {
+                    // delete the records in the mapping table
+                    foreach (var playListMovie in movieContext.MoviesPlaylists)
+                    {
+                        if (playListMovie.PlaylistId == id)
+                        {
+                            movieContext.MoviesPlaylists.Remove(playListMovie);
+                            movieContext.SaveChanges();
+                        }
+                    }
+                    // delete the record in Playlists
+                    movieContext.Playlists.Remove(playlist);
                     movieContext.SaveChanges();
                 }
             }
