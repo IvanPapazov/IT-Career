@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MoviesApp.Business
 {
-    class MovieBusiness
+    public class MovieBusiness
     {
         private MovieContext movieContext;
         public bool CheckIsFulled()
@@ -25,7 +25,7 @@ namespace MoviesApp.Business
             {
                 return movieContext.Movies.ToList();
             }
-        } 
+        }
         public List<Actor> GetAllActors()
         {
             using (movieContext = new MovieContext())
@@ -53,7 +53,7 @@ namespace MoviesApp.Business
             {
                 return movieContext.Directors.ToList();
             }
-        } 
+        }
         public Movie GetMovie(int id)
         {
             using (movieContext = new MovieContext())
@@ -134,7 +134,7 @@ namespace MoviesApp.Business
                     movieContext.SaveChanges();
                 }
             }
-        } 
+        }
         public void UpdatePlaylistName(Playlist playlist)
         {
             using (movieContext = new MovieContext())
@@ -170,7 +170,7 @@ namespace MoviesApp.Business
                     movieContext.SaveChanges();
                 }
             }
-        } 
+        }
         public void Delete(int id)
         {
             using (movieContext = new MovieContext())
@@ -209,6 +209,125 @@ namespace MoviesApp.Business
                             movieContext.SaveChanges();
                             break;
                         }
+                    }
+                }
+            }
+        }
+        public void AddMovieInDatabase(string directorString, List<string> actorList, List<string> genreList, string movieName, int year, int duration, string countrie, string description)
+        {
+            int idDirector;
+            int idMovie;
+            using (movieContext = new MovieContext())
+            {
+                idMovie = 0;
+                int countMovies = movieContext.Movies.Count();
+                // Check movie exist
+                for (int i = 1; i <= countMovies; i++)
+                {
+                    Movie movieFind = GetMovie(i);
+                    if (movieFind.MovieTitle == movieName)
+                    {
+                        return;
+                    }
+                }
+                idMovie = countMovies + 1;
+            }
+            using (movieContext = new MovieContext())
+            {
+                // find or adding director
+                string directorFirstName = directorString.Split(" ")[0];
+                string directorLasrName = directorString.Split(" ")[1];
+                idDirector = 0;
+                int countDirectors = movieContext.Directors.Count();
+                for (int i = 1; i <= countDirectors; i++)
+                {
+                    Director director = GetDirector(i);
+                    if (director.FirstName == directorFirstName && director.LastName == directorLasrName)
+                    {
+                        idDirector = i;
+                        break;
+                    }
+                }
+                if (idDirector == 0)
+                {
+                    Director director = new Director(directorFirstName, directorLasrName);
+
+                    Add(director);
+                }
+            }
+            using (movieContext = new MovieContext())
+            {
+                // Add movie 
+                idDirector = movieContext.Directors.Count();
+                Movie movie = new Movie(movieName, year, duration, countrie, idDirector, description);
+                Add(movie);
+            }
+            // find or adding actors
+            foreach (var actorString in actorList)
+            {
+                int idActor = 0;
+                using (movieContext = new MovieContext())
+                {
+                    string actorFirstName = actorString.Split(" ")[0];
+                    string actorLastName = actorString.Split(" ")[1];
+                    string actorGender = actorString.Split(" ")[2];
+                    int countActor = movieContext.Actors.Count();
+                    for (int i = 1; i <= countActor; i++)
+                    {
+                        Actor actor = GetActor(i);
+                        if (actor.FirstName == actorFirstName && actor.LastName == actorLastName)
+                        {
+                            idActor = i;
+
+                            // add value in MovieActor
+                            MovieActor movieActor = new MovieActor(idMovie, idActor);
+                            Add(movieActor);
+                            break;
+                        }
+                    }
+                    if (idActor == 0)
+                    {
+                        //add actor
+                        Actor actor = new Actor(actorFirstName, actorLastName, actorGender);
+                        Add(actor);
+
+                        // add value in MovieActor
+                        idActor = countActor + 1;
+                        MovieActor movieActor = new MovieActor(idMovie, idActor);
+                        Add(movieActor);
+                    }
+                }
+            }
+            //find or adding genre
+            foreach (var item in genreList)
+            {
+                using (movieContext = new MovieContext())
+                {
+                    string genreName = item;
+                    int idGenre = 0;
+                    int countGenre = movieContext.Genres.Count();
+                    for (int i = 1; i <= countGenre; i++)
+                    {
+                        Genre genre = GetGenre(i);
+                        if (genre.Title == genreName)
+                        {
+                            idGenre = i;
+
+                            //add value in MovieGenre
+                            MovieGenre movieGenre = new MovieGenre(idMovie, idGenre);
+                            Add(movieGenre);
+                            break;
+                        }
+                    }
+                    if (idGenre == 0)
+                    {
+                        //add genre
+                        Genre genre = new Genre(genreName);
+                        Add(genre);
+                        //add value in MovieGenre
+                        idGenre = countGenre + 1;
+                        MovieGenre movieGenre = new MovieGenre(idMovie, idGenre);
+                        Add(movieGenre);
                     }
                 }
             }
