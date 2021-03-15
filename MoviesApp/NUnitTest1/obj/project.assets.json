@@ -7144,19 +7144,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User_1\\.nuget\\packages\\": {}
+    "C:\\Users\\Petar\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
+      "projectUniqueName": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
       "projectName": "NUnitTest1",
-      "projectPath": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
-      "packagesPath": "C:\\Users\\User_1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\NUnitTest1\\obj\\",
+      "projectPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
+      "packagesPath": "C:\\Users\\Petar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\NUnitTest1\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\User_1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Petar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7170,8 +7175,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
-              "projectPath": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\MoviesApp\\MoviesApp.csproj"
+            "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
+              "projectPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj"
             }
           }
         }
@@ -7212,12 +7217,9 @@
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
-          },
-          "Microsoft.WindowsDesktop.App.WindowsForms": {
-            "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
