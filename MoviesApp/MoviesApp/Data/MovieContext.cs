@@ -20,7 +20,7 @@ namespace MoviesApp.Data
         public DbSet<MoviePlaylist> MoviesPlaylists { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        { // Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;
+        {
             string connectionString = "Server=(localdb)\\MSSQLLocalDB;Initial Catalog=MovieDb;Integrated Security=True";
             optionsBuilder.UseSqlServer(connectionString);
         }
