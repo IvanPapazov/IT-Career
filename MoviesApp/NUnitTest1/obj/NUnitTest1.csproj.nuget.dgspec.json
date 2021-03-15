@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Visual Studio\\Projects\\New\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {}
+    "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {}
   },
   "projects": {
-    "E:\\Visual Studio\\Projects\\New\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
+    "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Visual Studio\\Projects\\New\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+        "projectUniqueName": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
         "projectName": "MoviesApp",
-        "projectPath": "E:\\Visual Studio\\Projects\\New\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
-        "packagesPath": "C:\\Users\\i_pap\\.nuget\\packages\\",
-        "outputPath": "E:\\Visual Studio\\Projects\\New\\MoviesApp\\MoviesApp\\obj\\",
+        "projectPath": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+        "packagesPath": "C:\\Users\\User_1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\MoviesApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\i_pap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User_1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,21 +67,21 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Visual Studio\\Projects\\New\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {
+    "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Visual Studio\\Projects\\New\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
+        "projectUniqueName": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
         "projectName": "NUnitTest1",
-        "projectPath": "E:\\Visual Studio\\Projects\\New\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
-        "packagesPath": "C:\\Users\\i_pap\\.nuget\\packages\\",
-        "outputPath": "E:\\Visual Studio\\Projects\\New\\MoviesApp\\NUnitTest1\\obj\\",
+        "projectPath": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
+        "packagesPath": "C:\\Users\\User_1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\NUnitTest1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\i_pap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User_1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,8 +95,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\Visual Studio\\Projects\\New\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
-                "projectPath": "E:\\Visual Studio\\Projects\\New\\MoviesApp\\MoviesApp\\MoviesApp.csproj"
+              "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
+                "projectPath": "C:\\Users\\User_1\\Desktop\\ProjectCurrent\\MoviesApp2\\MoviesApp\\MoviesApp\\MoviesApp.csproj"
               }
             }
           }
@@ -142,7 +142,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
