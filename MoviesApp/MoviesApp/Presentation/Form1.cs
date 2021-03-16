@@ -18,8 +18,9 @@ namespace MoviesApp
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
             EnsureDateBaseIsCreated();
-            pictureBox2.AllowDrop = true;
+           
         }
         MovieBusiness bc;
         string description = "";
@@ -423,17 +424,13 @@ namespace MoviesApp
             groupBox1.Visible = true;
         }
 
-        private void button1_MouseLeave(object sender, EventArgs e)
+        private void button1_MouseLeave(object sender, EventArgs e)//филми
         {
             button1.BackColor = Color.Silver;
-
         }
 
 
-        private void button13_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void groupBox1_MouseHover(object sender, EventArgs e)
         {
@@ -447,16 +444,9 @@ namespace MoviesApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //PictureBox pictureBox = new PictureBox();
-            //pictureBox.Parent = Program.myForm;
-            //pictureBox.Image = Image.FromFile("55.jpg");
-            //pictureBox.Location = new Point(253, 25);
-            //pictureBox.Size = new Size(100,100);
-            //pictureBox.Visible = true;
-            //pictureBox.BringToFront();
-            //pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-
-
+            var formActors = new Actors();
+            MovieInformation.actors = formActors;
+            MovieInformation.actors.Show();
         }
 
         private void Form1_MouseEnter(object sender, EventArgs e)
@@ -465,11 +455,7 @@ namespace MoviesApp
             groupBox2.Visible = false;
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            var formAction = new FormAction();
-            formAction.Show();
-        }
+        
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -505,26 +491,156 @@ namespace MoviesApp
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var formAction = new FormAction();
-            formAction.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void pictureBox2_DragDrop(object sender, DragEventArgs e)
         {
-            var data = e.Data.GetData(DataFormats.FileDrop);
-            if (data != null)
-            {
-                var filename = data as string[];
-                if (filename.Length > 0)
-                {
-                    pictureBox2.Image = Image.FromFile(filename[0]);
-                }
-            }
+
         }
         private void pictureBox2_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = DragDropEffects.Copy;
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)//филми
+        {
+
+        }
+        private void button6_Click(object sender, EventArgs e)//екшън
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 1;
+            MovieInformation.GenreLetter = "A";
+            MovieInformation.form1 = this;
+            formAction.Show();
+            this.Hide();
+        }
+        private void button7_Click_1(object sender, EventArgs e)//приключенски
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 2;
+            MovieInformation.GenreLetter = "Adv";
+            MovieInformation.form1 = this;
+            formAction.Show();
+            this.Hide();
+        }
+
+        private void button8_Click(object sender, EventArgs e)//комедии
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 3;
+            MovieInformation.GenreLetter = "Comedy";
+            MovieInformation.form1 = this;
+            formAction.Show();
+            this.Hide();
+        }
+
+        private void button9_Click(object sender, EventArgs e)//криминални
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 4;
+            MovieInformation.GenreLetter = "Criminal";
+            MovieInformation.form1 = this;
+            formAction.Show();
+            this.Hide();
+        }
+
+        private void button10_Click(object sender, EventArgs e)//фентъзи
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 5;
+            MovieInformation.GenreLetter = "Fantasy";
+            MovieInformation.form1 = this;
+            formAction.Show();
+            this.Hide();
+        }
+
+        private void button11_Click(object sender, EventArgs e)//научна фантастика
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 6;
+            MovieInformation.GenreLetter = "Sci";
+            MovieInformation.form1 = this;
+            formAction.Show();
+            this.Hide();
+        }
+
+        private void button12_Click(object sender, EventArgs e)//исторически
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 7;
+            MovieInformation.GenreLetter = "History";
+            MovieInformation.form1 = this;
+            formAction.Show();
+            this.Hide();
+        }
+        private void button13_Click(object sender, EventArgs e)//ужаси
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 8;
+            MovieInformation.GenreLetter = "Horror";
+            MovieInformation.form1 = this;
+            formAction.Show();
+            this.Hide();
+        }
+        private void button14_Click(object sender, EventArgs e)//романтика
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 9;
+            MovieInformation.GenreLetter = "Romance";
+            MovieInformation.form1 = this;
+            formAction.Show();
+        }
+        private void button15_Click(object sender, EventArgs e)//трилъри
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 10;
+            MovieInformation.GenreLetter = "Thriller";
+            MovieInformation.form1 = this;
+            formAction.Show();
+            this.Hide();
+        }
+
+        private void button16_Click(object sender, EventArgs e)//анимация детско
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 11;
+            MovieInformation.GenreLetter = "Cartoon";
+            MovieInformation.form1 = this;
+            formAction.Show();
+            this.Hide();
+        }
+
+        private void button17_Click(object sender, EventArgs e)//драма
+        {
+            var formAction = new FormAction();
+            MovieInformation.IndexGenre = 12;
+            MovieInformation.GenreLetter = "Drama";
+            MovieInformation.form1 = this;
+            formAction.Show();
+            this.Hide();
+        }
+
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_MouseEnter(object sender, EventArgs e)
+        {
+            groupBox1.Visible = true;
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.Gray;
+            groupBox1.Visible = false;
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.Silver;
         }
     }
 }

@@ -53,7 +53,6 @@ namespace MoviesApp.Presentation
             this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -64,12 +63,14 @@ namespace MoviesApp.Presentation
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-2, 53);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(85, 77);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
             // 
             // button18
             // 
@@ -102,7 +103,7 @@ namespace MoviesApp.Presentation
             // 
             this.textBox4.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(1, 0);
+            this.textBox4.Location = new System.Drawing.Point(-5, 0);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(191, 208);
@@ -116,6 +117,7 @@ namespace MoviesApp.Presentation
             this.button6.TabIndex = 7;
             this.button6.Text = "Екшън";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -125,6 +127,7 @@ namespace MoviesApp.Presentation
             this.button7.TabIndex = 8;
             this.button7.Text = "Приключенски";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -134,6 +137,7 @@ namespace MoviesApp.Presentation
             this.button8.TabIndex = 9;
             this.button8.Text = "Комедии";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -143,6 +147,7 @@ namespace MoviesApp.Presentation
             this.button9.TabIndex = 10;
             this.button9.Text = "Криминални";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // groupBox2
             // 
@@ -150,9 +155,9 @@ namespace MoviesApp.Presentation
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Location = new System.Drawing.Point(-1, 114);
+            this.groupBox2.Location = new System.Drawing.Point(-3, 61);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(192, 227);
+            this.groupBox2.Size = new System.Drawing.Size(178, 227);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
@@ -173,7 +178,7 @@ namespace MoviesApp.Presentation
             this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.button10);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Location = new System.Drawing.Point(21, 99);
+            this.groupBox1.Location = new System.Drawing.Point(103, 52);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(306, 299);
             this.groupBox1.TabIndex = 27;
@@ -188,6 +193,7 @@ namespace MoviesApp.Presentation
             this.button17.TabIndex = 18;
             this.button17.Text = "Драма";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button16
             // 
@@ -197,6 +203,7 @@ namespace MoviesApp.Presentation
             this.button16.TabIndex = 17;
             this.button16.Text = "Анимация";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button15
             // 
@@ -206,6 +213,7 @@ namespace MoviesApp.Presentation
             this.button15.TabIndex = 16;
             this.button15.Text = "Трилър";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button14
             // 
@@ -215,6 +223,7 @@ namespace MoviesApp.Presentation
             this.button14.TabIndex = 15;
             this.button14.Text = "Романтика";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 
@@ -224,6 +233,7 @@ namespace MoviesApp.Presentation
             this.button13.TabIndex = 14;
             this.button13.Text = "Ужаси";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
@@ -233,6 +243,7 @@ namespace MoviesApp.Presentation
             this.button12.TabIndex = 13;
             this.button12.Text = "Исторически";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -242,6 +253,7 @@ namespace MoviesApp.Presentation
             this.button11.TabIndex = 12;
             this.button11.Text = "Научна фантастика";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
@@ -251,21 +263,22 @@ namespace MoviesApp.Presentation
             this.button10.TabIndex = 11;
             this.button10.Text = "Фентъзи";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(-14, 0);
+            this.textBox2.Location = new System.Drawing.Point(-1, -10);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(322, 364);
+            this.textBox2.Size = new System.Drawing.Size(325, 332);
             this.textBox2.TabIndex = 6;
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button5.Location = new System.Drawing.Point(412, 65);
+            this.button5.Location = new System.Drawing.Point(410, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(141, 43);
             this.button5.TabIndex = 26;
@@ -276,7 +289,7 @@ namespace MoviesApp.Presentation
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(251, 65);
+            this.button2.Location = new System.Drawing.Point(249, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 43);
             this.button2.TabIndex = 24;
@@ -286,46 +299,43 @@ namespace MoviesApp.Presentation
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(104, 65);
+            this.button1.Location = new System.Drawing.Point(102, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 43);
             this.button1.TabIndex = 23;
             this.button1.Text = "Филми";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(578, 77);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(153, 27);
-            this.textBox3.TabIndex = 28;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(-1, 54);
+            this.textBox1.Location = new System.Drawing.Point(-3, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(804, 77);
+            this.textBox1.Size = new System.Drawing.Size(1008, 77);
             this.textBox1.TabIndex = 25;
+            this.textBox1.MouseEnter += new System.EventHandler(this.textBox1_MouseEnter);
             // 
             // FormAction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(961, 632);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox1);
             this.Name = "FormAction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAction";
+            this.Load += new System.EventHandler(this.FormAction_Load);
+            this.MouseEnter += new System.EventHandler(this.FormAction_MouseEnter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -361,7 +371,6 @@ namespace MoviesApp.Presentation
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox1;
     }
 }

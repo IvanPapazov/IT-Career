@@ -57,6 +57,22 @@ namespace MoviesApp.Business
             }
         } // dani
 
+        public List<MovieGenre> GetAllMovieGenre()//Dani
+        {
+            using (movieContext = new MovieContext())
+            {
+                return movieContext.MoviesGenres.ToList();
+            }
+        }
+        public List<MovieActor> GetAllMovieActors()
+        {
+            using (movieContext = new MovieContext())
+            {
+                return movieContext.MoviesActors.ToList();
+            }
+        }//Dani
+
+
         public Movie GetMovie(int id)
         {
             using (movieContext = new MovieContext())
@@ -87,6 +103,7 @@ namespace MoviesApp.Business
                 return movieContext.Playlists.Find(id);
             }
         } // ivan
+
 
         public Director GetDirector(int id)
         {
@@ -160,7 +177,6 @@ namespace MoviesApp.Business
                 Movie item = movieContext.Movies.Find(movie.Id);
                 if (item != null)
                 {
-                    //movieContext.Entry(item).CurrentValues.SetValues(movie);
                     item.IsLiked = true;
                     movieContext.SaveChanges();
                 }
@@ -243,7 +259,7 @@ namespace MoviesApp.Business
                     MovieGenre movieGenre = new MovieGenre(movieId, genreId);
                     Add(movieGenre);
                 }
-                
+
             }
         }
 
@@ -293,6 +309,31 @@ namespace MoviesApp.Business
                     }
                 }
             }
+        }
+
+        public List<Actor> FindActorsFromMovie(int movieId)
+        {
+            MovieBusiness bc = new MovieBusiness();
+            List<MovieActor> movieActor = bc.GetAllMovieActors().Where(mg => mg.MovieId == movieId).ToList();
+            List<Actor> actors = new List<Actor>();
+
+            foreach (var item in movieActor)
+            {
+                actors.Add(bc.GetActor(item.ActorId));
+            }
+            return actors;
+        }
+        public List<Movie> FindMoviesFromGenre(int genreId)
+        {
+            MovieBusiness bc = new MovieBusiness();
+            List<MovieGenre> movieGenre = bc.GetAllMovieGenre().Where(mg => mg.GenreId == genreId).ToList();
+            List<Movie> movies = new List<Movie>();
+
+            foreach (var item in movieGenre)
+            {
+                movies.Add(bc.GetMovie(item.MovieId));
+            }
+            return movies;
         }
     }
 }
