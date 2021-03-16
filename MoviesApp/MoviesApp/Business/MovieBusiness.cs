@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MoviesApp.Business
 {
-    class MovieBusiness
+    public class MovieBusiness
     {
         private MovieContext movieContext;
         public bool CheckIsFulled()
@@ -25,30 +25,28 @@ namespace MoviesApp.Business
             {
                 return movieContext.Movies.ToList();
             }
-        } // petar
+        }
         public List<Actor> GetAllActors()
         {
             using (movieContext = new MovieContext())
             {
                 return movieContext.Actors.ToList();
             }
-        } // petar
-
+        }
         public List<Genre> GetAllGenres()
         {
             using (movieContext = new MovieContext())
             {
                 return movieContext.Genres.ToList();
             }
-        } // ivan
+        }
         public List<Playlist> GetAllPlaylists()
         {
             using (movieContext = new MovieContext())
             {
                 return movieContext.Playlists.ToList();
             }
-        } // ivan
-
+        }
         public List<Director> GetAllDirectors()
         {
             using (movieContext = new MovieContext())
@@ -79,23 +77,21 @@ namespace MoviesApp.Business
             {
                 return movieContext.Movies.Find(id);
             }
-        } // petar
+        } 
         public Actor GetActor(int id)
         {
             using (movieContext = new MovieContext())
             {
                 return movieContext.Actors.Find(id);
             }
-        } // petar
-
+        }
         public Genre GetGenre(int id)
         {
             using (movieContext = new MovieContext())
             {
                 return movieContext.Genres.Find(id);
             }
-        } // ivan
-
+        }
         public Playlist GetPlaylist(int id)
         {
             using (movieContext = new MovieContext())
@@ -111,7 +107,7 @@ namespace MoviesApp.Business
             {
                 return movieContext.Directors.Find(id);
             }
-        } // dani
+        }
         public void Add(object obj)
         {
             using (movieContext = new MovieContext())
@@ -157,7 +153,7 @@ namespace MoviesApp.Business
                     movieContext.SaveChanges();
                 }
             }
-        } // dani
+        }
         public void UpdatePlaylistName(Playlist playlist)
         {
             using (movieContext = new MovieContext())
@@ -169,7 +165,7 @@ namespace MoviesApp.Business
                     movieContext.SaveChanges();
                 }
             }
-        } //petar
+        }
         public void UpdateLike(Movie movie)
         {
             using (movieContext = new MovieContext())
@@ -181,7 +177,7 @@ namespace MoviesApp.Business
                     movieContext.SaveChanges();
                 }
             }
-        } // petar
+        }
         public void UpdateDislike(Movie movie)
         {
             using (movieContext = new MovieContext())
@@ -189,12 +185,11 @@ namespace MoviesApp.Business
                 Movie item = movieContext.Movies.Find(movie.Id);
                 if (item != null)
                 {
-                    //movieContext.Entry(item).CurrentValues.SetValues(movie);
                     item.IsLiked = false;
                     movieContext.SaveChanges();
                 }
             }
-        } // ivan
+        } 
         public void Delete(int id)
         {
             using (movieContext = new MovieContext())
@@ -216,7 +211,7 @@ namespace MoviesApp.Business
                     movieContext.SaveChanges();
                 }
             }
-        } // ivan
+        } 
         public void DeleteFilmFromPlaylist(int playListId, int movieId)
         {
             using (movieContext = new MovieContext())
@@ -236,21 +231,8 @@ namespace MoviesApp.Business
                     }
                 }
             }
-        } // petar       
-
-        //public void MapMovieAndActor(Movie movie, List<Actor> actors)
-        //{
-        //    using (movieContext = new MovieContext())
-        //    {
-        //        foreach (var actor in actors)
-        //        {
-        //            MovieActor movieActor = new MovieActor(movie.Id, actor.Id);
-        //            Add(movieActor);
-        //        }            
-        //    }
-        //}
-
-        public void MapMovieAndGenre(int movieId, List<int> genresId) // yes
+        }     
+        public void MapMovieAndGenre(int movieId, List<int> genresId)
         {
             using (movieContext = new MovieContext())
             {
@@ -262,17 +244,7 @@ namespace MoviesApp.Business
 
             }
         }
-
-        //public void MapMovieAndPlayList(Movie movie, Playlist playlist)
-        //{
-        //    using (movieContext = new MovieContext())
-        //    {
-        //        MoviePlaylist moviePlaylist = new MoviePlaylist(playlist.Id, movie.Id);
-        //        Add(moviePlaylist);
-        //    }
-        //} // no so far
-
-        public void AddActorsInMovie(List<string> actorList, int idMovie) // yes
+        public void AddActorsInMovie(List<string> actorList, int idMovie)
         {
             foreach (var actorString in actorList)
             {
