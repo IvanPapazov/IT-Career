@@ -42,8 +42,6 @@ namespace NUnitTest1
         [Test]
         public void TestGetDirector()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             using (movieContext = new MovieContext())
             {
                 Director director = movieContext.Directors.Find(2);
@@ -53,19 +51,15 @@ namespace NUnitTest1
         [Test]
         public void TestGetPlaylist()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             using (movieContext = new MovieContext())
             {
-                Playlist playlist = movieContext.Playlists.Find(2);
-                Assert.AreEqual(playlist.Name, bc.GetPlaylist(2).Name, "Does not return a Playlist value");
+                Playlist playlist = movieContext.Playlists.Find(1);
+                Assert.AreEqual(playlist.Name, bc.GetPlaylist(1).Name, "Does not return a Playlist value");
             }
         }
         [Test]
         public void TestGetAllMovies()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             using (movieContext = new MovieContext())
             {
                 List<Movie> movies = movieContext.Movies.ToList();
@@ -76,8 +70,6 @@ namespace NUnitTest1
         [Test]
         public void TestGetAllDirectors()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             using (movieContext = new MovieContext())
             {
                 List<Director> directors = movieContext.Directors.ToList();
@@ -88,20 +80,16 @@ namespace NUnitTest1
         [Test]
         public void TestGetAllActors()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             using (movieContext = new MovieContext())
             {
                 List<Actor> actors = movieContext.Actors.ToList();
-                List<Actor> actors1 = bc.GetAllActors();             
+                List<Actor> actors1 = bc.GetAllActors();
                 Assert.AreEqual(actors.Count, actors1.Count, "Does not return all actor value");
             }
         }
         [Test]
         public void TestGetAllGenres()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             using (movieContext = new MovieContext())
             {
                 List<Genre> genres = movieContext.Genres.ToList();
@@ -112,8 +100,6 @@ namespace NUnitTest1
         [Test]
         public void TestGetAllPlaylists()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             using (movieContext = new MovieContext())
             {
                 List<Playlist> playlists = movieContext.Playlists.ToList();
@@ -124,8 +110,6 @@ namespace NUnitTest1
         [Test]
         public void TestAddMovie()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             List<Movie> movies = bc.GetAllMovies();
             Movie movie = new Movie("AAAA", 2000, 133, "US", 1, "ASDFD");
             bc.Add(movie);
@@ -133,14 +117,13 @@ namespace NUnitTest1
             using (movieContext = new MovieContext())
             {
                 movieContext.Movies.Remove(movie);
+                movieContext.SaveChanges();
             }
-            Assert.AreNotSame(movies, movies1, "Not added movie in Movies");
+            Assert.AreNotEqual(movies, movies1, "Not added movie in Movies");
         }
         [Test]
         public void TestAddActor()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             List<Actor> actors = bc.GetAllActors();
             Actor actor = new Actor("Zak", "Efron", "male");
             bc.Add(actor);
@@ -148,14 +131,13 @@ namespace NUnitTest1
             using (movieContext = new MovieContext())
             {
                 movieContext.Actors.Remove(actor);
+                movieContext.SaveChanges();
             }
-            Assert.AreNotSame(actors, actors1, "Not added actor in Actors");
+            Assert.AreNotEqual(actors, actors1, "Not added actor in Actors");
         }
         [Test]
         public void TestAddGenre()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             List<Genre> genres = bc.GetAllGenres();
             Genre genre = new Genre("ASD");
             bc.Add(genre);
@@ -163,14 +145,13 @@ namespace NUnitTest1
             using (movieContext = new MovieContext())
             {
                 movieContext.Genres.Remove(genre);
+                movieContext.SaveChanges();
             }
-            Assert.AreNotSame(genres, genres1, "Not added genre in Genres");
+            Assert.AreNotEqual(genres, genres1, "Not added genre in Genres");
         }
         [Test]
         public void TestAddDirector()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             List<Director> directors = bc.GetAllDirectors();
             Director director = new Director("Petur", "Kirilov");
             bc.Add(director);
@@ -178,15 +159,13 @@ namespace NUnitTest1
             using (movieContext = new MovieContext())
             {
                 movieContext.Directors.Remove(director);
+                movieContext.SaveChanges();
             }
-            Assert.AreNotSame(directors, directors1, "Not added director in Directors");
-        }    
-       
+            Assert.AreNotEqual(directors, directors1, "Not added director in Directors");
+        }
         [Test]
         public void TestAddMovieGenre()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             using (movieContext = new MovieContext())
             {
 
@@ -201,14 +180,13 @@ namespace NUnitTest1
                 movieContext.Movies.Remove(movie);
                 movieContext.Genres.Remove(genre);
                 movieContext.MoviesGenres.Remove(movieGenre);
-                Assert.AreNotSame(countMovieGenre, countMovieGenre1, "Not added value in MovieGenre");
+                movieContext.SaveChanges();
+                Assert.AreNotEqual(countMovieGenre, countMovieGenre1, "Not added value in MovieGenre");
             }
         }
         [Test]
         public void TestAddMovieActor()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             using (movieContext = new MovieContext())
             {
                 int countMovieActore = movieContext.MoviesActors.Count();
@@ -222,7 +200,36 @@ namespace NUnitTest1
                 movieContext.Movies.Remove(movie);
                 movieContext.Actors.Remove(actor);
                 movieContext.MoviesActors.Remove(movieActor);
-                Assert.AreNotSame(countMovieActore, countMovieActore1, "Not added value in MovieActor");
+                movieContext.SaveChanges();
+                Assert.AreNotEqual(countMovieActore, countMovieActore1, "Not added value in MovieActor");
+            }
+        }
+        [Test]
+        public void CheckIsFulledReturTrue()
+        {
+            using (movieContext = new MovieContext())
+            {
+                bool isFulled = movieContext.Movies.Any();
+                Assert.AreEqual(isFulled, bc.CheckIsFulled(), "Database is not created");
+            }
+        }
+        [Test]
+        public void DeleteMovieFromPlaylist()
+        {
+            using (movieContext = new MovieContext())
+            {
+                //Playlist playlist = new Playlist("AROWwwf");
+                //bc.Add(playlist);
+                Movie movie = new Movie("AAAA", 2000, 133, "US", 1, "ASDFD");
+                bc.Add(movie);
+                MoviePlaylist moviePlaylist = new MoviePlaylist(1, movie.Id);
+                bc.Add(moviePlaylist);
+                int playlistMovieCountBeforeDeleted = movieContext.MoviesPlaylists.Count();
+                bc.DeleteMovieFromPlaylist(1, bc.GetMovie(movie.Id).Id);
+                movieContext.Movies.Remove(bc.GetMovie(movie.Id));
+                movieContext.SaveChanges();
+                int playlistMovieCountAfterDeleted = movieContext.MoviesPlaylists.Count();
+                Assert.AreNotEqual(playlistMovieCountAfterDeleted, playlistMovieCountBeforeDeleted, "Òhe  movie in playlist is not deleted");
             }
         }
         [Test]

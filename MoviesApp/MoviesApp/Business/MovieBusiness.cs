@@ -12,11 +12,7 @@ namespace MoviesApp.Business
         {
             using (movieContext = new MovieContext())
             {
-                if (!movieContext.Movies.Any())
-                {
-                    return false;
-                }
-                return true;
+                return movieContext.Movies.Any();
             }
         }
         public List<Movie> GetAllMovies()
@@ -54,7 +50,6 @@ namespace MoviesApp.Business
                 return movieContext.Directors.ToList();
             }
         } // dani
-
         public List<MovieGenre> GetAllMovieGenre()//Dani
         {
             using (movieContext = new MovieContext())
@@ -69,8 +64,6 @@ namespace MoviesApp.Business
                 return movieContext.MoviesActors.ToList();
             }
         }//Dani
-
-
         public Movie GetMovie(int id)
         {
             using (movieContext = new MovieContext())
@@ -99,8 +92,6 @@ namespace MoviesApp.Business
                 return movieContext.Playlists.Find(id);
             }
         } // ivan
-
-
         public Director GetDirector(int id)
         {
             using (movieContext = new MovieContext())
@@ -212,7 +203,7 @@ namespace MoviesApp.Business
                 }
             }
         } 
-        public void DeleteFilmFromPlaylist(int playListId, int movieId)
+        public void DeleteMovieFromPlaylist(int playListId, int movieId)
         {
             using (movieContext = new MovieContext())
             {
@@ -282,7 +273,6 @@ namespace MoviesApp.Business
                 }
             }
         }
-
         public List<Actor> FindActorsFromMovie(int movieId)
         {
             MovieBusiness bc = new MovieBusiness();
