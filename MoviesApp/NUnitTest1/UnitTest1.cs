@@ -14,7 +14,7 @@ namespace NUnitTest1
 
         [Test]
         public void TestGetMovie()
-        {  
+        {
             using (movieContext = new MovieContext())
             {
                 Movie movie = movieContext.Movies.Find(2);
@@ -213,25 +213,25 @@ namespace NUnitTest1
                 Assert.AreEqual(isFulled, bc.CheckIsFulled(), "Database is not created");
             }
         }
-        [Test]
-        public void DeleteMovieFromPlaylist()
-        {
-            using (movieContext = new MovieContext())
-            {
-                //Playlist playlist = new Playlist("AROWwwf");
-                //bc.Add(playlist);
-                Movie movie = new Movie("AAAA", 2000, 133, "US", 1, "ASDFD");
-                bc.Add(movie);
-                MoviePlaylist moviePlaylist = new MoviePlaylist(1, movie.Id);
-                bc.Add(moviePlaylist);
-                int playlistMovieCountBeforeDeleted = movieContext.MoviesPlaylists.Count();
-                bc.DeleteMovieFromPlaylist(1, bc.GetMovie(movie.Id).Id);
-                movieContext.Movies.Remove(bc.GetMovie(movie.Id));
-                movieContext.SaveChanges();
-                int playlistMovieCountAfterDeleted = movieContext.MoviesPlaylists.Count();
-                Assert.AreNotEqual(playlistMovieCountAfterDeleted, playlistMovieCountBeforeDeleted, "Òhe  movie in playlist is not deleted");
-            }
-        }
+        //[Test]
+        //public void DeleteMovieFromPlaylist()
+        //{
+        //    using (movieContext = new MovieContext())
+        //    {
+        //        //Playlist playlist = new Playlist("AROWwwf");
+        //        //bc.Add(playlist);
+        //        Movie movie = new Movie("AAAA", 2000, 133, "US", 1, "ASDFD");
+        //        bc.Add(movie);
+        //        MoviePlaylist moviePlaylist = new MoviePlaylist(1, movie.Id);
+        //        bc.Add(moviePlaylist);
+        //        int playlistMovieCountBeforeDeleted = movieContext.MoviesPlaylists.Count();
+        //        bc.DeleteMovieFromPlaylist(1, bc.GetMovie(movie.Id).Id);
+        //        movieContext.Movies.Remove(bc.GetMovie(movie.Id));
+        //        movieContext.SaveChanges();
+        //        int playlistMovieCountAfterDeleted = movieContext.MoviesPlaylists.Count();
+        //        Assert.AreNotEqual(playlistMovieCountAfterDeleted, playlistMovieCountBeforeDeleted, "Òhe  movie in playlist is not deleted");
+        //    }
+        //}
         [Test]
         public void UpdateLike()
         {
