@@ -1,19 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {}
-  },
-  "projects": {
-    "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
-        "projectName": "MoviesApp",
-        "projectPath": "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
-        "packagesPath": "C:\\Users\\i_pap\\.nuget\\packages\\",
-        "outputPath": "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\MoviesApp\\obj\\",
-=======
     "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {}
   },
   "projects": {
@@ -25,17 +12,12 @@
         "projectPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
         "packagesPath": "C:\\Users\\Petar\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\MoviesApp\\obj\\",
->>>>>>> 40b7d6ee7d1884ff02be02dcee00e71a04efcb8e
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\i_pap\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
           "C:\\Users\\Petar\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 40b7d6ee7d1884ff02be02dcee00e71a04efcb8e
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -93,16 +75,6 @@
         }
       }
     },
-<<<<<<< HEAD
-    "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
-        "projectName": "NUnitTest1",
-        "projectPath": "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
-        "packagesPath": "C:\\Users\\i_pap\\.nuget\\packages\\",
-        "outputPath": "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\NUnitTest1\\obj\\",
-=======
     "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -111,17 +83,12 @@
         "projectPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
         "packagesPath": "C:\\Users\\Petar\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\NUnitTest1\\obj\\",
->>>>>>> 40b7d6ee7d1884ff02be02dcee00e71a04efcb8e
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\i_pap\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
           "C:\\Users\\Petar\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 40b7d6ee7d1884ff02be02dcee00e71a04efcb8e
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -136,13 +103,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-<<<<<<< HEAD
-              "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
-                "projectPath": "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj"
-=======
               "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
                 "projectPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj"
->>>>>>> 40b7d6ee7d1884ff02be02dcee00e71a04efcb8e
               }
             }
           }
