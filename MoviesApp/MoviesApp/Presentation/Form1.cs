@@ -136,9 +136,9 @@ namespace MoviesApp
                 " се моли на Банко поне той да я вземе за жена, а да не я дава на невзрачния младоженец, за когото я е откраднал. Банко обаче държи на мъжката си дума." +
                 " По-късно обаче той разбира, че се е влюбил в нея и в края на филма бива убит, отстоявайки правото си да е с нея. "); // Мъжки времена
             descriptions.Add("Оскар Шиндлер е голям немски бизнесмен, който отваря фабрика в Полша през Втората Световна Война." +
-                " Ставайки свидетел на зверствата от страна на нацистите върху еврейското население обаче," +
-                " той става изключително човечев и превръща фабриката си в лагер на спасението за евреите." +
-                " Филмът е базиран на истинската история на Оскар Шиндлер, който успява да спаси близо 1100 евреи от обгазяване в лагерите в Аушвиц."); // Списъкът на Шиндлер
+         " Ставайки свидетел на зверствата от страна на нацистите върху еврейското население обаче," +
+         " той става изключително човечев и превръща фабриката си в лагер на спасението за евреите." +
+         " Филмът е базиран на истинската история на Оскар Шиндлер, който успява да спаси близо 1100 евреи от обгазяване в лагерите в Аушвиц."); // Списъкът на Шиндлер
             descriptions.Add("Съпругата на Уилям Уолъс (Мел Гибсън) е жестоко убита от английски войници." +
                 " Личното му отмъщение постепенно се превръща в кръстоносен поход срещу Англия целящ да извоюва свободата на народа му," +
                 " а легендите за невероятната му смелост вдъхновяват шотландците да поведат война срещу английските си потисници." +
@@ -188,7 +188,6 @@ namespace MoviesApp
                 " Но с течение на времето двамата мъже се изпълват с взаимно уважение и в решителния момент влизат в бой рамо до рамо, за да защитят честта и живота си."); // Мъже на честта
 
 
-
             // directors
             List<Director> directors = new List<Director>();
             directors.Add(new Director("Джеймс", "Камерън")); // 1 - Титаник, Аватар, Терминаторът
@@ -213,7 +212,7 @@ namespace MoviesApp
             directors.Add(new Director("Зако", "Хеския")); // 20 - Тримата от запаса
             directors.Add(new Director("Едуард", "Захариев")); // 21 - Мъжки времена
             directors.Add(new Director("Стивън", "Спилбърг")); // 22 - Списъкът на Шиндлер
-            directors.Add(new Director("Мел","Гибсън")); // 23 - Смело сърце
+            directors.Add(new Director("Мел", "Гибсън")); // 23 - Смело сърце
             directors.Add(new Director("Ридли", "Скот")); // 24 - Гладиатор
             directors.Add(new Director("Дани", "Бойл")); // 25 - Беднякът милионер
             directors.Add(new Director("Кристофър", "Нолан")); // 26 - Интерстелар
@@ -370,7 +369,7 @@ namespace MoviesApp
 
             description = descriptions[30];
             movies.Add(new Movie("Списъкът на Шиндлер", 1993, 195, "САЩ", 22, description));
-            List<string> schindlerListsActors = new List<string>() { "Бен Кингсли мъж", "Ралф Файнс мъж", "Каролин Гудал жена", "Лиъм Нийсън мъж"};
+            List<string> schindlerListsActors = new List<string>() { "Бен Кингсли мъж", "Ралф Файнс мъж", "Каролин Гудал жена", "Лиъм Нийсън мъж" };
 
             description = descriptions[31];
             movies.Add(new Movie("Смело сърце", 1995, 177, "САЩ", 23, description));
@@ -402,7 +401,7 @@ namespace MoviesApp
 
             description = descriptions[38];
             movies.Add(new Movie("Роки", 1976, 120, "САЩ", 29, description));
-            List<string> rockyActors = new List<string>() { "Силвестър Сталоун мъж", "Талия Шайър жена", "Бърт Йънг мъж", "Карл Уедърс мъж"};
+            List<string> rockyActors = new List<string>() { "Силвестър Сталоун мъж", "Талия Шайър жена", "Бърт Йънг мъж", "Карл Уедърс мъж" };
 
             description = descriptions[39];
             movies.Add(new Movie("Мъже на честта", 2000, 129, "САЩ", 30, description));
@@ -517,7 +516,7 @@ namespace MoviesApp
             bc.MapMovieAndGenre(30, genresId);
             genresId = new List<int>() { 7, 12 };
             bc.MapMovieAndGenre(31, genresId);
-            genresId = new List<int>() {1, 7, 12 };
+            genresId = new List<int>() { 1, 7, 12 };
             bc.MapMovieAndGenre(32, genresId);
             genresId = new List<int>() { 1, 12 };
             bc.MapMovieAndGenre(33, genresId);
@@ -529,17 +528,15 @@ namespace MoviesApp
             bc.MapMovieAndGenre(36, genresId);
             genresId = new List<int>() { 1, 2, 5 };
             bc.MapMovieAndGenre(37, genresId);
-            genresId = new List<int>() { 1, 4};
+            genresId = new List<int>() { 1, 4 };
             bc.MapMovieAndGenre(38, genresId);
             genresId = new List<int>() { 12 };
             bc.MapMovieAndGenre(39, genresId);
             genresId = new List<int>() { 12 };
             bc.MapMovieAndGenre(40, genresId);
 
-
             Playlist playlist = new Playlist("Favourites");
             bc.Add(playlist);
-
         }
         private void EnsureDateBaseIsCreated()
         {

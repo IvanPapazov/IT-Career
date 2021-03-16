@@ -9,11 +9,12 @@ namespace NUnitTest1
 {
     public class Tests
     {
+        MovieContext movieContext;
+        MovieBusiness bc = new MovieBusiness();
+
         [Test]
         public void TestGetMovie()
-        {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
+        {  
             using (movieContext = new MovieContext())
             {
                 Movie movie = movieContext.Movies.Find(2);
@@ -23,8 +24,6 @@ namespace NUnitTest1
         [Test]
         public void TestGetActor()
         {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
             using (movieContext = new MovieContext())
             {
                 Actor actor = movieContext.Actors.Find(2);
@@ -33,9 +32,7 @@ namespace NUnitTest1
         }
         [Test]
         public void TestGetGenre()
-        {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
+        {     
             using (movieContext = new MovieContext())
             {
                 Genre genre = movieContext.Genres.Find(2);
@@ -183,44 +180,8 @@ namespace NUnitTest1
                 movieContext.Directors.Remove(director);
             }
             Assert.AreNotSame(directors, directors1, "Not added director in Directors");
-        }
-        [Test]
-        public void TestAddPlaylist()
-        {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
-            List<Playlist> playlists = bc.GetAllPlaylists();
-            Playlist playlist = new Playlist("Pop");
-            bc.Add(playlist);
-            List<Playlist> playlists1 = bc.GetAllPlaylists();
-            using (movieContext = new MovieContext())
-            {
-                movieContext.Playlists.Remove(playlist);
-            }
-            Assert.AreNotSame(playlists, playlists1, "Not added playlist in Playlist");
-        }
-
-        [Test]
-        public void TestAddMoviePlaylist()
-        {
-            MovieContext movieContext;
-            MovieBusiness bc = new MovieBusiness();
-            using (movieContext = new MovieContext())
-            {
-                int countMoviePlaylist = movieContext.MoviesPlaylists.Count();
-                Movie movie = new Movie("AAAA", 2000, 133, "US", 1, "ASDFD");
-                bc.Add(movie);
-                Playlist playlist = new Playlist("Pop");
-                bc.Add(playlist);
-                MoviePlaylist moviePlaylist = new MoviePlaylist(playlist.Id, movie.Id);
-                bc.Add(moviePlaylist);
-                movieContext.Movies.Remove(movie);
-                movieContext.Playlists.Remove(playlist);
-                movieContext.MoviesPlaylists.Remove(moviePlaylist);
-                int countMoviePlaylist1 = movieContext.MoviesPlaylists.Count();
-                Assert.AreNotSame(countMoviePlaylist, countMoviePlaylist1, "Not added value in MoviePlaylist");
-            }
-        }
+        }    
+       
         [Test]
         public void TestAddMovieGenre()
         {
@@ -262,6 +223,70 @@ namespace NUnitTest1
                 movieContext.Actors.Remove(actor);
                 movieContext.MoviesActors.Remove(movieActor);
                 Assert.AreNotSame(countMovieActore, countMovieActore1, "Not added value in MovieActor");
+            }
+        }
+        [Test]
+        public void UpdateLike()
+        {
+            using (movieContext = new MovieContext())
+            {
+                Movie movie = new Movie("AAAA", 2000, 133, "US", 1, "ASDFD");
+                bc.Add(movie);
+                bc.UpdateLike(movie);
+                bool isTrue = bc.GetMovie(movie.Id).IsLiked;
+                movieContext.Movies.Remove(movie);
+                movieContext.SaveChanges();
+                Assert.IsTrue(isTrue, "Òhe like is not updated");
+            }
+        }
+        [Test]
+        public void UpdateDislike()
+        {
+            using (movieContext = new MovieContext())
+            {
+                Movie movie = new Movie("AAAA", 2000, 133, "US", 1, "ASDFD");
+                bc.Add(movie);
+                movie.IsLiked = true;
+                movieContext.SaveChanges();
+                bc.UpdateDislike(movie);
+                bool isFalse = bc.GetMovie(movie.Id).IsLiked;
+                movieContext.Movies.Remove(movie);
+                movieContext.SaveChanges();
+                Assert.IsFalse(isFalse, "Òhe dislike is not updated");
+            }
+        }
+        [Test]
+        public void TestAddPlaylist()
+        {
+            List<Playlist> playlists = bc.GetAllPlaylists();
+            Playlist playlist = new Playlist("Pop");
+            bc.Add(playlist);
+            List<Playlist> playlists1 = bc.GetAllPlaylists();
+            using (movieContext = new MovieContext())
+            {
+                movieContext.Playlists.Remove(playlist);
+                movieContext.SaveChanges();
+            }
+            Assert.AreNotEqual(playlists, playlists1, "Not added playlist in Playlist");
+        }
+        [Test]
+        public void TestAddMoviePlaylist()
+        {
+            using (movieContext = new MovieContext())
+            {
+                int countMoviePlaylist = movieContext.MoviesPlaylists.Count();
+                Movie movie = new Movie("AAAA", 2000, 133, "US", 1, "ASDFD");
+                bc.Add(movie);
+                Playlist playlist = new Playlist("Pop");
+                bc.Add(playlist);
+                MoviePlaylist moviePlaylist = new MoviePlaylist(playlist.Id, movie.Id);
+                bc.Add(moviePlaylist);
+                int countMoviePlaylist1 = movieContext.MoviesPlaylists.Count();
+                movieContext.Movies.Remove(movie);
+                movieContext.Playlists.Remove(playlist);
+                movieContext.MoviesPlaylists.Remove(moviePlaylist);
+                movieContext.SaveChanges();
+                Assert.AreNotEqual(countMoviePlaylist, countMoviePlaylist1, "Not added value in MoviePlaylist");
             }
         }
 
