@@ -145,14 +145,14 @@ namespace MoviesApp.Business
                 }
             }
         }
-        public void UpdatePlaylistName(Playlist playlist)
+        public void UpdatePlaylistName(Playlist playlist, string name)
         {
             using (movieContext = new MovieContext())
             {
                 Playlist item = movieContext.Playlists.Find(playlist.Id);
                 if (item != null)
                 {
-                    movieContext.Entry(item).CurrentValues.SetValues(playlist);
+                    item.Name = name;
                     movieContext.SaveChanges();
                 }
             }
@@ -181,7 +181,7 @@ namespace MoviesApp.Business
                 }
             }
         } 
-        public void Delete(int id)
+        public void DeletePlaylist(int id)
         {
             using (movieContext = new MovieContext())
             {

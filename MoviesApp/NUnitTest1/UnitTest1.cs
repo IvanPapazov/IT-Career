@@ -296,6 +296,33 @@ namespace NUnitTest1
                 Assert.AreNotEqual(countMoviePlaylist, countMoviePlaylist1, "Not added value in MoviePlaylist");
             }
         }
-
+        [Test]
+        public void UpdatePlaylistName()
+        {
+            using (movieContext = new MovieContext())
+            {
+                Playlist playlist = new Playlist("AROWwwf");
+                bc.Add(playlist);
+                string nameBeforRename = playlist.Name;
+                bc.UpdatePlaylistName(playlist, "Goreav");
+                string nameAfterRename = bc.GetPlaylist(playlist.Id).Name;
+                movieContext.Playlists.Remove(playlist);
+                movieContext.SaveChanges();
+                Assert.AreNotEqual(nameBeforRename, nameAfterRename, "Òhe playlist name is not updated");
+            }
+        }
+        [Test]
+        public void DeletePlaylist()
+        {
+            using (movieContext = new MovieContext())
+            {
+                Playlist playlist = new Playlist("AROWwwf");
+                bc.Add(playlist);
+                int playlistCountBeforeDeleted = movieContext.Playlists.Count();
+                bc.DeletePlaylist(playlist.Id);
+                int playlistCountAfterDeleted = movieContext.Playlists.Count();
+                Assert.AreNotEqual(playlistCountBeforeDeleted, playlistCountAfterDeleted, "Òhe playlist is not deleted");
+            }
+        }
     }
 }
