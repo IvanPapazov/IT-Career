@@ -25,73 +25,210 @@ namespace MoviesApp.Presentation
             this.Hide();
             Program.myForm.Show();
         }
-
+        MovieBusiness mb = new MovieBusiness();
+        bool isNextPageButtonClickled = false;
+        bool isPreviousPageButtonClicked = false;
+        bool canOpenPage = true;
+        bool canReturnPage = false;
+        int countMoviesOnPage = 10;
+        int indexImage = 1;
+        int countMoviesToLoad;
+        int countPages;
+        int index;
         private void FormAction_Load(object sender, EventArgs e)
         {
+            if (mb.FindMoviesFromGenre(MovieInformation.IndexGenre).Count < 10)
+            {
+                pictureBox2.Visible = false;
+            }
+            countPages = mb.FindMoviesFromGenre(MovieInformation.IndexGenre).Count/10;
             this.CenterToScreen();
             ShowImages(MovieInformation.IndexGenre, MovieInformation.GenreLetter);
         }
 
         private void ShowImages(int genreId, string genreLetter)
         {
-            MovieBusiness mb = new MovieBusiness();
+
             filmPictureBoxes = new List<PictureBox>();
 
             int locationImageX = 40;
             int locationImageY = 100;
             int locationTextX = 40;
             int locationTextY = 260;
+            countMoviesToLoad = mb.FindMoviesFromGenre(genreId).Count;
 
-            for (int i = 1; i <= mb.FindMoviesFromGenre(genreId).Count; i++)
+            if (countMoviesToLoad < 10)
             {
-                string fileName = $"fotos{genreLetter}\\{genreLetter}{i}.jpg";
-                PictureBox pictureBoxAction = new PictureBox();
-                pictureBoxAction.Name = $"{genreLetter}{i}";
-                pictureBoxAction.Image = Image.FromFile(fileName);
-                pictureBoxAction.Location = new Point(locationImageX, locationImageY);
-                pictureBoxAction.Size = new Size(150, 150);
-                pictureBoxAction.SizeMode = PictureBoxSizeMode.StretchImage;
-                pictureBoxAction.Parent = this;
-                pictureBoxAction.Visible = true;
-                pictureBoxAction.BringToFront();
-                locationImageX += 160;
-                Movie movie = mb.FindMoviesFromGenre(genreId)[i - 1];
-                int indexer = i;
-                pictureBoxAction.Click += (s, e) =>
+                countMoviesOnPage = countMoviesToLoad;
+            }
+
+            if (isNextPageButtonClickled)
+            {
+                canOpenPage = true;
+            }
+            if (isPreviousPageButtonClicked)
+            {
+               canReturnPage = true;
+            }
+            if (canOpenPage)
+            {
+                for (int i = 1; i <= countMoviesOnPage; i++)
                 {
-                    MovieInformation.IndexMovie = indexer;
-                    MovieInformation.LetterMovie = genreLetter;
+                    string fileName = $"fotos{genreLetter}\\{genreLetter}{indexImage}.jpg";
+                    PictureBox pictureBoxAction = new PictureBox();
+                    pictureBoxAction.Name = $"{genreLetter}{indexImage}";
+                    pictureBoxAction.Image = Image.FromFile(fileName);
+                    pictureBoxAction.Location = new Point(locationImageX, locationImageY);
+                    pictureBoxAction.Size = new Size(150, 150);
+                    pictureBoxAction.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBoxAction.Parent = this;
+                    pictureBoxAction.Visible = true;
+                    pictureBoxAction.BringToFront();
+                    locationImageX += 160;
+                    Movie movie = mb.FindMoviesFromGenre(genreId)[indexImage - 1];
+                    int indexer = indexImage;
+                    pictureBoxAction.Click += (s, e) =>
+                    {
+                        MovieInformation.IndexMovie = indexer;
+                        MovieInformation.LetterMovie = genreLetter;
 
-                    MovieInformation.formAction = this;
-                    var film = new Film(movie);
-                    MovieInformation.film = film;
-                    MovieInformation.film.Show();                  
-                    this.Hide();
-                };
+                        MovieInformation.formAction = this;
+                        var film = new Film(movie);
+                        MovieInformation.film = film;
+                        MovieInformation.film.Show();
+                        this.Hide();
+                    };
 
-                pictureBoxAction.Tag = mb.FindMoviesFromGenre(genreId)[i - 1].MovieTitle;
-                filmPictureBoxes.Add(pictureBoxAction);
+                    filmPictureBoxes.Add(pictureBoxAction);
 
-                Label label = new Label();
-                label.Name = $"{genreLetter}{i}";
-                label.Location = new Point(locationTextX, locationTextY);
-                label.Size = new Size(150, 50);
-                label.Parent = this;
-                label.Visible = true;
-                label.BringToFront();
-                label.Text = mb.FindMoviesFromGenre(genreId)[i - 1].MovieTitle;
-                label.TextAlign = ContentAlignment.TopCenter;
-                locationTextX += 160;
+                    Label label = new Label();
+                    label.Name = $"{genreLetter}{indexImage}";
+                    label.Location = new Point(locationTextX, locationTextY);
+                    label.Size = new Size(150, 50);
+                    label.Parent = this;
+                    label.Visible = true;
+                    label.BringToFront();
+                    label.Text = mb.FindMoviesFromGenre(genreId)[indexImage - 1].MovieTitle;
+                    label.TextAlign = ContentAlignment.TopCenter;
+                    locationTextX += 160;
 
 
-                if (locationImageX > 700)
+                    if (locationImageX > 700)
+                    {
+                        locationImageY += 200;
+                        locationImageX = 40;
+                        locationTextY = locationImageY + 160;
+                        locationTextX = 40;
+                    }
+                    canOpenPage = false;
+                    isNextPageButtonClickled = false;
+                    indexImage++;
+                }//show images next 
+                for (int i = 1; i <= 10 - countMoviesOnPage; i++)
                 {
-                    locationImageY += 200;
-                    locationImageX = 40;
-                    locationTextY = locationImageY + 160;
-                    locationTextX = 40;
+                    //string fileName = $"fotos{genreLetter}\\{genreLetter}{indexImage}.jpg";
+                    PictureBox pictureBoxAction = new PictureBox();
+                    pictureBoxAction.Name = $"empty{indexImage}";
+                    //pictureBoxAction.Image = Image.FromFile(fileName);
+                    pictureBoxAction.Location = new Point(locationImageX, locationImageY);
+                    pictureBoxAction.Size = new Size(150, 150);
+                    //  pictureBoxAction.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBoxAction.Parent = this;
+                    pictureBoxAction.Visible = true;
+                    pictureBoxAction.BringToFront();
+                    locationImageX += 160;
+                    // Movie movie = mb.FindMoviesFromGenre(genreId)[indexImage - 1];
+                    //int indexer = indexImage;   
+
+                    filmPictureBoxes.Add(pictureBoxAction);
+
+                    Label label = new Label();
+                    label.Name = $"empty{indexImage}";
+                    label.Location = new Point(locationTextX, locationTextY);
+                    label.Size = new Size(150, 50);
+                    label.Parent = this;
+                    label.Visible = true;
+                    label.BringToFront();
+                    //label.Text = mb.FindMoviesFromGenre(genreId)[indexImage - 1].MovieTitle;
+                    //label.TextAlign = ContentAlignment.TopCenter;
+                    locationTextX += 160;
+
+
+                    if (locationImageX > 700)
+                    {
+                        locationImageY += 200;
+                        locationImageX = 40;
+                        locationTextY = locationImageY + 160;
+                        locationTextX = 40;
+                    }
+                }//show images empty
+                countMoviesToLoad -= 10;
+                if (countMoviesToLoad < 10 && countMoviesToLoad > 0)
+                {
+                    countMoviesOnPage = countMoviesToLoad;
                 }
+            }
+            countMoviesToLoad -= 10;
+            if (canReturnPage)//show images previous
+            {
+                 locationImageX = 40;
+                 locationImageY = 100;
+                 locationTextX = 40;
+                 locationTextY = 260;
 
+                index = indexImage - countMoviesOnPage;
+                for (int i = index-10; i < index; i++)
+                {
+                    string fileName = $"fotos{genreLetter}\\{genreLetter}{i}.jpg";
+                    PictureBox pictureBoxAction = new PictureBox();
+                    pictureBoxAction.Name = $"{genreLetter}{indexImage}";
+                    pictureBoxAction.Image = Image.FromFile(fileName);
+                    pictureBoxAction.Location = new Point(locationImageX, locationImageY);
+                    pictureBoxAction.Size = new Size(150, 150);
+                    pictureBoxAction.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBoxAction.Parent = this;
+                    pictureBoxAction.Visible = true;
+                    pictureBoxAction.BringToFront();
+                    locationImageX += 160;
+                    //Movie movie = mb.FindMoviesFromGenre(genreId)[indexImage - 1];
+                    //int indexer = indexImage;
+                    //pictureBoxAction.Click += (s, e) =>
+                    //{
+                    //    MovieInformation.IndexMovie = indexer;
+                    //    MovieInformation.LetterMovie = genreLetter;
+
+                    //    MovieInformation.formAction = this;
+                    //    var film = new Film(movie);
+                    //    MovieInformation.film = film;
+                    //    MovieInformation.film.Show();
+                    //    this.Hide();
+                    //};
+
+                    //filmPictureBoxes.Add(pictureBoxAction);
+
+                    //Label label = new Label();
+                    //label.Name = $"{genreLetter}{indexImage}";
+                    //label.Location = new Point(locationTextX, locationTextY);
+                    //label.Size = new Size(150, 50);
+                    //label.Parent = this;
+                    //label.Visible = true;
+                    //label.BringToFront();
+                    //label.Text = mb.FindMoviesFromGenre(genreId)[indexImage - 1].MovieTitle;
+                    //label.TextAlign = ContentAlignment.TopCenter;
+                    //locationTextX += 160;
+
+
+                    if (locationImageX > 700)
+                    {
+                        locationImageY += 200;
+                        locationImageX = 40;
+                        locationTextY = locationImageY + 160;
+                        locationTextX = 40;
+                    }
+                    canOpenPage = false;
+                    isNextPageButtonClickled = false;
+                    indexImage--;
+                }//show prevo
             }
         }
 
@@ -107,7 +244,7 @@ namespace MoviesApp.Presentation
 
         }
 
-       
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -138,7 +275,7 @@ namespace MoviesApp.Presentation
             groupBox2.Visible = false;
         }
 
-        
+
 
         private void button6_Click(object sender, EventArgs e)//екшън
         {
@@ -239,6 +376,41 @@ namespace MoviesApp.Presentation
             MovieInformation.GenreLetter = "Drama";
             formAction.Show();
             this.Hide();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (countMoviesToLoad > 10)
+            {
+                pictureBox2.Visible = true;
+            }
+            else
+            {
+                pictureBox2.Visible = false;
+            }
+            isNextPageButtonClickled = true;
+            pictureBox3.Visible = true;
+            ShowImages(MovieInformation.IndexGenre, MovieInformation.GenreLetter);
+            canReturnPage = true;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (countPages >= 1)
+            {
+                if (countMoviesToLoad < 10)
+                {
+                    pictureBox3.Visible = false;
+                }
+                else
+                {
+                    pictureBox3.Visible = false;
+                }
+                isPreviousPageButtonClicked = true;
+                pictureBox2.Visible = true;
+                ShowImages(MovieInformation.IndexGenre, MovieInformation.GenreLetter);
+                countPages--;
+            }
         }
     }
 }

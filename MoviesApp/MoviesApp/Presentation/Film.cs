@@ -53,13 +53,7 @@ namespace MoviesApp.Resources
             if (textBoxDescription.Text.Length > 320)
             {
                 pictureBox2.Visible = true;
-              // pictureBoxBack.Location = new Point(838, textBoxDescription.Location.Y+ 230);
-            }
-            else
-            {                
-                //pictureBoxBack.Location = new Point(838, 634);
-               // this.Size = new Size(978, 729);
-            }
+            }  
 
             if (!movie.IsLiked)
             {
