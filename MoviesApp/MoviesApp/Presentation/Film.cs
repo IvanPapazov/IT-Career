@@ -46,7 +46,7 @@ namespace MoviesApp.Resources
                 textBoxActors.Text += actor.FirstName + " " + actor.LastName + Environment.NewLine;
             }
             string fileName = $"fotos{MovieInformation.LetterMovie}\\{MovieInformation.LetterMovie}{MovieInformation.IndexMovie}.jpg";
-            pictureBox1.Image = Image.FromFile(fileName);
+           // pictureBox1.Image = Image.FromFile(fileName);
 
             textBoxDescription.Text = movie.Description;
 
@@ -153,15 +153,15 @@ namespace MoviesApp.Resources
                 pictureBoxHeart.Image = Image.FromFile("otherResources\\heart1.png");
                 movie.IsLiked = true;
                 bc.UpdateLike(movie);
-                //MoviePlaylist moviePlaylist = new MoviePlaylist(1, movie.Id);
-                //bc.Add(moviePlaylist);        
+                MoviePlaylist moviePlaylist = new MoviePlaylist(1, movie.Id);
+                bc.Add(moviePlaylist);
             }
             else if (movie.IsLiked)
             {
                 pictureBoxHeart.Image = Image.FromFile("otherResources\\heart2.png");
                 movie.IsLiked = false;
                 bc.UpdateDislike(movie);
-                //bc.DeleteFilmFromPlaylist(1,movie.Id);
+                bc.DeleteMovieFromPlaylist(1,movie.Id);
             }
            
         }

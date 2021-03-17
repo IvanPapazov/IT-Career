@@ -2,6 +2,8 @@
 using MoviesApp.Data;
 using MoviesApp.Data.Model;
 using System.Linq;
+using MoviesApp.Presentation;
+using MoviesApp.Resources;
 
 namespace MoviesApp.Business
 {
@@ -49,8 +51,8 @@ namespace MoviesApp.Business
             {
                 return movieContext.Directors.ToList();
             }
-        } // dani
-        public List<MovieGenre> GetAllMovieGenre()//Dani
+        }
+        public List<MovieGenre> GetAllMovieGenre()
         {
             using (movieContext = new MovieContext())
             {
@@ -63,14 +65,14 @@ namespace MoviesApp.Business
             {
                 return movieContext.MoviesActors.ToList();
             }
-        }//Dani
+        }
         public Movie GetMovie(int id)
         {
             using (movieContext = new MovieContext())
             {
                 return movieContext.Movies.Find(id);
             }
-        } 
+        }
         public Actor GetActor(int id)
         {
             using (movieContext = new MovieContext())
@@ -91,7 +93,7 @@ namespace MoviesApp.Business
             {
                 return movieContext.Playlists.Find(id);
             }
-        } // ivan
+        }
         public Director GetDirector(int id)
         {
             using (movieContext = new MovieContext())
@@ -180,7 +182,7 @@ namespace MoviesApp.Business
                     movieContext.SaveChanges();
                 }
             }
-        } 
+        }
         public void DeletePlaylist(int id)
         {
             using (movieContext = new MovieContext())
@@ -202,7 +204,7 @@ namespace MoviesApp.Business
                     movieContext.SaveChanges();
                 }
             }
-        } 
+        }
         public void DeleteMovieFromPlaylist(int playListId, int movieId)
         {
             using (movieContext = new MovieContext())
@@ -211,18 +213,18 @@ namespace MoviesApp.Business
                 Movie movie = movieContext.Movies.Find(movieId);
                 if (playlist != null && movie != null)
                 {
-                    foreach (var playListMovie in movieContext.MoviesPlaylists)
+                    foreach (MoviePlaylist playListMovie in movieContext.MoviesPlaylists)
                     {
-                        if (playListMovie.PlaylistId == playListId && playListMovie.MovieId == movieId)
+                        if (playListMovie.PlaylistId == playlist.Id&& playListMovie.MovieId==movie.Id)
                         {
                             movieContext.MoviesPlaylists.Remove(playListMovie);
-                            movieContext.SaveChanges();
                             break;
                         }
                     }
                 }
+                movieContext.SaveChanges();
             }
-        }     
+        }
         public void MapMovieAndGenre(int movieId, List<int> genresId)
         {
             using (movieContext = new MovieContext())
@@ -275,25 +277,23 @@ namespace MoviesApp.Business
         }
         public List<Actor> FindActorsFromMovie(int movieId)
         {
-            MovieBusiness bc = new MovieBusiness();
-            List<MovieActor> movieActor = bc.GetAllMovieActors().Where(mg => mg.MovieId == movieId).ToList();
+            List<MovieActor> movieActor = GetAllMovieActors().Where(mg => mg.MovieId == movieId).ToList();
             List<Actor> actors = new List<Actor>();
 
             foreach (var item in movieActor)
             {
-                actors.Add(bc.GetActor(item.ActorId));
+                actors.Add(GetActor(item.ActorId));
             }
             return actors;
         }
         public List<Movie> FindMoviesFromGenre(int genreId)
         {
-            MovieBusiness bc = new MovieBusiness();
-            List<MovieGenre> movieGenre = bc.GetAllMovieGenre().Where(mg => mg.GenreId == genreId).ToList();
+            List<MovieGenre> movieGenre = GetAllMovieGenre().Where(mg => mg.GenreId == genreId).ToList();
             List<Movie> movies = new List<Movie>();
 
             foreach (var item in movieGenre)
             {
-                movies.Add(bc.GetMovie(item.MovieId));
+                movies.Add(GetMovie(item.MovieId));
             }
             return movies;
         }

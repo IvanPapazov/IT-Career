@@ -544,3 +544,6 @@ C:\Users\User_1\Desktop\ProjectFullDatabase\MoviesApp\NUnitTest1\bin\Debug\netco
 C:\Users\User_1\Desktop\ProjectFullDatabase\MoviesApp\NUnitTest1\bin\Debug\netcoreapp3.1\NUnitTest1.pdb
 C:\Users\User_1\Desktop\ProjectFullDatabase\MoviesApp\NUnitTest1\obj\Debug\netcoreapp3.1\NUnitTest1.csproj.CoreCompileInputs.cache
 C:\Users\User_1\Desktop\ProjectFullDatabase\MoviesApp\NUnitTest1\obj\Debug\netcoreapp3.1\NUnitTest1.genruntimeconfig.cache
+E:\Visual Studio\Projects\MoviesApp\MoviesApp\NUnitTest1\bin\Debug\netcoreapp3.1\MoviesApp.deps.json
+E:\Visual Studio\Projects\MoviesApp\MoviesApp\NUnitTest1\bin\Debug\netcoreapp3.1\MoviesApp.runtimeconfig.json
+E:\Visual Studio\Projects\MoviesApp\MoviesApp\NUnitTest1\bin\Debug\netcoreapp3.1\MoviesApp.runtimeconfig.dev.json

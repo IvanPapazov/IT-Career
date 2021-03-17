@@ -2,6 +2,7 @@
 using MoviesApp.Resources;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using System.Text;
 
 namespace MoviesApp.Presentation
@@ -12,7 +13,6 @@ namespace MoviesApp.Presentation
         public static FormAction formAction { get; set; }
         public static Film film { get; set; }
         public static Actors actors { get; set; }
-
         public static int IndexGenre { get; set; }
         public static string GenreLetter { get; set; }
         public static int IndexMovie { get; set; }
