@@ -213,25 +213,6 @@ namespace NUnitTest1
                 Assert.AreEqual(isFulled, bc.CheckIsFulled(), "Database is not created");
             }
         }
-        //[Test]
-        //public void DeleteMovieFromPlaylist()
-        //{
-        //    using (movieContext = new MovieContext())
-        //    {
-        //        //Playlist playlist = new Playlist("AROWwwf");
-        //        //bc.Add(playlist);
-        //        Movie movie = new Movie("AAAA", 2000, 133, "US", 1, "ASDFD");
-        //        bc.Add(movie);
-        //        MoviePlaylist moviePlaylist = new MoviePlaylist(1, movie.Id);
-        //        bc.Add(moviePlaylist);
-        //        int playlistMovieCountBeforeDeleted = movieContext.MoviesPlaylists.Count();
-        //        bc.DeleteMovieFromPlaylist(1, bc.GetMovie(movie.Id).Id);
-        //        movieContext.Movies.Remove(bc.GetMovie(movie.Id));
-        //        movieContext.SaveChanges();
-        //        int playlistMovieCountAfterDeleted = movieContext.MoviesPlaylists.Count();
-        //        Assert.AreNotEqual(playlistMovieCountAfterDeleted, playlistMovieCountBeforeDeleted, "Òhe  movie in playlist is not deleted");
-        //    }
-        //}
         [Test]
         public void UpdateLike()
         {
@@ -296,6 +277,88 @@ namespace NUnitTest1
                 Assert.AreNotEqual(countMoviePlaylist, countMoviePlaylist1, "Not added value in MoviePlaylist");
             }
         }
-
+        [Test]
+        public void UpdatePlaylistName()
+        {
+            using (movieContext = new MovieContext())
+            {
+                Playlist playlist = new Playlist("AROWwwf");
+                bc.Add(playlist);
+                string nameBeforRename = playlist.Name;
+                bc.UpdatePlaylistName(playlist, "Goreav");
+                string nameAfterRename = bc.GetPlaylist(playlist.Id).Name;
+                movieContext.Playlists.Remove(playlist);
+                movieContext.SaveChanges();
+                Assert.AreNotEqual(nameBeforRename, nameAfterRename, "Òhe playlist name is not updated");
+            }
+        }
+        [Test]
+        public void DeletePlaylist()
+        {
+            using (movieContext = new MovieContext())
+            {
+                Playlist playlist = new Playlist("AROWwwf");
+                bc.Add(playlist);
+                int playlistCountBeforeDeleted = movieContext.Playlists.Count();
+                bc.DeletePlaylist(playlist.Id);
+                int playlistCountAfterDeleted = movieContext.Playlists.Count();
+                Assert.AreNotEqual(playlistCountBeforeDeleted, playlistCountAfterDeleted, "Òhe playlist is not deleted");
+            }
+        }
+        [Test]
+        public void GetAllMovieGenre()
+        {
+            using (movieContext = new MovieContext())
+            {
+                List<MovieGenre> movieGenres = movieContext.MoviesGenres.ToList();
+                List<MovieGenre> movieGenres1 = bc.GetAllMovieGenre();
+                Assert.AreEqual(movieGenres.Count, movieGenres1.Count, "Does not return all movie-genre value");
+            }
+        }
+        [Test]
+        public void GetAllMovieActors()
+        {
+            using (movieContext = new MovieContext())
+            {
+                List<MovieActor> movieActors = movieContext.MoviesActors.ToList();
+                List<MovieActor> movieActors1 = bc.GetAllMovieActors();
+                Assert.AreEqual(movieActors.Count, movieActors1.Count, "Does not return all movie-actors value");
+            }
+        }
+        [Test]
+        public void DeleteMovieFromPlaylist()
+        {
+            using (movieContext = new MovieContext())
+            {
+                Movie movie = new Movie("AAAA", 2000, 133, "US", 1, "ASDFD");
+                bc.Add(movie);
+                MoviePlaylist moviePlaylist = new MoviePlaylist(1, movie.Id);
+                bc.Add(moviePlaylist);
+                int playlistMovieCountBeforeDeleted = movieContext.MoviesPlaylists.Count();
+                bc.DeleteMovieFromPlaylist(1, 1);
+                movieContext.Movies.Remove(bc.GetMovie(movie.Id));
+                movieContext.SaveChanges();
+                int playlistMovieCountAfterDeleted = movieContext.MoviesPlaylists.Count();
+                Assert.AreNotEqual(playlistMovieCountAfterDeleted, playlistMovieCountBeforeDeleted, "Òhe  movie in playlist is not deleted");
+            }
+        }
+        [Test]
+        public void FindActorsFromMovie()
+        {
+            using (movieContext = new MovieContext())
+            {
+               List<MovieActor> movieActors=bc.GetAllMovieActors().Where(a=>a.MovieId==1).ToList();
+                Assert.AreEqual(movieActors.Count, bc.FindActorsFromMovie(1).Count(), "FindActorsFromMovie does not return all actors");
+            }
+        }
+        [Test]
+        public void FindMoviesFromGenre()
+        {
+            using (movieContext = new MovieContext())
+            {
+                List<MovieGenre> movieGenres = bc.GetAllMovieGenre().Where(a => a.GenreId == 1).ToList();
+                Assert.AreEqual(movieGenres.Count, bc.FindMoviesFromGenre(1).Count(), "FindMoviesFromGenre does not return all genres");
+            }
+        }
     }
 }
