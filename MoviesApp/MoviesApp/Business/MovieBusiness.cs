@@ -297,5 +297,24 @@ namespace MoviesApp.Business
             }
             return movies;
         }
+        public List<Genre> FindGenresOfMovie(int movieId)//dani
+        {
+            Movie movie = GetMovie(movieId);
+            List<MovieGenre> movieGenres = GetAllMovieGenre();
+
+            List<Genre> genres = new List<Genre>();
+
+            if (movie!=null)
+            {
+                foreach (var genre in movieGenres)
+                {
+                    if (genre.MovieId==movieId)
+                    {
+                        genres.Add(GetGenre(genre.GenreId));
+                    }
+                }
+            }
+            return genres;
+        }
     }
 }

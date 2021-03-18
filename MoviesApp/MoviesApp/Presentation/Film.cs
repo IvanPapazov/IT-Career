@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace MoviesApp.Resources
     {
         Movie movie;
         MovieBusiness bc = new MovieBusiness();
-       
+
         public Film(Movie movie)
         {
             this.movie = movie;
@@ -26,7 +27,7 @@ namespace MoviesApp.Resources
         private void Film_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
-            
+
             textBoxTitle.Text = movie.MovieTitle;
 
             labelYear.Text = movie.MovieYear.ToString();
@@ -46,14 +47,14 @@ namespace MoviesApp.Resources
                 textBoxActors.Text += actor.FirstName + " " + actor.LastName + Environment.NewLine;
             }
             string fileName = $"fotos{MovieInformation.LetterMovie}\\{MovieInformation.LetterMovie}{MovieInformation.IndexMovie}.jpg";
-           // pictureBox1.Image = Image.FromFile(fileName);
+            pictureBox1.Image = Image.FromFile(fileName);
 
             textBoxDescription.Text = movie.Description;
 
             if (textBoxDescription.Text.Length > 320)
             {
                 pictureBox2.Visible = true;
-            }  
+            }
 
             if (!movie.IsLiked)
             {
@@ -67,7 +68,7 @@ namespace MoviesApp.Resources
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -79,10 +80,14 @@ namespace MoviesApp.Resources
 
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
-            MovieInformation.film = this;
-            FormAction formAction = MovieInformation.formAction;
-            formAction.Show();
-            this.Close(); 
+            MovieInformation.film = this; 
+            if (MovieInformation.formAction!=null)
+            {
+                FormAction formAction = MovieInformation.formAction;
+                formAction.Show();
+            }
+           
+            this.Close();
         }
 
         private void textBoxActors_TextChanged(object sender, EventArgs e)
@@ -132,14 +137,20 @@ namespace MoviesApp.Resources
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            var psi = new ProcessStartInfo
+            {
+                FileName = "https://filmi7.com",                                                                  //correct link - https://filmi7.com/filmi/3638-titanic-titanik-1997.html
+                UseShellExecute = true
+            };
 
+            Process.Start(psi);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
-      
+
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             if (!movie.IsLiked)
@@ -155,13 +166,13 @@ namespace MoviesApp.Resources
                 pictureBoxHeart.Image = Image.FromFile("otherResources\\heart2.png");
                 movie.IsLiked = false;
                 bc.UpdateDislike(movie);
-                bc.DeleteMovieFromPlaylist(1,movie.Id);
+                bc.DeleteMovieFromPlaylist(1, movie.Id);
             }
-           
+
         }
 
         private void pictureBoxHeart_MouseEnter(object sender, EventArgs e)
-        {         
+        {
             pictureBoxHeart.Image = Image.FromFile("otherResources\\heart1.png");
         }
 
@@ -171,7 +182,7 @@ namespace MoviesApp.Resources
             {
                 pictureBoxHeart.Image = Image.FromFile("otherResources\\heart2.png");
             }
-            
+
         }
     }
 }

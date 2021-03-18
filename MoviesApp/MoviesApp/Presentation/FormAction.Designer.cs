@@ -326,9 +326,9 @@ namespace MoviesApp.Presentation
             // pictureBox2
             // 
             this.pictureBox2.Image = global::MoviesApp.Properties.Resources.nextPage;
-            this.pictureBox2.Location = new System.Drawing.Point(664, 576);
+            this.pictureBox2.Location = new System.Drawing.Point(580, 586);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(55, 44);
+            this.pictureBox2.Size = new System.Drawing.Size(40, 31);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 30;
             this.pictureBox2.TabStop = false;
@@ -336,10 +336,10 @@ namespace MoviesApp.Presentation
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::MoviesApp.Properties.Resources.previousPage;
-            this.pictureBox3.Location = new System.Drawing.Point(302, 576);
+            this.pictureBox3.Image = global::MoviesApp.Properties.Resources.backArrow;
+            this.pictureBox3.Location = new System.Drawing.Point(299, 586);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(55, 44);
+            this.pictureBox3.Size = new System.Drawing.Size(40, 31);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 31;
             this.pictureBox3.TabStop = false;
@@ -350,7 +350,7 @@ namespace MoviesApp.Presentation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(961, 632);
+            this.ClientSize = new System.Drawing.Size(900, 619);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button2);

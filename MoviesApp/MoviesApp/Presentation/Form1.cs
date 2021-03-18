@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using MoviesApp.Business;
 using System.Linq;
 using MoviesApp.Resources;
+using System.Diagnostics;
+
 
 namespace MoviesApp
 {
@@ -18,13 +20,13 @@ namespace MoviesApp
             InitializeComponent();
 
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
             labelError.Visible = false;
             this.CenterToScreen();
             EnsureDateBaseIsCreated();
-           
+            pictureBox2.Visible = true;
         }
         MovieBusiness bc;
         string description = "";
@@ -567,7 +569,7 @@ namespace MoviesApp
         }
 
 
-       
+
 
         private void groupBox1_MouseHover(object sender, EventArgs e)
         {
@@ -581,6 +583,7 @@ namespace MoviesApp
 
         private void button2_Click(object sender, EventArgs e)
         {
+            MovieInformation.form1 = this;
             var formActors = new Actors();
             MovieInformation.actors = formActors;
             MovieInformation.actors.Show();
@@ -592,7 +595,7 @@ namespace MoviesApp
             groupBox2.Visible = false;
         }
 
-        
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -637,7 +640,7 @@ namespace MoviesApp
         }
         private void pictureBox2_DragEnter(object sender, DragEventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)//филми
@@ -779,43 +782,165 @@ namespace MoviesApp
         {
             button2.BackColor = Color.Silver;
         }
-
+        int countMovieInCollection = 1;
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            textBox3.Text = "Няма съвпадения";
+            countMovieInCollection = 1;
             string name = textBoxSearch.Text;
             MovieInformation.form1 = this;
             ShowMovieInForm(name);
+           
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 string name = textBoxSearch.Text;
                 MovieInformation.form1 = this;
-                ShowMovieInForm(name);             
+                ShowMovieInForm(name);
             }
         }
         public void ShowMovieInForm(string name)
         {
-            Movie movie = bc.GetAllMovies().Where(m => m.MovieTitle == name).FirstOrDefault();
+            Movie movie = SearchMovie(name);
             if (movie!=null)
             {
-                if (movie.MovieTitle == name)
-                {
-                    var film = new Film(movie);
-                    MovieInformation.film = film;
-                    MovieInformation.IndexGenre = 1;
-                    MovieInformation.GenreLetter = "A";
-                    MovieInformation.film.Show();
-                    labelError.Visible = false;
-                }
-                else
-                {
-                    labelError.Visible = true;
-                }
+                textBox3.Text = movie.MovieTitle;
             }
             
+            //Movie movie = bc.GetAllMovies().Where(m => m.MovieTitle.Equals(name)).FirstOrDefault();
+            ////Movie movie = SearchMovie(name);
+            //Genre movieGenre = bc.FindGenresOfMovie(movie.Id)[0];
+
+            //if (movie!=null)
+            //{
+            //    DefineGenre(movieGenre,movie);
+            //    var film = new Film(movie);
+            //    MovieInformation.film = film;
+            //    MovieInformation.film.Show();
+            //    labelError.Visible = false;
+            //}
+            //else
+            //{
+            //    labelError.Visible = true;
+            //}
+
+        }
+
+        private Movie SearchMovie(string name)
+        {
+            List<Movie> movies = bc.GetAllMovies();
+            List<string> moviesTitles = new List<string>();
+            
+            foreach (var movie in movies)
+            {
+                moviesTitles.Add(movie.MovieTitle);
+                
+            }
+            int countMovie = 0;
+            foreach (var movie in moviesTitles)
+            {
+                if (movie.Split(' ').Length > 1)
+                {
+                    string[] words = movie.Split(' ').ToArray();
+                    foreach (var word in words)
+                    {
+                        //movieSplitName.Add(word);
+                        if (word.Contains(name))
+                        {
+                            return movies[countMovie];
+                        }
+                    }
+
+                }
+                countMovie++;
+            }
+            return null;
+           // textBox3.Text = string.Join(",  ", movieSplitName);
+
+            //foreach (var item in movieSplitName)
+            //{
+            //    textBox3.Text += item;
+            //}
+        }
+
+        private void DefineGenre(Genre genre, Movie movie)
+        {
+            List<Movie> movies = bc.FindMoviesFromGenre(genre.Id).ToList();
+            Movie currMovie=FindMovie(movie.MovieTitle,movies);
+            MovieInformation.IndexMovie = countMovieInCollection;
+
+            switch (genre.Title)
+            {
+                case "Екшън":
+                    MovieInformation.LetterMovie = "A";
+                    break;
+                case "Приключенски":
+                    MovieInformation.LetterMovie = "Adv";
+                    break;
+                case "Комедии":
+                    MovieInformation.LetterMovie = "Comedy";
+                    break;
+                case "Криминални":
+                    MovieInformation.LetterMovie = "Criminal";
+                    break;
+                case "Фентъзи":
+                    MovieInformation.LetterMovie = "Fantasy";
+                    break;
+                case "Научна фантастика":
+                    MovieInformation.LetterMovie = "Sci";
+                    break;
+                case "Исторически":
+                    MovieInformation.LetterMovie = "History";
+                    break;
+                case "Ужаси":
+                    MovieInformation.LetterMovie = "Horror";
+                    break;
+                case "Романтика":
+                    MovieInformation.LetterMovie = "Romance";
+                    break;
+                case "Трилър":
+                    MovieInformation.LetterMovie = "Thriller";
+                    break;
+                case "Анимация":
+                    MovieInformation.LetterMovie = "Cartoon";
+                    break;
+                case "Драма":
+                    MovieInformation.LetterMovie = "Drama";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private Movie FindMovie(string name, List<Movie> movies)
+        {
+            foreach (var movie in movies)
+            {
+                if (movie.MovieTitle==name)
+                {
+                    return movie;
+                }
+                countMovieInCollection++;
+            }
+            return null;
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_MouseEnter(object sender, EventArgs e)
+        {
+            button5.BackColor = Color.Gray;
+        }
+
+        private void button5_MouseLeave(object sender, EventArgs e)
+        {
+            button5.BackColor = Color.Silver;
         }
     }
 }

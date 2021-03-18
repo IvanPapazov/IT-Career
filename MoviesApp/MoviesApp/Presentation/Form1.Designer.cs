@@ -57,6 +57,7 @@ namespace MoviesApp
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelError = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -113,6 +114,8 @@ namespace MoviesApp
             this.button5.Text = "Изход";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.MouseEnter += new System.EventHandler(this.button5_MouseEnter);
+            this.button5.MouseLeave += new System.EventHandler(this.button5_MouseLeave);
             // 
             // textBox2
             // 
@@ -329,6 +332,7 @@ namespace MoviesApp
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(153, 43);
             this.textBoxSearch.TabIndex = 20;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // pictureBox1
             // 
@@ -367,12 +371,22 @@ namespace MoviesApp
             this.labelError.TabIndex = 23;
             this.labelError.Text = "Невалидно име";
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(553, 87);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(219, 268);
+            this.textBox3.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(784, 455);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -380,7 +394,6 @@ namespace MoviesApp
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
@@ -429,6 +442,7 @@ namespace MoviesApp
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 

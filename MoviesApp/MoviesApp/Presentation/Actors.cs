@@ -57,7 +57,7 @@ namespace MoviesApp.Presentation
                 List<Actor> actorsId = mb.GetAllActors().Where(a => a.FirstName == dv.Cells[0].Value.ToString() 
                 && a.LastName== dv.Cells[1].Value.ToString()).ToList();
                 int actorId = actorsId[0].Id;
-                textBox1.Text = dv.Cells[0].Value.ToString() + " " + dv.Cells[1].Value.ToString();
+                textBox1.Text = dv.Cells[0].Value.ToString() + " " + dv.Cells[1].Value.ToString() + "\n";
                 textBox2.Text = dv.Cells[2].Value.ToString();
                 foreach (var movieActor in moviesActors)
                 {
@@ -76,6 +76,22 @@ namespace MoviesApp.Presentation
                 }
                 textBox3.Text = string.Join(", ",outputMovies);
             }
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_MouseEnter(object sender, EventArgs e)
+        {
+            //textBox1.ForeColor = Color.Black;
+        }
+
+        private void pictureBoxBack_Click(object sender, EventArgs e)
+        {
+            MovieInformation.form1.Show();
+            this.Hide();
         }
     }
 }
