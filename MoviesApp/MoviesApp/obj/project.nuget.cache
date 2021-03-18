@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QnZOJRT+VGqHgDnETXAtYsiBNyOOTgirbd1njyYBXE5BJJNopd0O2BMkdOQXzp2u2jmW/u2+ZQaFVvhf6gaTig==",
+  "dgSpecHash": "/z2UmcQU8ufyntbXdAaXThJBHf1a5Mqhn61TGBQIw6xHcCD8TXxyDxiYGgK0MOrbQibYTPrrVuIOs4zFq8tePA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+  "projectFilePath": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Petar\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Petar\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

@@ -179,5 +179,11 @@ namespace MoviesApp.Resources
             }
             
         }
+
+        private void pictureBoxPlus_Click_1(object sender, EventArgs e)
+        {
+            var playlistForm = new AddPlaylistForm(this.movie);
+            playlistForm.Show();
+        }
     }
 }

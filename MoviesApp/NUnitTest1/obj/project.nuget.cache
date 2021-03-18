@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "efDUB82IguY9Ie3oeNY30pL1nNbpW3lTw27eCsixKWA5WgTeCE5aizbClwdVR1f3vVMWDcniceRzwg1q8kVyWQ==",
+  "dgSpecHash": "IvPziHg3lSWq3oPnFSe/di/hQuIyb7lX8bMuA5HLnM7nA7i/IfdPBOEtPs51d6MyqMC+U9rHnkW4iTurMM/+XQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
+  "projectFilePath": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Petar\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\Petar\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

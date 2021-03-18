@@ -5709,11 +5709,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+      "projectUniqueName": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
       "projectName": "MoviesApp",
-      "projectPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+      "projectPath": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
       "packagesPath": "C:\\Users\\Petar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\obj\\",
+      "outputPath": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {}
+    "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
+    "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+        "projectUniqueName": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
         "projectName": "MoviesApp",
-        "projectPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+        "projectPath": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
         "packagesPath": "C:\\Users\\Petar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\obj\\",
+        "outputPath": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -75,14 +75,14 @@
         }
       }
     },
-    "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {
+    "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
+        "projectUniqueName": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
         "projectName": "NUnitTest1",
-        "projectPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
+        "projectPath": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\NUnitTest1.csproj",
         "packagesPath": "C:\\Users\\Petar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\obj\\",
+        "outputPath": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\NUnitTest1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -103,8 +103,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
-                "projectPath": "C:\\Users\\Petar\\Desktop\\FinalVer\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj"
+              "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj": {
+                "projectPath": "C:\\Users\\Petar\\Desktop\\MovieApp2(16.03)\\MoviesApp\\MoviesApp\\MoviesApp.csproj"
               }
             }
           }

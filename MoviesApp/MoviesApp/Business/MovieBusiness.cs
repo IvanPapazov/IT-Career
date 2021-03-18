@@ -64,6 +64,13 @@ namespace MoviesApp.Business
                 return movieContext.MoviesActors.ToList();
             }
         }//Dani
+        public List<MoviePlaylist> GetAllMoviePlaylists()
+        {
+            using (movieContext = new MovieContext())
+            {
+                return movieContext.MoviesPlaylists.ToList();
+            }
+        }//Petar
         public Movie GetMovie(int id)
         {
             using (movieContext = new MovieContext())
@@ -215,12 +222,12 @@ namespace MoviesApp.Business
                     {
                         if (playListMovie.PlaylistId == playListId && playListMovie.MovieId == movieId)
                         {
-                            movieContext.MoviesPlaylists.Remove(playListMovie);
-                            movieContext.SaveChanges();
+                            movieContext.MoviesPlaylists.Remove(playListMovie);                          
                             break;
                         }
                     }
                 }
+                movieContext.SaveChanges();
             }
         }     
         public void MapMovieAndGenre(int movieId, List<int> genresId)
