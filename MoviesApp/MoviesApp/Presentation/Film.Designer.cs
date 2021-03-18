@@ -255,7 +255,7 @@ namespace MoviesApp.Resources
             // 
             // pictureBoxClock
             // 
-            this.pictureBoxClock.Image = global::MoviesApp.Properties.Resources.clock;
+            this.pictureBoxClock.Image = global::MoviesApp.Properties.Resources.clock1;
             this.pictureBoxClock.Location = new System.Drawing.Point(129, 110);
             this.pictureBoxClock.Name = "pictureBoxClock";
             this.pictureBoxClock.Size = new System.Drawing.Size(30, 30);
@@ -265,7 +265,7 @@ namespace MoviesApp.Resources
             // 
             // pictureBoxYear
             // 
-            this.pictureBoxYear.Image = global::MoviesApp.Properties.Resources.year2;
+            this.pictureBoxYear.Image = global::MoviesApp.Properties.Resources.year21;
             this.pictureBoxYear.Location = new System.Drawing.Point(1, 110);
             this.pictureBoxYear.Name = "pictureBoxYear";
             this.pictureBoxYear.Size = new System.Drawing.Size(30, 30);
@@ -275,7 +275,7 @@ namespace MoviesApp.Resources
             // 
             // pictureBoxCountry
             // 
-            this.pictureBoxCountry.Image = global::MoviesApp.Properties.Resources.flag;
+            this.pictureBoxCountry.Image = global::MoviesApp.Properties.Resources.flag1;
             this.pictureBoxCountry.Location = new System.Drawing.Point(234, 110);
             this.pictureBoxCountry.Name = "pictureBoxCountry";
             this.pictureBoxCountry.Size = new System.Drawing.Size(30, 30);

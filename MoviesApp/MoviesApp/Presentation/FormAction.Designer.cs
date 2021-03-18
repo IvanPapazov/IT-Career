@@ -84,7 +84,7 @@ namespace MoviesApp.Presentation
             this.buttonDescription.TabIndex = 25;
             this.buttonDescription.Text = "Описание";
             this.buttonDescription.UseVisualStyleBackColor = true;
-            this.buttonDescription.Click += new System.EventHandler(this.buttonDescription_Click);
+           this.buttonDescription.Click += new System.EventHandler(this.buttonDescription_Click);
             // 
             // button4
             // 
@@ -103,7 +103,7 @@ namespace MoviesApp.Presentation
             this.buttonPlaylist.TabIndex = 23;
             this.buttonPlaylist.Text = "Плейлист";
             this.buttonPlaylist.UseVisualStyleBackColor = true;
-            this.buttonPlaylist.Click += new System.EventHandler(this.buttonPlaylist_Click);
+           this.buttonPlaylist.Click += new System.EventHandler(this.buttonPlaylist_Click);
             // 
             // textBox4
             // 

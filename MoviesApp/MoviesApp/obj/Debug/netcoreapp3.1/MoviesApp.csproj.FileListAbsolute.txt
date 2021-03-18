@@ -441,3 +441,6 @@ C:\Users\Petar\Desktop\FinalVer\MovieApp2(16.03)\MoviesApp\MoviesApp\obj\Debug\n
 C:\Users\Petar\Desktop\FinalVer\MovieApp2(16.03)\MoviesApp\MoviesApp\obj\Debug\netcoreapp3.1\MoviesApp.Presentation.PlaylistForm.resources
 C:\Users\Petar\Desktop\FinalVer\MovieApp2(16.03)\MoviesApp\MoviesApp\obj\Debug\netcoreapp3.1\MoviesApp.Presentation.AddPlaylistForm.resources
 C:\Users\Petar\Desktop\FinalVer\MovieApp2(16.03)\MoviesApp\MoviesApp\obj\Debug\netcoreapp3.1\MoviesApp.Presentation.DescriptionForm.resources
+C:\Users\User_1\Desktop\ProjectFullDatabase\MoviesApp\MoviesApp\obj\Debug\netcoreapp3.1\MoviesApp.Presentation.AddPlaylistForm.resources
+C:\Users\User_1\Desktop\ProjectFullDatabase\MoviesApp\MoviesApp\obj\Debug\netcoreapp3.1\MoviesApp.Presentation.DescriptionForm.resources
+C:\Users\User_1\Desktop\ProjectFullDatabase\MoviesApp\MoviesApp\obj\Debug\netcoreapp3.1\MoviesApp.Presentation.PlaylistForm.resources
