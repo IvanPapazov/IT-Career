@@ -6,6 +6,8 @@ using MoviesApp.Presentation;
 using System.IO;
 using System.Collections.Generic;
 using MoviesApp.Business;
+using System.Linq;
+using MoviesApp.Resources;
 
 namespace MoviesApp
 {
@@ -16,8 +18,10 @@ namespace MoviesApp
             InitializeComponent();
 
         }
+        
         private void Form1_Load(object sender, EventArgs e)
         {
+            labelError.Visible = false;
             this.CenterToScreen();
             EnsureDateBaseIsCreated();
            
@@ -774,6 +778,44 @@ namespace MoviesApp
         private void button2_MouseLeave(object sender, EventArgs e)
         {
             button2.BackColor = Color.Silver;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            string name = textBoxSearch.Text;
+            MovieInformation.form1 = this;
+            ShowMovieInForm(name);
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                string name = textBoxSearch.Text;
+                MovieInformation.form1 = this;
+                ShowMovieInForm(name);             
+            }
+        }
+        public void ShowMovieInForm(string name)
+        {
+            Movie movie = bc.GetAllMovies().Where(m => m.MovieTitle == name).FirstOrDefault();
+            if (movie!=null)
+            {
+                if (movie.MovieTitle == name)
+                {
+                    var film = new Film(movie);
+                    MovieInformation.film = film;
+                    MovieInformation.IndexGenre = 1;
+                    MovieInformation.GenreLetter = "A";
+                    MovieInformation.film.Show();
+                    labelError.Visible = false;
+                }
+                else
+                {
+                    labelError.Visible = true;
+                }
+            }
+            
         }
 
         private void buttonPlaylsit_Click(object sender, EventArgs e)
