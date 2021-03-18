@@ -65,7 +65,14 @@ namespace MoviesApp.Business
             {
                 return movieContext.MoviesActors.ToList();
             }
-        }
+        }//Dani
+        public List<MoviePlaylist> GetAllMoviePlaylists()
+        {
+            using (movieContext = new MovieContext())
+            {
+                return movieContext.MoviesPlaylists.ToList();
+            }
+        }//Petar
         public Movie GetMovie(int id)
         {
             using (movieContext = new MovieContext())
@@ -217,7 +224,7 @@ namespace MoviesApp.Business
                     {
                         if (playListMovie.PlaylistId == playlist.Id&& playListMovie.MovieId==movie.Id)
                         {
-                            movieContext.MoviesPlaylists.Remove(playListMovie);
+                            movieContext.MoviesPlaylists.Remove(playListMovie);                          
                             break;
                         }
                     }

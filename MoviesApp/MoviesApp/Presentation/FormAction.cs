@@ -568,6 +568,22 @@ namespace MoviesApp.Presentation
             this.Hide();
         }
 
+        private void buttonPlaylist_Click(object sender, EventArgs e)
+        {
+            var playlistForm = new PlaylistForm("FormAction");
+            playlistForm.Show();
+            MovieInformation.formAction = this;
+            this.Hide();
+        }
+
+        private void buttonDescription_Click(object sender, EventArgs e)
+        {
+            var formDescription = new DescriptionForm("FormAction");
+            MovieInformation.formAction = this;
+            formDescription.Show();
+            this.Hide();
+        }
+
         private void pictureBox2_Click(object sender, EventArgs e)//NEXT
         {
             //defining what is the NEXT page

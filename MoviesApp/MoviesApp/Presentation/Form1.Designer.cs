@@ -49,9 +49,9 @@ namespace MoviesApp
             this.button17 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button18 = new System.Windows.Forms.Button();
+            this.buttonDescription = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonPlaylist = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -274,9 +274,9 @@ namespace MoviesApp
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button18);
+            this.groupBox2.Controls.Add(this.buttonDescription);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.buttonPlaylist);
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Location = new System.Drawing.Point(1, 61);
             this.groupBox2.Name = "groupBox2";
@@ -286,14 +286,15 @@ namespace MoviesApp
             this.groupBox2.Text = "groupBox2";
             this.groupBox2.Visible = false;
             // 
-            // button18
+            // buttonDescription
             // 
-            this.button18.Location = new System.Drawing.Point(21, 157);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(141, 43);
-            this.button18.TabIndex = 25;
-            this.button18.Text = "Помощ";
-            this.button18.UseVisualStyleBackColor = true;
+            this.buttonDescription.Location = new System.Drawing.Point(21, 157);
+            this.buttonDescription.Name = "buttonDescription";
+            this.buttonDescription.Size = new System.Drawing.Size(141, 43);
+            this.buttonDescription.TabIndex = 25;
+            this.buttonDescription.Text = "Описание";
+            this.buttonDescription.UseVisualStyleBackColor = true;
+            this.buttonDescription.Click += new System.EventHandler(this.buttonDescription_Click);
             // 
             // button4
             // 
@@ -304,14 +305,15 @@ namespace MoviesApp
             this.button4.Text = "Добави филм";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonPlaylist
             // 
-            this.button3.Location = new System.Drawing.Point(21, 37);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(141, 43);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "Плейлист";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonPlaylist.Location = new System.Drawing.Point(21, 37);
+            this.buttonPlaylist.Name = "buttonPlaylist";
+            this.buttonPlaylist.Size = new System.Drawing.Size(141, 43);
+            this.buttonPlaylist.TabIndex = 23;
+            this.buttonPlaylist.Text = "Плейлист";
+            this.buttonPlaylist.UseVisualStyleBackColor = true;
+            this.buttonPlaylist.Click += new System.EventHandler(this.buttonPlaylsit_Click);
             // 
             // textBox4
             // 
@@ -437,8 +439,9 @@ namespace MoviesApp
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button buttonDescription;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonPlaylist;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label labelError;

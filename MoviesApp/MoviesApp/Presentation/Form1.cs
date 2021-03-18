@@ -942,5 +942,21 @@ namespace MoviesApp
         {
             button5.BackColor = Color.Silver;
         }
+
+        private void buttonPlaylsit_Click(object sender, EventArgs e)
+        {
+            var playlistForm = new PlaylistForm("Form1");
+            playlistForm.Show();
+            MovieInformation.form1 = this;
+            this.Hide();
+        }
+
+        private void buttonDescription_Click(object sender, EventArgs e)
+        {
+            var formDescription = new DescriptionForm("Form1");
+            MovieInformation.form1 = this;
+            formDescription.Show();
+            this.Hide();
+        }
     }
 }

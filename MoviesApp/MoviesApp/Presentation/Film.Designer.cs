@@ -44,10 +44,18 @@ namespace MoviesApp.Resources
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.textBoxCountry = new System.Windows.Forms.TextBox();
             this.pictureBoxHeart = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPlus = new System.Windows.Forms.PictureBox();
+            this.pictureBoxClock = new System.Windows.Forms.PictureBox();
+            this.pictureBoxYear = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCountry = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHeart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCountry)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -190,7 +198,7 @@ namespace MoviesApp.Resources
             this.textBoxTitle.Multiline = true;
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.ReadOnly = true;
-            this.textBoxTitle.Size = new System.Drawing.Size(823, 79);
+            this.textBoxTitle.Size = new System.Drawing.Size(753, 79);
             this.textBoxTitle.TabIndex = 12;
             this.textBoxTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxTitle.TextChanged += new System.EventHandler(this.textBoxTitle_TextChanged);
@@ -220,7 +228,6 @@ namespace MoviesApp.Resources
             this.textBoxCountry.Size = new System.Drawing.Size(210, 54);
             this.textBoxCountry.TabIndex = 19;
             this.textBoxCountry.Text = "kkkkk";
-            this.textBoxCountry.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBoxHeart
             // 
@@ -235,12 +242,57 @@ namespace MoviesApp.Resources
             this.pictureBoxHeart.MouseEnter += new System.EventHandler(this.pictureBoxHeart_MouseEnter);
             this.pictureBoxHeart.MouseLeave += new System.EventHandler(this.pictureBoxHeart_MouseLeave);
             // 
+            // pictureBoxPlus
+            // 
+            this.pictureBoxPlus.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPlus.Image")));
+            this.pictureBoxPlus.Location = new System.Drawing.Point(831, 15);
+            this.pictureBoxPlus.Name = "pictureBoxPlus";
+            this.pictureBoxPlus.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxPlus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPlus.TabIndex = 21;
+            this.pictureBoxPlus.TabStop = false;
+            this.pictureBoxPlus.Click += new System.EventHandler(this.pictureBoxPlus_Click_1);
+            // 
+            // pictureBoxClock
+            // 
+            this.pictureBoxClock.Image = global::MoviesApp.Properties.Resources.clock;
+            this.pictureBoxClock.Location = new System.Drawing.Point(129, 110);
+            this.pictureBoxClock.Name = "pictureBoxClock";
+            this.pictureBoxClock.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxClock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxClock.TabIndex = 22;
+            this.pictureBoxClock.TabStop = false;
+            // 
+            // pictureBoxYear
+            // 
+            this.pictureBoxYear.Image = global::MoviesApp.Properties.Resources.year2;
+            this.pictureBoxYear.Location = new System.Drawing.Point(1, 110);
+            this.pictureBoxYear.Name = "pictureBoxYear";
+            this.pictureBoxYear.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxYear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxYear.TabIndex = 23;
+            this.pictureBoxYear.TabStop = false;
+            // 
+            // pictureBoxCountry
+            // 
+            this.pictureBoxCountry.Image = global::MoviesApp.Properties.Resources.flag;
+            this.pictureBoxCountry.Location = new System.Drawing.Point(234, 110);
+            this.pictureBoxCountry.Name = "pictureBoxCountry";
+            this.pictureBoxCountry.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxCountry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCountry.TabIndex = 24;
+            this.pictureBoxCountry.TabStop = false;
+            // 
             // Film
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(963, 713);
+            this.Controls.Add(this.pictureBoxCountry);
+            this.Controls.Add(this.pictureBoxYear);
+            this.Controls.Add(this.pictureBoxClock);
+            this.Controls.Add(this.pictureBoxPlus);
             this.Controls.Add(this.pictureBoxHeart);
             this.Controls.Add(this.textBoxCountry);
             this.Controls.Add(this.pictureBoxBack);
@@ -262,6 +314,10 @@ namespace MoviesApp.Resources
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHeart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCountry)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +340,9 @@ namespace MoviesApp.Resources
         private System.Windows.Forms.PictureBox pictureBoxBack;
         private System.Windows.Forms.TextBox textBoxCountry;
         private System.Windows.Forms.PictureBox pictureBoxHeart;
+        private System.Windows.Forms.PictureBox pictureBoxPlus;
+        private System.Windows.Forms.PictureBox pictureBoxClock;
+        private System.Windows.Forms.PictureBox pictureBoxYear;
+        private System.Windows.Forms.PictureBox pictureBoxCountry;
     }
 }
