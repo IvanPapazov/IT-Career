@@ -583,7 +583,6 @@ namespace MoviesApp.Presentation
             formDescription.Show();
             this.Hide();
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)//NEXT
         {
             //defining what is the NEXT page
@@ -629,7 +628,6 @@ namespace MoviesApp.Presentation
             //do the actions
 
         }
-
         private void pictureBox3_Click(object sender, EventArgs e)//BACK
         {
             //defining which is the PREVIOUS page
@@ -664,6 +662,14 @@ namespace MoviesApp.Presentation
                 canReturnPage = true;
                 ShowImages(MovieInformation.IndexGenre, MovieInformation.GenreLetter);
             }
+        }
+
+        private void buttonAddMovie_Click(object sender, EventArgs e)
+        {
+            var addMovieForm = new AddMovieForm("FormAction");
+            MovieInformation.formAction = this;
+            addMovieForm.Show();
+            this.Hide();
         }
     }
 }

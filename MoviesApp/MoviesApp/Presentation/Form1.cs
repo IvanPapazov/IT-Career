@@ -418,46 +418,46 @@ namespace MoviesApp
                 bc.Add(m);
 
             }
-            bc.AddActorsInMovie(titanicActors, 1);
-            bc.AddActorsInMovie(avatarActors, 2);
-            bc.AddActorsInMovie(terminatorActors, 3);
-            bc.AddActorsInMovie(OhGrandDadActors, 4);
-            bc.AddActorsInMovie(duskActors, 5);
-            bc.AddActorsInMovie(redHatActors, 6);
-            bc.AddActorsInMovie(avengersActors, 7);
-            bc.AddActorsInMovie(theAlienActors, 8);
-            bc.AddActorsInMovie(blueLagunaActors, 9);
-            bc.AddActorsInMovie(anabelActors, 10);
-            bc.AddActorsInMovie(theConjuringActors, 11);
-            bc.AddActorsInMovie(theEmptyManActors, 12);
-            bc.AddActorsInMovie(theHappyDeadDayActors, 13);
-            bc.AddActorsInMovie(apostleActors, 14);
-            bc.AddActorsInMovie(theAssaultActors, 15);
-            bc.AddActorsInMovie(forTheSoulActors, 16);
-            bc.AddActorsInMovie(monstersOODActors, 17);
-            bc.AddActorsInMovie(angryBirdsActors, 18);
-            bc.AddActorsInMovie(despicableMeActors, 19);
-            bc.AddActorsInMovie(indianaJonesActors, 20);
-            bc.AddActorsInMovie(hobbitActors, 21);
-            bc.AddActorsInMovie(lordOfTheRingsActors, 22);
-            bc.AddActorsInMovie(fAndFuriousActors, 23);
-            bc.AddActorsInMovie(fAndFurious6Actors, 24);
-            bc.AddActorsInMovie(hedgehogActors, 25);
-            bc.AddActorsInMovie(dogDrawerActors, 26);
-            bc.AddActorsInMovie(timeDiffActors, 27);
-            bc.AddActorsInMovie(gentlemenForADayActors, 28);
-            bc.AddActorsInMovie(the3ofTheStockActors, 29);
-            bc.AddActorsInMovie(menTimesActors, 30);
-            bc.AddActorsInMovie(schindlerListsActors, 31);
-            bc.AddActorsInMovie(braveHeartActors, 32);
-            bc.AddActorsInMovie(gladiatorActors, 33);
-            bc.AddActorsInMovie(thePoorRichActors, 34);
-            bc.AddActorsInMovie(interstellarActors, 35);
-            bc.AddActorsInMovie(starWars4Actors, 36);
-            bc.AddActorsInMovie(starWars6Actors, 37);
-            bc.AddActorsInMovie(ocean11Actors, 38);
-            bc.AddActorsInMovie(rockyActors, 39);
-            bc.AddActorsInMovie(menOfHonorActors, 40);
+            bc.AddActorsForMovie(titanicActors, 1);
+            bc.AddActorsForMovie(avatarActors, 2);
+            bc.AddActorsForMovie(terminatorActors, 3);
+            bc.AddActorsForMovie(OhGrandDadActors, 4);
+            bc.AddActorsForMovie(duskActors, 5);
+            bc.AddActorsForMovie(redHatActors, 6);
+            bc.AddActorsForMovie(avengersActors, 7);
+            bc.AddActorsForMovie(theAlienActors, 8);
+            bc.AddActorsForMovie(blueLagunaActors, 9);
+            bc.AddActorsForMovie(anabelActors, 10);
+            bc.AddActorsForMovie(theConjuringActors, 11);
+            bc.AddActorsForMovie(theEmptyManActors, 12);
+            bc.AddActorsForMovie(theHappyDeadDayActors, 13);
+            bc.AddActorsForMovie(apostleActors, 14);
+            bc.AddActorsForMovie(theAssaultActors, 15);
+            bc.AddActorsForMovie(forTheSoulActors, 16);
+            bc.AddActorsForMovie(monstersOODActors, 17);
+            bc.AddActorsForMovie(angryBirdsActors, 18);
+            bc.AddActorsForMovie(despicableMeActors, 19);
+            bc.AddActorsForMovie(indianaJonesActors, 20);
+            bc.AddActorsForMovie(hobbitActors, 21);
+            bc.AddActorsForMovie(lordOfTheRingsActors, 22);
+            bc.AddActorsForMovie(fAndFuriousActors, 23);
+            bc.AddActorsForMovie(fAndFurious6Actors, 24);
+            bc.AddActorsForMovie(hedgehogActors, 25);
+            bc.AddActorsForMovie(dogDrawerActors, 26);
+            bc.AddActorsForMovie(timeDiffActors, 27);
+            bc.AddActorsForMovie(gentlemenForADayActors, 28);
+            bc.AddActorsForMovie(the3ofTheStockActors, 29);
+            bc.AddActorsForMovie(menTimesActors, 30);
+            bc.AddActorsForMovie(schindlerListsActors, 31);
+            bc.AddActorsForMovie(braveHeartActors, 32);
+            bc.AddActorsForMovie(gladiatorActors, 33);
+            bc.AddActorsForMovie(thePoorRichActors, 34);
+            bc.AddActorsForMovie(interstellarActors, 35);
+            bc.AddActorsForMovie(starWars4Actors, 36);
+            bc.AddActorsForMovie(starWars6Actors, 37);
+            bc.AddActorsForMovie(ocean11Actors, 38);
+            bc.AddActorsForMovie(rockyActors, 39);
+            bc.AddActorsForMovie(menOfHonorActors, 40);
 
 
             genresId = new List<int>() { 9, 12 };
@@ -956,6 +956,13 @@ namespace MoviesApp
             var formDescription = new DescriptionForm("Form1");
             MovieInformation.form1 = this;
             formDescription.Show();
+            this.Hide();
+        }
+        private void buttonAddMovie_Click(object sender, EventArgs e)
+        {
+            var addMovieForm = new AddMovieForm("Form1"); // to doo
+            MovieInformation.form1 = this;
+            addMovieForm.Show();
             this.Hide();
         }
     }
