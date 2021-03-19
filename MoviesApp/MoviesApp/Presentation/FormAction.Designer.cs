@@ -84,7 +84,7 @@ namespace MoviesApp.Presentation
             this.buttonDescription.TabIndex = 25;
             this.buttonDescription.Text = "Описание";
             this.buttonDescription.UseVisualStyleBackColor = true;
-           this.buttonDescription.Click += new System.EventHandler(this.buttonDescription_Click);
+            this.buttonDescription.Click += new System.EventHandler(this.buttonDescription_Click);
             // 
             // button4
             // 
@@ -103,7 +103,7 @@ namespace MoviesApp.Presentation
             this.buttonPlaylist.TabIndex = 23;
             this.buttonPlaylist.Text = "Плейлист";
             this.buttonPlaylist.UseVisualStyleBackColor = true;
-           this.buttonPlaylist.Click += new System.EventHandler(this.buttonPlaylist_Click);
+            this.buttonPlaylist.Click += new System.EventHandler(this.buttonPlaylist_Click);
             // 
             // textBox4
             // 
@@ -301,6 +301,7 @@ namespace MoviesApp.Presentation
             this.button2.TabIndex = 24;
             this.button2.Text = "Актьори";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -327,7 +328,6 @@ namespace MoviesApp.Presentation
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::MoviesApp.Properties.Resources.nextPage;
             this.pictureBox2.Location = new System.Drawing.Point(580, 586);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 31);
@@ -338,7 +338,6 @@ namespace MoviesApp.Presentation
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::MoviesApp.Properties.Resources.backArrow;
             this.pictureBox3.Location = new System.Drawing.Point(299, 586);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(40, 31);

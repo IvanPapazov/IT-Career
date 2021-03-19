@@ -39,7 +39,7 @@ namespace MoviesApp.Presentation
             // 
             this.dataGridViewPlaylists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPlaylists.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dataGridViewPlaylists.Location = new System.Drawing.Point(155, 12);
+            this.dataGridViewPlaylists.Location = new System.Drawing.Point(14, 43);
             this.dataGridViewPlaylists.Name = "dataGridViewPlaylists";
             this.dataGridViewPlaylists.RowHeadersWidth = 4;
             this.dataGridViewPlaylists.RowTemplate.Height = 29;
@@ -51,7 +51,7 @@ namespace MoviesApp.Presentation
             // 
             this.labelChoose.AutoSize = true;
             this.labelChoose.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelChoose.Location = new System.Drawing.Point(12, 12);
+            this.labelChoose.Location = new System.Drawing.Point(41, 9);
             this.labelChoose.Name = "labelChoose";
             this.labelChoose.Size = new System.Drawing.Size(98, 31);
             this.labelChoose.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace MoviesApp.Presentation
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAdd.Location = new System.Drawing.Point(155, 306);
+            this.buttonAdd.Location = new System.Drawing.Point(12, 350);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(141, 61);
             this.buttonAdd.TabIndex = 2;
@@ -72,12 +72,11 @@ namespace MoviesApp.Presentation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 370);
+            this.ClientSize = new System.Drawing.Size(173, 422);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.labelChoose);
             this.Controls.Add(this.dataGridViewPlaylists);
             this.Name = "AddPlaylistForm";
-            this.Text = "AddPlaylistForm";
             this.Load += new System.EventHandler(this.AddPlaylistForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlaylists)).EndInit();
             this.ResumeLayout(false);

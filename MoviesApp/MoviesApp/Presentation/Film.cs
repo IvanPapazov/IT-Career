@@ -17,10 +17,11 @@ namespace MoviesApp.Resources
     {
         Movie movie;
         MovieBusiness bc = new MovieBusiness();
-
-        public Film(Movie movie)
+        string previousForm;
+        public Film(Movie movie,string previousForm)
         {
             this.movie = movie;
+            this.previousForm = previousForm;
             InitializeComponent();
         }
 
@@ -81,12 +82,16 @@ namespace MoviesApp.Resources
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             MovieInformation.film = this; 
-            if (MovieInformation.formAction!=null)
+            if (previousForm=="Form1")
+            {
+               Form1 form1 = MovieInformation.form1;
+                form1.Show();
+            }
+            else if (previousForm=="FormAction")
             {
                 FormAction formAction = MovieInformation.formAction;
                 formAction.Show();
             }
-           
             this.Close();
         }
 
@@ -189,6 +194,18 @@ namespace MoviesApp.Resources
         {
             var playlistForm = new AddPlaylistForm(this.movie);
             playlistForm.Show();
+        }
+
+        private void Film_MouseEnter(object sender, EventArgs e)
+        {
+            if (movie.IsLiked)
+            {
+                pictureBoxHeart.Image = Image.FromFile("otherResources\\heart1.png");
+            }
+            else
+            {
+                pictureBoxHeart.Image = Image.FromFile("otherResources\\heart2.png");
+            }
         }
     }
 }

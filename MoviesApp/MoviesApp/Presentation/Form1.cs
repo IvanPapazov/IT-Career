@@ -785,12 +785,12 @@ namespace MoviesApp
         int countMovieInCollection = 1;
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "Няма съвпадения";
+            textBox3.Text = "";
             countMovieInCollection = 1;
             string name = textBoxSearch.Text;
             MovieInformation.form1 = this;
             ShowMovieInForm(name);
-           
+
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -804,72 +804,82 @@ namespace MoviesApp
         }
         public void ShowMovieInForm(string name)
         {
-            Movie movie = SearchMovie(name);
-            if (movie!=null)
+            //List<Movie> moviesSearched = SearchMovie(name);
+            //int countMovie = 1;
+            //if (moviesSearched != null)
+            //{
+            //    foreach (var movieSearched in moviesSearched)
+            //    {
+            //        textBox3.Text += $"{countMovie}" + movieSearched.MovieTitle + "\n";
+            //        countMovie++;
+            //    }
+            //}
+
+            Movie movie = bc.GetAllMovies().Where(m => m.MovieTitle.Equals(name)).FirstOrDefault();
+
+            if (movie != null)
             {
-                textBox3.Text = movie.MovieTitle;
+                Genre movieGenre = bc.FindGenresOfMovie(movie.Id)[0];
+                DefineGenre(movieGenre, movie);
+                var film = new Film(movie, "Form1");
+                MovieInformation.film = film;
+                MovieInformation.film.Show();
+                labelError.Visible = false;
             }
-            
-            //Movie movie = bc.GetAllMovies().Where(m => m.MovieTitle.Equals(name)).FirstOrDefault();
-            ////Movie movie = SearchMovie(name);
-            //Genre movieGenre = bc.FindGenresOfMovie(movie.Id)[0];
-
-            //if (movie!=null)
-            //{
-            //    DefineGenre(movieGenre,movie);
-            //    var film = new Film(movie);
-            //    MovieInformation.film = film;
-            //    MovieInformation.film.Show();
-            //    labelError.Visible = false;
-            //}
-            //else
-            //{
-            //    labelError.Visible = true;
-            //}
-
+            else
+            {
+                labelError.Visible = true;
+            }
+            textBoxSearch.Text = "";
         }
 
-        private Movie SearchMovie(string name)
+        private List<Movie> SearchMovie(string name)
         {
             List<Movie> movies = bc.GetAllMovies();
             List<string> moviesTitles = new List<string>();
-            
+            List<Movie> moviesSearched = new List<Movie>();
+            Movie movieSearched = null;
+
+            if (name.Length == 1)
+            {
+                return null;
+            }
+
             foreach (var movie in movies)
             {
-                moviesTitles.Add(movie.MovieTitle);
-                
+                moviesTitles.Add(movie.MovieTitle.ToLower());
             }
             int countMovie = 0;
             foreach (var movie in moviesTitles)
             {
-                if (movie.Split(' ').Length > 1)
+                if (movie.ToLower() == name.ToLower())
+                {
+                    movieSearched = movies[countMovie];
+                    moviesSearched.Add(movieSearched);
+                }
+                else
                 {
                     string[] words = movie.Split(' ').ToArray();
                     foreach (var word in words)
                     {
-                        //movieSplitName.Add(word);
-                        if (word.Contains(name))
+                        if (word.Contains(name.ToLower()))
                         {
-                            return movies[countMovie];
+                            movieSearched = movies[countMovie];
+                            moviesSearched.Add(movieSearched);
                         }
                     }
-
                 }
                 countMovie++;
             }
-            return null;
-           // textBox3.Text = string.Join(",  ", movieSplitName);
-
-            //foreach (var item in movieSplitName)
-            //{
-            //    textBox3.Text += item;
-            //}
+            countMovie = 0;
+            moviesSearched.Distinct();
+            return moviesSearched;
         }
 
         private void DefineGenre(Genre genre, Movie movie)
         {
             List<Movie> movies = bc.FindMoviesFromGenre(genre.Id).ToList();
-            Movie currMovie=FindMovie(movie.MovieTitle,movies);
+            Movie currMovie = FindMovie(movie.MovieTitle, movies);
             MovieInformation.IndexMovie = countMovieInCollection;
 
             switch (genre.Title)
@@ -880,10 +890,10 @@ namespace MoviesApp
                 case "Приключенски":
                     MovieInformation.LetterMovie = "Adv";
                     break;
-                case "Комедии":
+                case "Комедия":
                     MovieInformation.LetterMovie = "Comedy";
                     break;
-                case "Криминални":
+                case "Криминален":
                     MovieInformation.LetterMovie = "Criminal";
                     break;
                 case "Фентъзи":
@@ -898,7 +908,7 @@ namespace MoviesApp
                 case "Ужаси":
                     MovieInformation.LetterMovie = "Horror";
                     break;
-                case "Романтика":
+                case "Романтичен":
                     MovieInformation.LetterMovie = "Romance";
                     break;
                 case "Трилър":
@@ -919,7 +929,7 @@ namespace MoviesApp
         {
             foreach (var movie in movies)
             {
-                if (movie.MovieTitle==name)
+                if (movie.MovieTitle == name)
                 {
                     return movie;
                 }
@@ -929,8 +939,50 @@ namespace MoviesApp
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
-        {
-
+        {    
+            string name = textBoxSearch.Text;
+            textBox3.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox3.Visible = false;
+            textBox5.Visible = false;
+            textBox6.Visible = false;
+            textBox7.Text = textBoxSearch.Text;
+            textBox7.Font = new Font(textBox7.Font.FontFamily, 10);
+            if (textBoxSearch.Text.Length > 9)
+            {
+                textBox7.Visible = true;
+                pictureBox3.Visible = true;
+            }
+            else
+            {
+                textBox7.Visible=false;
+                pictureBox3.Visible = false;
+            }
+            List<Movie> moviesSearched = SearchMovie(name);
+            int countMovie = 1;
+            if (moviesSearched != null && name != "")
+            {
+                //TODO
+                if (moviesSearched.Count >= 1)
+                {
+                    textBox3.Visible = true;
+                    // string text = moviesSearched[0].MovieTitle.Substring(startIndex, name.Length-1);
+                    textBox3.Text = moviesSearched[0].MovieTitle;
+                    countMovie++;
+                }
+                if (moviesSearched.Count >= 2 && moviesSearched[1] != moviesSearched[0])
+                {
+                    textBox5.Visible = true;
+                    textBox5.Text = moviesSearched[1].MovieTitle;
+                    countMovie++;
+                }
+                if (moviesSearched.Count == 3)
+                {
+                    textBox6.Visible = true;
+                    textBox6.Text = moviesSearched[2].MovieTitle;
+                }
+            }
         }
 
         private void button5_MouseEnter(object sender, EventArgs e)
@@ -957,6 +1009,65 @@ namespace MoviesApp
             MovieInformation.form1 = this;
             formDescription.Show();
             this.Hide();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelError_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_Click(object sender, EventArgs e)
+        {
+            string nameMovieSearch = textBox3.Text;
+            textBox3.Text = "";
+            textBox3.Visible = false;
+            textBoxSearch.Text = nameMovieSearch;
+        }
+
+        private void textBox5_Click(object sender, EventArgs e)
+        {
+            string nameMovieSearch = textBox5.Text;
+            textBox5.Text = "";
+            textBox5.Visible = false;
+            textBoxSearch.Text = nameMovieSearch;
+        }
+
+        private void textBox6_Click(object sender, EventArgs e)
+        {
+            string nameMovieSearch = textBox6.Text;
+            textBox6.Text = "";
+            textBox6.Visible = false;
+            textBoxSearch.Text = nameMovieSearch;
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxSearch_MouseEnter(object sender, EventArgs e)
+        {
+            if (textBoxSearch.Text.Length > 9)
+            {
+                textBox7.Visible = true;
+                pictureBox3.Visible = true;
+            }
+        }
+
+        private void textBoxSearch_MouseLeave(object sender, EventArgs e)
+        {
+                textBox7.Visible = false;
+            pictureBox3.Visible = false;
+        }
+
+        private void textBox7_MouseLeave(object sender, EventArgs e)
+        {
+            //textBox7.Visible=false;
         }
     }
 }

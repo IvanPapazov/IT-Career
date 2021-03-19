@@ -72,10 +72,10 @@ namespace MoviesApp.Resources
             // 
             this.labelYear.AutoSize = true;
             this.labelYear.Enabled = false;
-            this.labelYear.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.labelYear.Font = new System.Drawing.Font("Segoe UI", 13.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.labelYear.Location = new System.Drawing.Point(37, 105);
             this.labelYear.Name = "labelYear";
-            this.labelYear.Size = new System.Drawing.Size(99, 35);
+            this.labelYear.Size = new System.Drawing.Size(92, 31);
             this.labelYear.TabIndex = 3;
             this.labelYear.Text = "kkkkkk";
             this.labelYear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -121,10 +121,10 @@ namespace MoviesApp.Resources
             // 
             this.labelDuration.AutoSize = true;
             this.labelDuration.Enabled = false;
-            this.labelDuration.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.labelDuration.Font = new System.Drawing.Font("Segoe UI", 13.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.labelDuration.Location = new System.Drawing.Point(165, 105);
             this.labelDuration.Name = "labelDuration";
-            this.labelDuration.Size = new System.Drawing.Size(127, 35);
+            this.labelDuration.Size = new System.Drawing.Size(118, 31);
             this.labelDuration.TabIndex = 8;
             this.labelDuration.Text = "kkkkkkkk";
             this.labelDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -219,7 +219,7 @@ namespace MoviesApp.Resources
             this.textBoxCountry.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxCountry.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCountry.Enabled = false;
-            this.textBoxCountry.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.textBoxCountry.Font = new System.Drawing.Font("Segoe UI", 13.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.textBoxCountry.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBoxCountry.Location = new System.Drawing.Point(270, 105);
             this.textBoxCountry.Multiline = true;
@@ -255,7 +255,7 @@ namespace MoviesApp.Resources
             // 
             // pictureBoxClock
             // 
-            this.pictureBoxClock.Image = global::MoviesApp.Properties.Resources.clock1;
+            this.pictureBoxClock.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxClock.Image")));
             this.pictureBoxClock.Location = new System.Drawing.Point(129, 110);
             this.pictureBoxClock.Name = "pictureBoxClock";
             this.pictureBoxClock.Size = new System.Drawing.Size(30, 30);
@@ -265,7 +265,7 @@ namespace MoviesApp.Resources
             // 
             // pictureBoxYear
             // 
-            this.pictureBoxYear.Image = global::MoviesApp.Properties.Resources.year21;
+            this.pictureBoxYear.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxYear.Image")));
             this.pictureBoxYear.Location = new System.Drawing.Point(1, 110);
             this.pictureBoxYear.Name = "pictureBoxYear";
             this.pictureBoxYear.Size = new System.Drawing.Size(30, 30);
@@ -275,7 +275,7 @@ namespace MoviesApp.Resources
             // 
             // pictureBoxCountry
             // 
-            this.pictureBoxCountry.Image = global::MoviesApp.Properties.Resources.flag1;
+            this.pictureBoxCountry.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCountry.Image")));
             this.pictureBoxCountry.Location = new System.Drawing.Point(234, 110);
             this.pictureBoxCountry.Name = "pictureBoxCountry";
             this.pictureBoxCountry.Size = new System.Drawing.Size(30, 30);
@@ -310,6 +310,7 @@ namespace MoviesApp.Resources
             this.Name = "Film";
             this.Text = "Film";
             this.Load += new System.EventHandler(this.Film_Load);
+            this.MouseEnter += new System.EventHandler(this.Film_MouseEnter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();

@@ -290,7 +290,7 @@ namespace MoviesApp.Presentation
                     MovieInformation.LetterMovie = genreLetter;
 
                     MovieInformation.formAction = this;
-                    var film = new Film(movie);
+                    var film = new Film(movie,"FormAction");
                     MovieInformation.film = film;
                     MovieInformation.film.Show();
                     this.Hide();
@@ -391,7 +391,7 @@ namespace MoviesApp.Presentation
                     MovieInformation.LetterMovie = genreLetter;
 
                     MovieInformation.formAction = this;
-                    var film = new Film(movie);
+                    var film = new Film(movie,"FormAction");
                     MovieInformation.film = film;
                     MovieInformation.film.Show();
                     this.Hide();
@@ -664,6 +664,14 @@ namespace MoviesApp.Presentation
                 canReturnPage = true;
                 ShowImages(MovieInformation.IndexGenre, MovieInformation.GenreLetter);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MovieInformation.formAction = this;
+            var formActors = new Actors();
+            MovieInformation.actors = formActors;
+            MovieInformation.actors.Show();
         }
     }
 }
