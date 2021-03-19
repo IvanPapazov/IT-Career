@@ -27,9 +27,11 @@ namespace MoviesApp
             this.CenterToScreen();
             EnsureDateBaseIsCreated();
             pictureBox2.Visible = true;
+            VisualizeMainPictureBoxes();
         }
         MovieBusiness bc;
         string description = "";
+        int countMovieInCollection = 1;
         private void FullDatabase()
         {
             List<string> descriptions = new List<string>();
@@ -782,7 +784,6 @@ namespace MoviesApp
         {
             button2.BackColor = Color.Silver;
         }
-        int countMovieInCollection = 1;
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             textBox3.Text = "Няма съвпадения";
@@ -868,6 +869,7 @@ namespace MoviesApp
 
         private void DefineGenre(Genre genre, Movie movie)
         {
+            countMovieInCollection = 1;
             List<Movie> movies = bc.FindMoviesFromGenre(genre.Id).ToList();
             Movie currMovie=FindMovie(movie.MovieTitle,movies);
             MovieInformation.IndexMovie = countMovieInCollection;
@@ -880,10 +882,10 @@ namespace MoviesApp
                 case "Приключенски":
                     MovieInformation.LetterMovie = "Adv";
                     break;
-                case "Комедии":
+                case "Комедия":
                     MovieInformation.LetterMovie = "Comedy";
                     break;
-                case "Криминални":
+                case "Криминален":
                     MovieInformation.LetterMovie = "Criminal";
                     break;
                 case "Фентъзи":
@@ -898,7 +900,7 @@ namespace MoviesApp
                 case "Ужаси":
                     MovieInformation.LetterMovie = "Horror";
                     break;
-                case "Романтика":
+                case "Романтичен":
                     MovieInformation.LetterMovie = "Romance";
                     break;
                 case "Трилър":
@@ -964,6 +966,190 @@ namespace MoviesApp
             MovieInformation.form1 = this;
             addMovieForm.Show();
             this.Hide();
+        }
+
+        private List<Movie> GetRandomMovies()
+        {
+            Random rnd = new Random();
+            List<Movie> allMovies = bc.GetAllMovies();
+            int CountOfRemainedMovies = allMovies.Count;
+
+            List<Movie> toBeGeneratedMovies = new List<Movie>();
+            for (int i = 0; i < 12; i++) // 12 times to generate 12 movies
+            {
+                int randomMovieIndex = rnd.Next(0, CountOfRemainedMovies);
+                toBeGeneratedMovies.Add(allMovies[randomMovieIndex]);
+                allMovies.RemoveAt(randomMovieIndex);
+                CountOfRemainedMovies--;
+            }
+
+            return toBeGeneratedMovies;
+        }
+
+
+        private void VisualizeMainPictureBoxes()
+        {
+            List<Movie> randomMovies = GetRandomMovies();
+            //int indexOfPBox = 1;
+            for (int movieID = 0; movieID < randomMovies.Count; movieID++)
+            {
+                Genre firstGenre = bc.FindGenresOfMovie(randomMovies[movieID].Id)[0];
+                DefineGenre(firstGenre, randomMovies[movieID]);
+                string fileName = $"fotos{MovieInformation.LetterMovie}\\{MovieInformation.LetterMovie}{MovieInformation.IndexMovie}.jpg";
+                switch (movieID)
+                {
+                    case 0:
+                        pictureBoxFilm1.Image = Image.FromFile(fileName);
+                        // TODO
+                        pictureBoxFilm1.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[0].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[0]);
+                            var film = new Film(randomMovies[0]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+
+                        break;
+                    case 1:
+                        pictureBoxFilm2.Image = Image.FromFile(fileName);
+                        // TODO
+                        pictureBoxFilm2.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[1].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[1]);
+                            var film = new Film(randomMovies[1]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        pictureBoxFilm2.Image = Image.FromFile(fileName);
+                        break;
+                    case 2:
+                        pictureBoxFilm3.Image = Image.FromFile(fileName);
+                        pictureBoxFilm3.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[2].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[2]);
+                            var film = new Film(randomMovies[2]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 3:
+                        pictureBoxFilm4.Image = Image.FromFile(fileName);
+                        pictureBoxFilm4.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[3].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[3]);
+                            var film = new Film(randomMovies[3]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 4:
+                        pictureBoxFilm5.Image = Image.FromFile(fileName);
+                        pictureBoxFilm5.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[4].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[4]);
+                            var film = new Film(randomMovies[4]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 5:
+                        pictureBoxFilm6.Image = Image.FromFile(fileName);
+                        pictureBoxFilm6.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[5].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[5]);
+                            var film = new Film(randomMovies[5]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 6:
+                        pictureBoxFilm7.Image = Image.FromFile(fileName);
+                        pictureBoxFilm7.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[6].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[6]);
+                            var film = new Film(randomMovies[6]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 7:
+                        pictureBoxFilm8.Image = Image.FromFile(fileName);
+                        pictureBoxFilm8.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[7].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[7]);
+                            var film = new Film(randomMovies[7]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 8:
+                        pictureBoxFilm9.Image = Image.FromFile(fileName);
+                        pictureBoxFilm9.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[8].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[8]);
+                            var film = new Film(randomMovies[8]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 9:
+                        pictureBoxFilm10.Image = Image.FromFile(fileName);
+                        pictureBoxFilm10.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[9].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[9]);
+                            var film = new Film(randomMovies[9]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 10:
+                        pictureBoxFilm11.Image = Image.FromFile(fileName);
+                        pictureBoxFilm11.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[10].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[10]);
+                            var film = new Film(randomMovies[10]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 11:
+                        pictureBoxFilm12.Image = Image.FromFile(fileName);
+                        pictureBoxFilm12.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[11].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[11]);
+                            var film = new Film(randomMovies[11]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }
