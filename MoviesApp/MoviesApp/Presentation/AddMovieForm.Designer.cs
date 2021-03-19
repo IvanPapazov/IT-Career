@@ -266,6 +266,7 @@ namespace MoviesApp.Presentation
             this.pictureBoxDragDrob.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxDragDrob.TabIndex = 0;
             this.pictureBoxDragDrob.TabStop = false;
+            this.pictureBoxDragDrob.Click += new System.EventHandler(this.pictureBoxDragDrob_Click);
             this.pictureBoxDragDrob.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxDragDrob_DragDrop);
             this.pictureBoxDragDrob.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxDragDrob_DragEnter);
             // 

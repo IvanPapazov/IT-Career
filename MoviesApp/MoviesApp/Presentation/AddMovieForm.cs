@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Linq;
 using MoviesApp.Business;
+using System.Diagnostics;
 
 namespace MoviesApp.Presentation
 {
@@ -17,7 +18,6 @@ namespace MoviesApp.Presentation
             InitializeComponent();
             previousFormType = forms;
         }
-
         private void textBoxDirectorFirstName_MouseDown(object sender, MouseEventArgs e)
         {
             if (textBoxDirectorFirstName.ForeColor == Color.Silver || textBoxDirectorFirstName.ForeColor == Color.Red)
@@ -196,7 +196,7 @@ namespace MoviesApp.Presentation
         MovieBusiness mb = new MovieBusiness();
         private void pictureBoxApply_Click(object sender, EventArgs e)
         {
-            if (textBoxActorMan.ForeColor==Color.Silver|| textBoxActorMan.ForeColor == Color.Red)
+            if (textBoxActorMan.ForeColor == Color.Silver || textBoxActorMan.ForeColor == Color.Red)
             {
                 isFind = false;
                 textBoxActorMan.ForeColor = Color.Red;
@@ -341,7 +341,7 @@ namespace MoviesApp.Presentation
                     int movieDuration = int.Parse(textBoxMovieDuration.Text);
                     string movieCountry = textBoxMovieCountry.Text;
                     string movieDisctiption = textBoxMovieDiscription.Text;
-                    mb.AddMovieInDatabase(directorName,actors,genres,movieName,movieYear,movieDuration, movieCountry, movieDisctiption,data);
+                    mb.AddMovieInDatabase(directorName, actors, genres, movieName, movieYear, movieDuration, movieCountry, movieDisctiption, data);
 
                     data = null;
                     textBoxMovieName.ForeColor = Color.Silver;
@@ -367,12 +367,12 @@ namespace MoviesApp.Presentation
                     {
                         checkedListBoxMovieGenre.SetItemChecked(checkedListBoxMovieGenre.CheckedIndices[i], false);
                     }
-                }    
+                }
             }
         }
         private void checkedListBoxMovieGenre_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            
+
             checkedListBoxMovieGenre.ForeColor = Color.Black;
         }
         private void checkedListBoxMovieGenre_Leave(object sender, EventArgs e)
@@ -389,6 +389,15 @@ namespace MoviesApp.Presentation
         private void pictureBoxDragDrob_DragDrop(object sender, DragEventArgs e)
         {
             data = e.Data.GetData(DataFormats.FileDrop);
+        }
+        private void pictureBoxDragDrob_Click(object sender, EventArgs e)
+        {
+            var psi = new ProcessStartInfo
+            {
+                FileName = "C:\\",
+                UseShellExecute = true
+            };
+            Process.Start(psi);
         }
     }
 }
