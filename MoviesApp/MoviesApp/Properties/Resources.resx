@@ -133,6 +133,9 @@
   <data name="heart2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\netcoreapp3.1\otherResources\heart2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="year22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\netcoreapp3.1\otherResources\year2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="year21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\netcoreapp3.1\otherResources\year2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -141,6 +144,9 @@
   </data>
   <data name="backArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\netcoreapp3.1\otherResources\backArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nextPage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\netcoreapp3.1\otherResources\nextPage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\netcoreapp3.1\otherResources\image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,14 +160,11 @@
   <data name="backArrows" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\netcoreapp3.1\otherResources\backArrows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="year22" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\netcoreapp3.1\otherResources\year2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="2774651-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2774651-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="flag2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\netcoreapp3.1\otherResources\flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="flag1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\netcoreapp3.1\otherResources\flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="clock2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\netcoreapp3.1\otherResources\clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="more" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\netcoreapp3.1\otherResources\more.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +172,11 @@
   <data name="clock1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\netcoreapp3.1\otherResources\clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="clock2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\netcoreapp3.1\otherResources\clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="flag2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\netcoreapp3.1\otherResources\flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flag1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\netcoreapp3.1\otherResources\flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="back.Pagepng" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\netcoreapp3.1\otherResources\back.Pagepng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,7 +190,7 @@
   <data name="flag" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\netcoreapp3.1\otherResources\flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="2774651-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2774651-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="backArrow1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\netcoreapp3.1\otherResources\backArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

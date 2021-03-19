@@ -566,3 +566,4 @@ C:\Users\Petar\Desktop\19.03_MovieApp\MoviesApp\MoviesApp\obj\Debug\netcoreapp3.
 C:\Users\Petar\Desktop\19.03_MovieApp\MoviesApp\MoviesApp\obj\Debug\netcoreapp3.1\MoviesApp.dll
 C:\Users\Petar\Desktop\19.03_MovieApp\MoviesApp\MoviesApp\obj\Debug\netcoreapp3.1\MoviesApp.pdb
 C:\Users\Petar\Desktop\19.03_MovieApp\MoviesApp\MoviesApp\obj\Debug\netcoreapp3.1\MoviesApp.genruntimeconfig.cache
+C:\Users\User_1\Desktop\ProjectFullDatabase\MoviesApp\MoviesApp\obj\Debug\netcoreapp3.1\MoviesApp.Presentation.AddMovieForm.resources

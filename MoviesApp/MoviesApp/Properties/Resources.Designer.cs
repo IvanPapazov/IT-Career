@@ -123,9 +123,9 @@ namespace MoviesApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap backArrows {
+        internal static System.Drawing.Bitmap backArrow1 {
             get {
-                object obj = ResourceManager.GetObject("backArrows", resourceCulture);
+                object obj = ResourceManager.GetObject("backArrow1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace MoviesApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap backArrows1 {
+        internal static System.Drawing.Bitmap backArrows {
             get {
-                object obj = ResourceManager.GetObject("backArrows1", resourceCulture);
+                object obj = ResourceManager.GetObject("backArrows", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,26 +223,6 @@ namespace MoviesApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap images {
-            get {
-                object obj = ResourceManager.GetObject("images", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap img_464408 {
-            get {
-                object obj = ResourceManager.GetObject("img_464408", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap image1 {
             get {
                 object obj = ResourceManager.GetObject("image1", resourceCulture);
@@ -266,6 +246,16 @@ namespace MoviesApp.Properties {
         internal static System.Drawing.Bitmap nextPage {
             get {
                 object obj = ResourceManager.GetObject("nextPage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nextPage1 {
+            get {
+                object obj = ResourceManager.GetObject("nextPage1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

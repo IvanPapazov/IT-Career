@@ -293,7 +293,7 @@ namespace MoviesApp
             this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.button10);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Location = new System.Drawing.Point(92, 0);
+            this.groupBox1.Location = new System.Drawing.Point(93, 51);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(323, 311);
             this.groupBox1.TabIndex = 19;
@@ -307,8 +307,7 @@ namespace MoviesApp
             this.groupBox2.Controls.Add(this.buttonAddMovie);
             this.groupBox2.Controls.Add(this.buttonPlaylist);
             this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Location = new System.Drawing.Point(825, 90);
+            this.groupBox2.Location = new System.Drawing.Point(1, 61);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(192, 227);
             this.groupBox2.TabIndex = 0;
@@ -422,22 +421,6 @@ namespace MoviesApp
             this.textBox3.Click += new System.EventHandler(this.textBox3_Click);
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // textBox6
-            // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.Location = new System.Drawing.Point(542, 255);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(204, 89);
-            this.textBox6.TabIndex = 26;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox6.Visible = false;
-            this.textBox6.Click += new System.EventHandler(this.textBox6_Click);
-            // 
-            // textBox5
-            // 
             // pictureBoxFilm1
             // 
             this.pictureBoxFilm1.Location = new System.Drawing.Point(12, 87);
@@ -546,6 +529,22 @@ namespace MoviesApp
             this.pictureBoxFilm12.TabIndex = 36;
             this.pictureBoxFilm12.TabStop = false;
             // 
+            // textBox6
+            // 
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBox6.Location = new System.Drawing.Point(542, 255);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(204, 89);
+            this.textBox6.TabIndex = 26;
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox6.Visible = false;
+            this.textBox6.Click += new System.EventHandler(this.textBox6_Click);
+            // 
+            // textBox5
+            // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBox5.Location = new System.Drawing.Point(542, 166);
@@ -563,7 +562,7 @@ namespace MoviesApp
             this.textBox7.BackColor = System.Drawing.Color.LightSteelBlue;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.textBox7.Location = new System.Drawing.Point(380, 117);
+            this.textBox7.Location = new System.Drawing.Point(381, 120);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
@@ -589,29 +588,27 @@ namespace MoviesApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(842, 708);
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(784, 455);
+            this.ClientSize = new System.Drawing.Size(822, 691);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBoxFilm1);
             this.Controls.Add(this.pictureBoxFilm2);
             this.Controls.Add(this.pictureBoxFilm3);
             this.Controls.Add(this.pictureBoxFilm4);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.pictureBoxFilm5);
             this.Controls.Add(this.pictureBoxFilm6);
             this.Controls.Add(this.pictureBoxFilm7);

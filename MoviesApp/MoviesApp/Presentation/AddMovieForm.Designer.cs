@@ -259,7 +259,7 @@ namespace MoviesApp.Presentation
             // 
             // pictureBoxDragDrob
             // 
-            this.pictureBoxDragDrob.Image = global::MoviesApp.Properties.Resources.images;
+           // this.pictureBoxDragDrob.Image = global::MoviesApp.Properties.Resources.images;
             this.pictureBoxDragDrob.Location = new System.Drawing.Point(6, 40);
             this.pictureBoxDragDrob.Name = "pictureBoxDragDrob";
             this.pictureBoxDragDrob.Size = new System.Drawing.Size(203, 198);
@@ -272,7 +272,7 @@ namespace MoviesApp.Presentation
             // 
             // pictureBoxBack
             // 
-            this.pictureBoxBack.Image = global::MoviesApp.Properties.Resources.backArrows1;
+            this.pictureBoxBack.Image = global::MoviesApp.Properties.Resources.backArrows;
             this.pictureBoxBack.Location = new System.Drawing.Point(42, 508);
             this.pictureBoxBack.Name = "pictureBoxBack";
             this.pictureBoxBack.Size = new System.Drawing.Size(64, 62);
@@ -283,7 +283,7 @@ namespace MoviesApp.Presentation
             // 
             // pictureBoxApply
             // 
-            this.pictureBoxApply.Image = global::MoviesApp.Properties.Resources.img_464408;
+            //this.pictureBoxApply.Image = global::MoviesApp.Properties.Resources.img_464408;
             this.pictureBoxApply.Location = new System.Drawing.Point(782, 508);
             this.pictureBoxApply.Name = "pictureBoxApply";
             this.pictureBoxApply.Size = new System.Drawing.Size(64, 62);
