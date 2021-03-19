@@ -27,9 +27,11 @@ namespace MoviesApp
             this.CenterToScreen();
             EnsureDateBaseIsCreated();
             pictureBox2.Visible = true;
+            VisualizeMainPictureBoxes();
         }
         MovieBusiness bc;
         string description = "";
+        int countMovieInCollection = 1;
         private void FullDatabase()
         {
             List<string> descriptions = new List<string>();
@@ -418,46 +420,46 @@ namespace MoviesApp
                 bc.Add(m);
 
             }
-            bc.AddActorsInMovie(titanicActors, 1);
-            bc.AddActorsInMovie(avatarActors, 2);
-            bc.AddActorsInMovie(terminatorActors, 3);
-            bc.AddActorsInMovie(OhGrandDadActors, 4);
-            bc.AddActorsInMovie(duskActors, 5);
-            bc.AddActorsInMovie(redHatActors, 6);
-            bc.AddActorsInMovie(avengersActors, 7);
-            bc.AddActorsInMovie(theAlienActors, 8);
-            bc.AddActorsInMovie(blueLagunaActors, 9);
-            bc.AddActorsInMovie(anabelActors, 10);
-            bc.AddActorsInMovie(theConjuringActors, 11);
-            bc.AddActorsInMovie(theEmptyManActors, 12);
-            bc.AddActorsInMovie(theHappyDeadDayActors, 13);
-            bc.AddActorsInMovie(apostleActors, 14);
-            bc.AddActorsInMovie(theAssaultActors, 15);
-            bc.AddActorsInMovie(forTheSoulActors, 16);
-            bc.AddActorsInMovie(monstersOODActors, 17);
-            bc.AddActorsInMovie(angryBirdsActors, 18);
-            bc.AddActorsInMovie(despicableMeActors, 19);
-            bc.AddActorsInMovie(indianaJonesActors, 20);
-            bc.AddActorsInMovie(hobbitActors, 21);
-            bc.AddActorsInMovie(lordOfTheRingsActors, 22);
-            bc.AddActorsInMovie(fAndFuriousActors, 23);
-            bc.AddActorsInMovie(fAndFurious6Actors, 24);
-            bc.AddActorsInMovie(hedgehogActors, 25);
-            bc.AddActorsInMovie(dogDrawerActors, 26);
-            bc.AddActorsInMovie(timeDiffActors, 27);
-            bc.AddActorsInMovie(gentlemenForADayActors, 28);
-            bc.AddActorsInMovie(the3ofTheStockActors, 29);
-            bc.AddActorsInMovie(menTimesActors, 30);
-            bc.AddActorsInMovie(schindlerListsActors, 31);
-            bc.AddActorsInMovie(braveHeartActors, 32);
-            bc.AddActorsInMovie(gladiatorActors, 33);
-            bc.AddActorsInMovie(thePoorRichActors, 34);
-            bc.AddActorsInMovie(interstellarActors, 35);
-            bc.AddActorsInMovie(starWars4Actors, 36);
-            bc.AddActorsInMovie(starWars6Actors, 37);
-            bc.AddActorsInMovie(ocean11Actors, 38);
-            bc.AddActorsInMovie(rockyActors, 39);
-            bc.AddActorsInMovie(menOfHonorActors, 40);
+            bc.AddActorsForMovie(titanicActors, 1);
+            bc.AddActorsForMovie(avatarActors, 2);
+            bc.AddActorsForMovie(terminatorActors, 3);
+            bc.AddActorsForMovie(OhGrandDadActors, 4);
+            bc.AddActorsForMovie(duskActors, 5);
+            bc.AddActorsForMovie(redHatActors, 6);
+            bc.AddActorsForMovie(avengersActors, 7);
+            bc.AddActorsForMovie(theAlienActors, 8);
+            bc.AddActorsForMovie(blueLagunaActors, 9);
+            bc.AddActorsForMovie(anabelActors, 10);
+            bc.AddActorsForMovie(theConjuringActors, 11);
+            bc.AddActorsForMovie(theEmptyManActors, 12);
+            bc.AddActorsForMovie(theHappyDeadDayActors, 13);
+            bc.AddActorsForMovie(apostleActors, 14);
+            bc.AddActorsForMovie(theAssaultActors, 15);
+            bc.AddActorsForMovie(forTheSoulActors, 16);
+            bc.AddActorsForMovie(monstersOODActors, 17);
+            bc.AddActorsForMovie(angryBirdsActors, 18);
+            bc.AddActorsForMovie(despicableMeActors, 19);
+            bc.AddActorsForMovie(indianaJonesActors, 20);
+            bc.AddActorsForMovie(hobbitActors, 21);
+            bc.AddActorsForMovie(lordOfTheRingsActors, 22);
+            bc.AddActorsForMovie(fAndFuriousActors, 23);
+            bc.AddActorsForMovie(fAndFurious6Actors, 24);
+            bc.AddActorsForMovie(hedgehogActors, 25);
+            bc.AddActorsForMovie(dogDrawerActors, 26);
+            bc.AddActorsForMovie(timeDiffActors, 27);
+            bc.AddActorsForMovie(gentlemenForADayActors, 28);
+            bc.AddActorsForMovie(the3ofTheStockActors, 29);
+            bc.AddActorsForMovie(menTimesActors, 30);
+            bc.AddActorsForMovie(schindlerListsActors, 31);
+            bc.AddActorsForMovie(braveHeartActors, 32);
+            bc.AddActorsForMovie(gladiatorActors, 33);
+            bc.AddActorsForMovie(thePoorRichActors, 34);
+            bc.AddActorsForMovie(interstellarActors, 35);
+            bc.AddActorsForMovie(starWars4Actors, 36);
+            bc.AddActorsForMovie(starWars6Actors, 37);
+            bc.AddActorsForMovie(ocean11Actors, 38);
+            bc.AddActorsForMovie(rockyActors, 39);
+            bc.AddActorsForMovie(menOfHonorActors, 40);
 
 
             genresId = new List<int>() { 9, 12 };
@@ -782,7 +784,6 @@ namespace MoviesApp
         {
             button2.BackColor = Color.Silver;
         }
-        int countMovieInCollection = 1;
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             textBox3.Text = "";
@@ -878,6 +879,7 @@ namespace MoviesApp
 
         private void DefineGenre(Genre genre, Movie movie)
         {
+            countMovieInCollection = 1;
             List<Movie> movies = bc.FindMoviesFromGenre(genre.Id).ToList();
             Movie currMovie = FindMovie(movie.MovieTitle, movies);
             MovieInformation.IndexMovie = countMovieInCollection;
@@ -1009,6 +1011,197 @@ namespace MoviesApp
             MovieInformation.form1 = this;
             formDescription.Show();
             this.Hide();
+        }
+        private void buttonAddMovie_Click(object sender, EventArgs e)
+        {
+            var addMovieForm = new AddMovieForm("Form1"); // to doo
+            MovieInformation.form1 = this;
+            addMovieForm.Show();
+            this.Hide();
+        }
+
+        private List<Movie> GetRandomMovies()
+        {
+            Random rnd = new Random();
+            List<Movie> allMovies = bc.GetAllMovies();
+            int CountOfRemainedMovies = allMovies.Count;
+
+            List<Movie> toBeGeneratedMovies = new List<Movie>();
+            for (int i = 0; i < 12; i++) // 12 times to generate 12 movies
+            {
+                int randomMovieIndex = rnd.Next(0, CountOfRemainedMovies);
+                toBeGeneratedMovies.Add(allMovies[randomMovieIndex]);
+                allMovies.RemoveAt(randomMovieIndex);
+                CountOfRemainedMovies--;
+            }
+
+            return toBeGeneratedMovies;
+        }
+
+
+        private void VisualizeMainPictureBoxes()
+        {
+            List<Movie> randomMovies = GetRandomMovies();
+            //int indexOfPBox = 1;
+            for (int movieID = 0; movieID < randomMovies.Count; movieID++)
+            {
+                Genre firstGenre = bc.FindGenresOfMovie(randomMovies[movieID].Id)[0];
+                DefineGenre(firstGenre, randomMovies[movieID]);
+                string fileName = $"fotos{MovieInformation.LetterMovie}\\{MovieInformation.LetterMovie}{MovieInformation.IndexMovie}.jpg";
+                switch (movieID)
+                {
+                    case 0:
+                        pictureBoxFilm1.Image = Image.FromFile(fileName);
+                        // TODO
+                        pictureBoxFilm1.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[0].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[0]);
+                            var film = new Film(randomMovies[0]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+
+                        break;
+                    case 1:
+                        pictureBoxFilm2.Image = Image.FromFile(fileName);
+                        // TODO
+                        pictureBoxFilm2.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[1].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[1]);
+                            var film = new Film(randomMovies[1]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        pictureBoxFilm2.Image = Image.FromFile(fileName);
+                        break;
+                    case 2:
+                        pictureBoxFilm3.Image = Image.FromFile(fileName);
+                        pictureBoxFilm3.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[2].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[2]);
+                            var film = new Film(randomMovies[2]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 3:
+                        pictureBoxFilm4.Image = Image.FromFile(fileName);
+                        pictureBoxFilm4.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[3].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[3]);
+                            var film = new Film(randomMovies[3]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 4:
+                        pictureBoxFilm5.Image = Image.FromFile(fileName);
+                        pictureBoxFilm5.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[4].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[4]);
+                            var film = new Film(randomMovies[4]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 5:
+                        pictureBoxFilm6.Image = Image.FromFile(fileName);
+                        pictureBoxFilm6.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[5].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[5]);
+                            var film = new Film(randomMovies[5]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 6:
+                        pictureBoxFilm7.Image = Image.FromFile(fileName);
+                        pictureBoxFilm7.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[6].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[6]);
+                            var film = new Film(randomMovies[6]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 7:
+                        pictureBoxFilm8.Image = Image.FromFile(fileName);
+                        pictureBoxFilm8.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[7].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[7]);
+                            var film = new Film(randomMovies[7]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 8:
+                        pictureBoxFilm9.Image = Image.FromFile(fileName);
+                        pictureBoxFilm9.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[8].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[8]);
+                            var film = new Film(randomMovies[8]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 9:
+                        pictureBoxFilm10.Image = Image.FromFile(fileName);
+                        pictureBoxFilm10.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[9].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[9]);
+                            var film = new Film(randomMovies[9]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 10:
+                        pictureBoxFilm11.Image = Image.FromFile(fileName);
+                        pictureBoxFilm11.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[10].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[10]);
+                            var film = new Film(randomMovies[10]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    case 11:
+                        pictureBoxFilm12.Image = Image.FromFile(fileName);
+                        pictureBoxFilm12.Click += (s, e) =>
+                        {   // works but is it ok if we use this
+                            Genre firstGenre = bc.FindGenresOfMovie(randomMovies[11].Id)[0];
+                            DefineGenre(firstGenre, randomMovies[11]);
+                            var film = new Film(randomMovies[11]);
+                            MovieInformation.form1 = this;
+                            film.Show();
+                            this.Hide();
+                        };
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)

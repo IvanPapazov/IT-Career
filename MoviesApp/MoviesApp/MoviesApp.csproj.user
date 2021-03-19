@@ -4,6 +4,9 @@
     <Compile Update="Presentation\Actors.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Presentation\AddMovieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Presentation\AddPlaylistForm.cs">
       <SubType>Form</SubType>
     </Compile>

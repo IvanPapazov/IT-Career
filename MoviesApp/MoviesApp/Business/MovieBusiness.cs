@@ -4,6 +4,8 @@ using MoviesApp.Data.Model;
 using System.Linq;
 using MoviesApp.Presentation;
 using MoviesApp.Resources;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace MoviesApp.Business
 {
@@ -244,44 +246,6 @@ namespace MoviesApp.Business
 
             }
         }
-        public void AddActorsInMovie(List<string> actorList, int idMovie)
-        {
-            foreach (var actorString in actorList)
-            {
-                int idActor = 0;
-                using (movieContext = new MovieContext())
-                {
-                    string actorFirstName = actorString.Split(" ")[0];
-                    string actorLastName = actorString.Split(" ")[1];
-                    string actorGender = actorString.Split(" ")[2];
-                    int countActor = movieContext.Actors.Count();
-                    for (int i = 1; i <= countActor; i++)
-                    {
-                        Actor actor = GetActor(i);
-                        if (actor.FirstName == actorFirstName && actor.LastName == actorLastName)
-                        {
-                            idActor = i;
-
-                            // add value in MovieActor
-                            MovieActor movieActor = new MovieActor(idMovie, idActor);
-                            Add(movieActor);
-                            break;
-                        }
-                    }
-                    if (idActor == 0)
-                    {
-                        //add actor
-                        Actor actor = new Actor(actorFirstName, actorLastName, actorGender);
-                        Add(actor);
-
-                        // add value in MovieActor
-                        idActor = countActor + 1;
-                        MovieActor movieActor = new MovieActor(idMovie, idActor);
-                        Add(movieActor);
-                    }
-                }
-            }
-        }
         public List<Actor> FindActorsFromMovie(int movieId)
         {
             List<MovieActor> movieActor = GetAllMovieActors().Where(mg => mg.MovieId == movieId).ToList();
@@ -322,6 +286,213 @@ namespace MoviesApp.Business
                 }
             }
             return genres;
+        }
+        public void AddActorsForMovie(List<string> actorList, int idMovie)
+        {
+            foreach (var actorString in actorList)
+            {
+                int idActor = 0;
+                using (movieContext = new MovieContext())
+                {
+                    string actorFirstName = actorString.Split(" ")[0];
+                    string actorLastName = actorString.Split(" ")[1];
+                    string actorGender = actorString.Split(" ")[2];
+                    List<Actor> actors = GetAllActors();
+                    for (int i = 0; i < actors.Count; i++)
+                    {
+                        Actor actor = actors[i];
+                        if (actor.FirstName == actorFirstName && actor.LastName == actorLastName && actor.Gender == actorGender)
+                        {
+                            idActor = actor.Id;
+
+                            // add value in MovieActor
+                            MovieActor movieActor = new MovieActor(idMovie, idActor);
+                            Add(movieActor);
+                            break;
+                        }
+                    }
+                    if (idActor == 0)
+                    {
+                        //add actor
+                        Actor actor = new Actor(actorFirstName, actorLastName, actorGender);
+                        Add(actor);
+
+                        // add value in MovieActor
+                        idActor = actor.Id;
+                        MovieActor movieActor = new MovieActor(idMovie, idActor);
+                        Add(movieActor);
+                    }
+                }
+            }
+        }
+        public void AddGenreForMovie(List<string> genreList, int idMovie)
+        {
+            foreach (var item in genreList)
+            {
+                using (movieContext = new MovieContext())
+                {
+                    string genreName = item;
+                    int idGenre = 0;
+                    List<Genre> genres = GetAllGenres();
+                    for (int i = 0; i < genres.Count; i++)
+                    {
+                        Genre genre = genres[i];
+                        if (genre.Title == genreName)
+                        {
+                            idGenre = genre.Id;
+
+                            //add value in MovieGenre
+                            MovieGenre movieGenre = new MovieGenre(idMovie, idGenre);
+                            Add(movieGenre);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        private void AddImageForMovie(List<string> genreList, object data)
+        {
+            foreach (var item in genreList)
+            {
+                string letterMovie = "";
+                int indexMovie = 0;
+                switch (item)
+                {
+                    case "Екшън":
+                        letterMovie = "A";
+                        indexMovie = FindMoviesFromGenre(1).Count;
+                        break;
+                    case "Приключенски":
+                        letterMovie = "Adv";
+                        indexMovie = FindMoviesFromGenre(2).Count;
+                        break;
+                    case "Комедии":
+                        letterMovie = "Comedy";
+                        indexMovie = FindMoviesFromGenre(3).Count;
+                        break;
+                    case "Криминални":
+                        letterMovie = "Criminal";
+                        indexMovie = FindMoviesFromGenre(4).Count;
+                        break;
+                    case "Фентъзи":
+                        letterMovie = "Fantasy";
+                        indexMovie = FindMoviesFromGenre(5).Count;
+                        break;
+                    case "Научна фантастика":
+                        letterMovie = "Sci";
+                        indexMovie = FindMoviesFromGenre(6).Count;
+                        break;
+                    case "Исторически":
+                        letterMovie = "History";
+                        indexMovie = FindMoviesFromGenre(7).Count;
+                        break;
+                    case "Ужаси":
+                        letterMovie = "Horror";
+                        indexMovie = FindMoviesFromGenre(8).Count;
+                        break;
+                    case "Романтика":
+                        letterMovie = "Romance";
+                        indexMovie = FindMoviesFromGenre(9).Count;
+                        break;
+                    case "Трилър":
+                        letterMovie = "Thriller";
+                        indexMovie = FindMoviesFromGenre(10).Count;
+                        break;
+                    case "Анимация":
+                        letterMovie = "Cartoon";
+                        indexMovie = FindMoviesFromGenre(11).Count;
+                        break;
+                    case "Драма":
+                        letterMovie = "Drama";
+                        indexMovie = FindMoviesFromGenre(12).Count;
+                        break;
+                }
+                if (data != null)
+                {
+                    var fileName = data as string[];
+                    if (fileName.Length > 0)
+                    {
+                        string location = $"fotos{letterMovie}\\{letterMovie}{indexMovie}.jpg";
+                        Bitmap bitmap = (Bitmap)Image.FromFile(fileName[0]);
+                        bitmap.Save(location);
+                    }
+                }
+                else
+                {
+                    string location = $"fotos{letterMovie}\\{letterMovie}{indexMovie}.jpg";
+                    Bitmap bitmap = (Bitmap)Image.FromFile("otherResources\\defaultImage.png");
+                    bitmap.Save(location);
+                }
+            }
+        }
+        public void AddMovieInDatabase(string[] directorString, List<string> actorList, List<string> genreList, string movieName, int year, int duration, string countrie, string description,object data)
+        {
+            int idDirector;
+            int idMovie;
+            using (movieContext = new MovieContext())
+            {
+                idMovie = 0;
+                List<Movie> movies = GetAllMovies();
+                // Check movie exist
+                for (int i = 0; i < movies.Count; i++)
+                {
+                    Movie movieFind = movies[i];
+                    if (movieFind.MovieTitle == movieName)
+                    {
+                        string messageContainsMovie = $"Филмът вече съществува";
+                        string titleContainsMovie = "";
+                        MessageBoxButtons buttonsContainsMovie = MessageBoxButtons.OK;
+                        DialogResult resultContainsMovie = MessageBox.Show(messageContainsMovie, titleContainsMovie, buttonsContainsMovie);
+                        return;
+                    }
+                }
+            }
+            using (movieContext = new MovieContext())
+            {
+                // find or adding director
+                string directorFirstName = directorString[0];
+                string directorLasrName = directorString[1];
+                idDirector = 0;
+                List<Director> directors = GetAllDirectors();
+                for (int i = 0; i < directors.Count; i++)
+                {
+                    Director director = directors[i];
+                    if (director.FirstName == directorFirstName && director.LastName == directorLasrName)
+                    {
+                        idDirector = director.Id;
+                        break;
+                    }
+                }
+                if (idDirector == 0)
+                {
+                    Director director = new Director(directorFirstName, directorLasrName);
+                    Add(director);
+                }
+            }
+            using (movieContext = new MovieContext())
+            {
+                if (idDirector != 0)
+                {
+                    Movie movie = new Movie(movieName, year, duration, countrie, idDirector, description);
+                    Add(movie);
+                }
+                else
+                {
+                    idDirector = GetAllDirectors().Last().Id;
+                    Movie movie = new Movie(movieName, year, duration, countrie, idDirector, description);
+                    Add(movie);
+                }
+            }
+            idMovie = GetAllMovies().Last().Id;
+
+            AddActorsForMovie(actorList, idMovie);
+            AddGenreForMovie(genreList, idMovie);
+            AddImageForMovie(genreList, data);
+
+            string messageAddMovie = $"Филмът е добавен.";
+            string titleAddMovie = "";
+            MessageBoxButtons buttonsAddMovie = MessageBoxButtons.OK;
+            DialogResult resultAddMovie = MessageBox.Show(messageAddMovie, titleAddMovie, buttonsAddMovie);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace MoviesApp.Presentation
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAction));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonDescription = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonAddMovie = new System.Windows.Forms.Button();
             this.buttonPlaylist = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -86,14 +86,15 @@ namespace MoviesApp.Presentation
             this.buttonDescription.UseVisualStyleBackColor = true;
             this.buttonDescription.Click += new System.EventHandler(this.buttonDescription_Click);
             // 
-            // button4
+            // buttonAddMovie
             // 
-            this.button4.Location = new System.Drawing.Point(21, 95);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(141, 43);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "Добави филм";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonAddMovie.Location = new System.Drawing.Point(21, 95);
+            this.buttonAddMovie.Name = "buttonAddMovie";
+            this.buttonAddMovie.Size = new System.Drawing.Size(141, 43);
+            this.buttonAddMovie.TabIndex = 24;
+            this.buttonAddMovie.Text = "Добави филм";
+            this.buttonAddMovie.UseVisualStyleBackColor = true;
+            this.buttonAddMovie.Click += new System.EventHandler(this.buttonAddMovie_Click);
             // 
             // buttonPlaylist
             // 
@@ -158,7 +159,7 @@ namespace MoviesApp.Presentation
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.buttonDescription);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.buttonAddMovie);
             this.groupBox2.Controls.Add(this.buttonPlaylist);
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Location = new System.Drawing.Point(-3, 61);
@@ -382,7 +383,7 @@ namespace MoviesApp.Presentation
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonDescription;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonAddMovie;
         private System.Windows.Forms.Button buttonPlaylist;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button6;

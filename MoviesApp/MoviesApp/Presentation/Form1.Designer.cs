@@ -50,7 +50,7 @@ namespace MoviesApp
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonDescription = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonAddMovie = new System.Windows.Forms.Button();
             this.buttonPlaylist = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
@@ -58,6 +58,18 @@ namespace MoviesApp
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelError = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.pictureBoxFilm1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFilm2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFilm3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFilm4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFilm5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFilm6 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFilm7 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFilm8 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFilm9 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFilm10 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFilm11 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFilm12 = new System.Windows.Forms.PictureBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -66,6 +78,18 @@ namespace MoviesApp
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -269,7 +293,7 @@ namespace MoviesApp
             this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.button10);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Location = new System.Drawing.Point(91, 49);
+            this.groupBox1.Location = new System.Drawing.Point(92, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(323, 311);
             this.groupBox1.TabIndex = 19;
@@ -280,10 +304,11 @@ namespace MoviesApp
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.buttonDescription);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.buttonAddMovie);
             this.groupBox2.Controls.Add(this.buttonPlaylist);
             this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Location = new System.Drawing.Point(1, 61);
+            this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Location = new System.Drawing.Point(825, 90);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(192, 227);
             this.groupBox2.TabIndex = 0;
@@ -301,14 +326,15 @@ namespace MoviesApp
             this.buttonDescription.UseVisualStyleBackColor = true;
             this.buttonDescription.Click += new System.EventHandler(this.buttonDescription_Click);
             // 
-            // button4
+            // buttonAddMovie
             // 
-            this.button4.Location = new System.Drawing.Point(21, 95);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(141, 43);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "Добави филм";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonAddMovie.Location = new System.Drawing.Point(21, 95);
+            this.buttonAddMovie.Name = "buttonAddMovie";
+            this.buttonAddMovie.Size = new System.Drawing.Size(141, 43);
+            this.buttonAddMovie.TabIndex = 24;
+            this.buttonAddMovie.Text = "Добави филм";
+            this.buttonAddMovie.UseVisualStyleBackColor = true;
+            this.buttonAddMovie.Click += new System.EventHandler(this.buttonAddMovie_Click);
             // 
             // buttonPlaylist
             // 
@@ -412,6 +438,114 @@ namespace MoviesApp
             // 
             // textBox5
             // 
+            // pictureBoxFilm1
+            // 
+            this.pictureBoxFilm1.Location = new System.Drawing.Point(12, 87);
+            this.pictureBoxFilm1.Name = "pictureBoxFilm1";
+            this.pictureBoxFilm1.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm1.TabIndex = 25;
+            this.pictureBoxFilm1.TabStop = false;
+            // 
+            // pictureBoxFilm2
+            // 
+            this.pictureBoxFilm2.Location = new System.Drawing.Point(219, 87);
+            this.pictureBoxFilm2.Name = "pictureBoxFilm2";
+            this.pictureBoxFilm2.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm2.TabIndex = 26;
+            this.pictureBoxFilm2.TabStop = false;
+            // 
+            // pictureBoxFilm3
+            // 
+            this.pictureBoxFilm3.Location = new System.Drawing.Point(422, 87);
+            this.pictureBoxFilm3.Name = "pictureBoxFilm3";
+            this.pictureBoxFilm3.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm3.TabIndex = 27;
+            this.pictureBoxFilm3.TabStop = false;
+            // 
+            // pictureBoxFilm4
+            // 
+            this.pictureBoxFilm4.Location = new System.Drawing.Point(625, 90);
+            this.pictureBoxFilm4.Name = "pictureBoxFilm4";
+            this.pictureBoxFilm4.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm4.TabIndex = 28;
+            this.pictureBoxFilm4.TabStop = false;
+            // 
+            // pictureBoxFilm5
+            // 
+            this.pictureBoxFilm5.Location = new System.Drawing.Point(12, 294);
+            this.pictureBoxFilm5.Name = "pictureBoxFilm5";
+            this.pictureBoxFilm5.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm5.TabIndex = 29;
+            this.pictureBoxFilm5.TabStop = false;
+            // 
+            // pictureBoxFilm6
+            // 
+            this.pictureBoxFilm6.Location = new System.Drawing.Point(219, 294);
+            this.pictureBoxFilm6.Name = "pictureBoxFilm6";
+            this.pictureBoxFilm6.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm6.TabIndex = 30;
+            this.pictureBoxFilm6.TabStop = false;
+            // 
+            // pictureBoxFilm7
+            // 
+            this.pictureBoxFilm7.Location = new System.Drawing.Point(422, 294);
+            this.pictureBoxFilm7.Name = "pictureBoxFilm7";
+            this.pictureBoxFilm7.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm7.TabIndex = 31;
+            this.pictureBoxFilm7.TabStop = false;
+            // 
+            // pictureBoxFilm8
+            // 
+            this.pictureBoxFilm8.Location = new System.Drawing.Point(625, 294);
+            this.pictureBoxFilm8.Name = "pictureBoxFilm8";
+            this.pictureBoxFilm8.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm8.TabIndex = 32;
+            this.pictureBoxFilm8.TabStop = false;
+            // 
+            // pictureBoxFilm9
+            // 
+            this.pictureBoxFilm9.Location = new System.Drawing.Point(12, 506);
+            this.pictureBoxFilm9.Name = "pictureBoxFilm9";
+            this.pictureBoxFilm9.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm9.TabIndex = 33;
+            this.pictureBoxFilm9.TabStop = false;
+            // 
+            // pictureBoxFilm10
+            // 
+            this.pictureBoxFilm10.Location = new System.Drawing.Point(219, 506);
+            this.pictureBoxFilm10.Name = "pictureBoxFilm10";
+            this.pictureBoxFilm10.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm10.TabIndex = 34;
+            this.pictureBoxFilm10.TabStop = false;
+            // 
+            // pictureBoxFilm11
+            // 
+            this.pictureBoxFilm11.Location = new System.Drawing.Point(422, 506);
+            this.pictureBoxFilm11.Name = "pictureBoxFilm11";
+            this.pictureBoxFilm11.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm11.TabIndex = 35;
+            this.pictureBoxFilm11.TabStop = false;
+            // 
+            // pictureBoxFilm12
+            // 
+            this.pictureBoxFilm12.Location = new System.Drawing.Point(625, 506);
+            this.pictureBoxFilm12.Name = "pictureBoxFilm12";
+            this.pictureBoxFilm12.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFilm12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFilm12.TabIndex = 36;
+            this.pictureBoxFilm12.TabStop = false;
+            // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBox5.Location = new System.Drawing.Point(542, 166);
@@ -455,6 +589,8 @@ namespace MoviesApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ClientSize = new System.Drawing.Size(842, 708);
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(784, 455);
             this.Controls.Add(this.textBox7);
@@ -470,8 +606,20 @@ namespace MoviesApp
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.pictureBoxFilm1);
+            this.Controls.Add(this.pictureBoxFilm2);
+            this.Controls.Add(this.pictureBoxFilm3);
+            this.Controls.Add(this.pictureBoxFilm4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.pictureBoxFilm5);
+            this.Controls.Add(this.pictureBoxFilm6);
+            this.Controls.Add(this.pictureBoxFilm7);
+            this.Controls.Add(this.pictureBoxFilm8);
+            this.Controls.Add(this.pictureBoxFilm9);
+            this.Controls.Add(this.pictureBoxFilm10);
+            this.Controls.Add(this.pictureBoxFilm11);
+            this.Controls.Add(this.pictureBoxFilm12);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MovieApp";
@@ -484,6 +632,18 @@ namespace MoviesApp
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -515,7 +675,7 @@ namespace MoviesApp
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonDescription;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonAddMovie;
         private System.Windows.Forms.Button buttonPlaylist;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -525,6 +685,18 @@ namespace MoviesApp
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBoxFilm1;
+        private System.Windows.Forms.PictureBox pictureBoxFilm2;
+        private System.Windows.Forms.PictureBox pictureBoxFilm3;
+        private System.Windows.Forms.PictureBox pictureBoxFilm4;
+        private System.Windows.Forms.PictureBox pictureBoxFilm5;
+        private System.Windows.Forms.PictureBox pictureBoxFilm6;
+        private System.Windows.Forms.PictureBox pictureBoxFilm7;
+        private System.Windows.Forms.PictureBox pictureBoxFilm8;
+        private System.Windows.Forms.PictureBox pictureBoxFilm9;
+        private System.Windows.Forms.PictureBox pictureBoxFilm10;
+        private System.Windows.Forms.PictureBox pictureBoxFilm11;
+        private System.Windows.Forms.PictureBox pictureBoxFilm12;
     }
 }
 
