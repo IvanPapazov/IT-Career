@@ -5703,23 +5703,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\i_pap\\.nuget\\packages\\": {},
+    "C:\\Users\\Petar\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Visual Studio\\Projects\\MovieApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+      "projectUniqueName": "C:\\Users\\Petar\\Desktop\\19.03_MovieApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
       "projectName": "MoviesApp",
-      "projectPath": "E:\\Visual Studio\\Projects\\MovieApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
-      "packagesPath": "C:\\Users\\i_pap\\.nuget\\packages\\",
-      "outputPath": "E:\\Visual Studio\\Projects\\MovieApp\\MoviesApp\\MoviesApp\\obj\\",
+      "projectPath": "C:\\Users\\Petar\\Desktop\\19.03_MovieApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+      "packagesPath": "C:\\Users\\Petar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Petar\\Desktop\\19.03_MovieApp\\MoviesApp\\MoviesApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\i_pap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Petar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
