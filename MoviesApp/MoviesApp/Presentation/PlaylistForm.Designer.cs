@@ -29,6 +29,7 @@ namespace MoviesApp.Presentation
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlaylistForm));
             this.dataGridViewPlaylist = new System.Windows.Forms.DataGridView();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelPlaylists = new System.Windows.Forms.Label();
@@ -96,6 +97,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxAdd
             // 
+            this.textBoxAdd.BackColor = System.Drawing.Color.Azure;
             this.textBoxAdd.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxAdd.Location = new System.Drawing.Point(35, 72);
             this.textBoxAdd.Name = "textBoxAdd";
@@ -105,7 +107,8 @@ namespace MoviesApp.Presentation
             // 
             // buttonSave
             // 
-            this.buttonSave.BackColor = System.Drawing.Color.Silver;
+            this.buttonSave.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSave.Location = new System.Drawing.Point(35, 138);
             this.buttonSave.Name = "buttonSave";
@@ -119,7 +122,8 @@ namespace MoviesApp.Presentation
             // 
             // buttonRename
             // 
-            this.buttonRename.BackColor = System.Drawing.Color.Silver;
+            this.buttonRename.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonRename.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRename.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonRename.Location = new System.Drawing.Point(35, 201);
             this.buttonRename.Name = "buttonRename";
@@ -147,7 +151,8 @@ namespace MoviesApp.Presentation
             // 
             // buttonDelete
             // 
-            this.buttonDelete.BackColor = System.Drawing.Color.Silver;
+            this.buttonDelete.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDelete.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonDelete.Location = new System.Drawing.Point(35, 263);
             this.buttonDelete.Name = "buttonDelete";
@@ -176,7 +181,7 @@ namespace MoviesApp.Presentation
             // 
             this.labelFilms.AutoSize = true;
             this.labelFilms.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelFilms.Location = new System.Drawing.Point(712, 72);
+            this.labelFilms.Location = new System.Drawing.Point(689, 70);
             this.labelFilms.Name = "labelFilms";
             this.labelFilms.Size = new System.Drawing.Size(111, 41);
             this.labelFilms.TabIndex = 10;
@@ -184,21 +189,24 @@ namespace MoviesApp.Presentation
             // 
             // textBoxFilm
             // 
+            this.textBoxFilm.BackColor = System.Drawing.Color.Azure;
             this.textBoxFilm.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxFilm.Location = new System.Drawing.Point(638, 170);
+            this.textBoxFilm.Location = new System.Drawing.Point(603, 138);
             this.textBoxFilm.Name = "textBoxFilm";
             this.textBoxFilm.Size = new System.Drawing.Size(274, 38);
             this.textBoxFilm.TabIndex = 11;
             // 
             // buttonDeleteMovie
             // 
+            this.buttonDeleteMovie.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonDeleteMovie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDeleteMovie.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDeleteMovie.Location = new System.Drawing.Point(638, 263);
+            this.buttonDeleteMovie.Location = new System.Drawing.Point(603, 263);
             this.buttonDeleteMovie.Name = "buttonDeleteMovie";
             this.buttonDeleteMovie.Size = new System.Drawing.Size(274, 41);
             this.buttonDeleteMovie.TabIndex = 12;
             this.buttonDeleteMovie.Text = "Изтрий Филм";
-            this.buttonDeleteMovie.UseVisualStyleBackColor = true;
+            this.buttonDeleteMovie.UseVisualStyleBackColor = false;
             this.buttonDeleteMovie.Click += new System.EventHandler(this.buttonDeleteMovie_Click);
             this.buttonDeleteMovie.MouseEnter += new System.EventHandler(this.buttonDeleteMovie_MouseEnter);
             this.buttonDeleteMovie.MouseLeave += new System.EventHandler(this.buttonDeleteMovie_MouseLeave);
@@ -219,7 +227,7 @@ namespace MoviesApp.Presentation
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(939, 342);
+            this.ClientSize = new System.Drawing.Size(901, 327);
             this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.buttonDeleteMovie);
             this.Controls.Add(this.textBoxFilm);
@@ -234,8 +242,10 @@ namespace MoviesApp.Presentation
             this.Controls.Add(this.labelPlaylists);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.dataGridViewPlaylist);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "PlaylistForm";
-            this.Text = "PlaylistForm";
+            this.Text = "MovieApp";
             this.Load += new System.EventHandler(this.PlaylistForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlaylist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilms)).EndInit();

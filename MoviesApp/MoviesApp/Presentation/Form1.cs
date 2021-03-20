@@ -23,6 +23,7 @@ namespace MoviesApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             labelError.Visible = false;
             this.CenterToScreen();
             EnsureDateBaseIsCreated();
@@ -561,13 +562,13 @@ namespace MoviesApp
 
         private void button1_MouseEnter(object sender, EventArgs e)
         {
-            button1.BackColor = Color.Gray;
+            button1.BackColor = Color.FromArgb(135, 206, 250);
             groupBox1.Visible = true;
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)//филми
         {
-            button1.BackColor = Color.Silver;
+            button1.BackColor = Color.FromArgb(240, 255, 255);
         }
 
 
@@ -777,13 +778,13 @@ namespace MoviesApp
 
         private void button2_MouseEnter(object sender, EventArgs e)
         {
-            button2.BackColor = Color.Gray;
+            button2.BackColor = Color.FromArgb(135, 206, 250);
             groupBox1.Visible = false;
         }
 
         private void button2_MouseLeave(object sender, EventArgs e)
         {
-            button2.BackColor = Color.Silver;
+            button2.BackColor = Color.FromArgb(240, 255, 255);
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -937,7 +938,7 @@ namespace MoviesApp
             textBox6.Visible = false;
             textBox7.Text = textBoxSearch.Text;
             textBox7.Font = new Font(textBox7.Font.FontFamily, 10);
-            if (textBoxSearch.Text.Length > 9)
+            if (textBoxSearch.Text.Length > 10)
             {
                 textBox7.Visible = true;
                 pictureBox3.Visible = true;
@@ -945,6 +946,7 @@ namespace MoviesApp
             else
             {
                 textBox7.Visible=false;
+                pictureBox3.Visible = false;
             }
             List<Movie> moviesSearched = SearchMovie(name);
             int countMovie = 1;
@@ -973,12 +975,12 @@ namespace MoviesApp
 
         private void button5_MouseEnter(object sender, EventArgs e)
         {
-            button5.BackColor = Color.Gray;
+            button5.BackColor = Color.FromArgb(135, 206, 250);
         }
 
         private void button5_MouseLeave(object sender, EventArgs e)
         {
-            button5.BackColor = Color.Silver;
+            button5.BackColor = Color.FromArgb(240, 255, 255);
         }
 
         private void buttonPlaylsit_Click(object sender, EventArgs e)
@@ -1231,7 +1233,8 @@ namespace MoviesApp
         {
             if (textBoxSearch.Text.Length > 9)
             {
-                textBox7.Visible = true; 
+                textBox7.Visible = true;
+                pictureBox3.Visible = true;
             }
         }
 
@@ -1243,7 +1246,7 @@ namespace MoviesApp
 
         private void textBox7_MouseLeave(object sender, EventArgs e)
         {
-            //textBox7.Visible=false;
+            
         }
     }
 }

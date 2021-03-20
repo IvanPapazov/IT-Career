@@ -29,6 +29,7 @@ namespace MoviesApp.Presentation
         List<Movie> movies = new List<Movie>();
         private void PlaylistForm_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
             UpdateGrid();
             ClearTextBoxes();

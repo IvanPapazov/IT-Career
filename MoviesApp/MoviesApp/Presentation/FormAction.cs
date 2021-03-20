@@ -25,7 +25,7 @@ namespace MoviesApp.Presentation
         private void button5_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Program.myForm.Show();
+            MovieInformation.form1.Show();
         }
         MovieBusiness mb = new MovieBusiness();
         bool canOpenPage = true;//next
@@ -42,6 +42,7 @@ namespace MoviesApp.Presentation
 
         private void FormAction_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             filmPictureBoxes = new List<PictureBox>();
             countPages = (mb.FindMoviesFromGenre(MovieInformation.IndexGenre).Count / 10);
             if ((mb.FindMoviesFromGenre(MovieInformation.IndexGenre).Count % 10) != 0)
@@ -141,6 +142,8 @@ namespace MoviesApp.Presentation
                 label.BringToFront();
                 label.Text = mb.FindMoviesFromGenre(genreId)[indexImage - 1].MovieTitle;
                 label.TextAlign = ContentAlignment.TopCenter;
+                label.Font = new Font(label.Font, FontStyle.Italic);
+                label.Font = new Font(label.Font, FontStyle.Bold);
                 locationTextX += 160;
 
                 if (locationImageX > 700)
@@ -213,6 +216,7 @@ namespace MoviesApp.Presentation
                 pictureBoxAction.Parent = this;
                 pictureBoxAction.Visible = true;
                 pictureBoxAction.BringToFront();
+                
                 locationImageX += 160;
 
 
@@ -242,6 +246,8 @@ namespace MoviesApp.Presentation
                 label.BringToFront();
                 label.Text = mb.FindMoviesFromGenre(genreId)[i - 1].MovieTitle;
                 label.TextAlign = ContentAlignment.TopCenter;
+                label.Font = new Font(label.Font, FontStyle.Italic);
+                label.Font = new Font(label.Font, FontStyle.Bold);
                 locationTextX += 160;
 
                 if (locationImageX > 700)
@@ -258,6 +264,7 @@ namespace MoviesApp.Presentation
                 countMoviesToLoad += countMoviesOnPage;
             }
         }
+        
         private void button19_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -283,6 +290,7 @@ namespace MoviesApp.Presentation
 
         private void button1_MouseEnter(object sender, EventArgs e)
         {
+            button1.BackColor = Color.FromArgb(135, 206, 250);
             groupBox1.Visible = true;
             groupBox1.BringToFront();
         }
@@ -303,6 +311,7 @@ namespace MoviesApp.Presentation
 
         private void button6_Click(object sender, EventArgs e)//екшън
         {
+           
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 1;
             MovieInformation.GenreLetter = "A";
@@ -376,6 +385,7 @@ namespace MoviesApp.Presentation
             MovieInformation.IndexGenre = 9;
             MovieInformation.GenreLetter = "Romance";
             formAction.Show();
+            this.Hide();
         }
         private void button15_Click(object sender, EventArgs e)//трилър
         {
@@ -513,6 +523,31 @@ namespace MoviesApp.Presentation
             MovieInformation.actors = formActors;
             MovieInformation.actors.Show();
             this.Hide();
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.FromArgb(135, 206, 250);
+        }
+
+        private void button5_MouseEnter(object sender, EventArgs e)
+        {
+            button5.BackColor = Color.FromArgb(135, 206, 250);
+        }
+
+        private void button5_MouseLeave(object sender, EventArgs e)
+        {
+            button5.BackColor = Color.FromArgb(240, 255, 255);
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.FromArgb(240, 255, 255);
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.FromArgb(240, 255, 255);
         }
     }
 }
