@@ -72,7 +72,6 @@ namespace MoviesApp.Presentation
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "Добави филм";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 
@@ -167,7 +166,6 @@ namespace MoviesApp.Presentation
             this.Филм.TabIndex = 6;
             this.Филм.TabStop = false;
             this.Филм.Text = "Филм";
-            this.Филм.Enter += new System.EventHandler(this.Филм_Enter);
             // 
             // checkedListBoxMovieGenre
             // 

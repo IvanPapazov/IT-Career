@@ -8,16 +8,26 @@ using System.Windows.Forms;
 
 namespace MoviesApp.Presentation
 {
+    /// <summary>
+    /// Това е класът на формата за описанието на приложението
+    /// </summary>
     public partial class DescriptionForm : Form
     {
-
         string previousFormType = "";
+        /// <summary>
+        /// Това е конструкторът на класа за описанието
+        /// </summary>
+        /// <param name="previousFormType">Името на предходната форма</param>
         public DescriptionForm(string previousFormType)
         {
             InitializeComponent();
             this.previousFormType = previousFormType;
         }
-
+        /// <summary>
+        ///  Метод който се стартира при пускането на формата
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void DescriptionForm_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
@@ -72,12 +82,11 @@ namespace MoviesApp.Presentation
                 Environment.NewLine + 
                 "=> Ако желаете може да добавите снимка като я влачите и пуснете върху обособеното иображение.";
         }
-
-        private void textBoxForm1first_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Метод при който при натискане върху снимката се изпълнява дадения код
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -89,11 +98,6 @@ namespace MoviesApp.Presentation
             {
                 MovieInformation.formAction.Show();
             }
-        }
-
-        private void textBoxDescription_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

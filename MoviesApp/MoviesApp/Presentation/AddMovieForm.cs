@@ -11,13 +11,25 @@ using System.Diagnostics;
 
 namespace MoviesApp.Presentation
 {
+    /// <summary>
+    /// Това е класът на формата която ще се използва за добавяне на филм от потребителя
+    /// </summary>
     public partial class AddMovieForm : Form
     {
+        /// <summary>
+        /// Консртуктор на формата
+        /// </summary>
+        /// <param name="forms">Име на предишната форма</param>
         public AddMovieForm(string forms)
         {
             InitializeComponent();
             previousFormType = forms;
         }
+        /// <summary>
+        /// Метод който при натискане върху текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxDirectorFirstName_MouseDown(object sender, MouseEventArgs e)
         {
             if (textBoxDirectorFirstName.ForeColor == Color.Silver || textBoxDirectorFirstName.ForeColor == Color.Red)
@@ -28,6 +40,11 @@ namespace MoviesApp.Presentation
                 textBoxDirectorFirstName.ForeColor = Color.Black;
             }
         }
+        /// <summary>
+        /// Метод който при напускане на курсора на мишката от текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxDirectorFirstName_Leave(object sender, EventArgs e)
         {
             if (textBoxDirectorFirstName.Text == "")
@@ -36,6 +53,11 @@ namespace MoviesApp.Presentation
                 textBoxDirectorFirstName.Text = "Име";
             }
         }
+        /// <summary>
+        /// Метод който при натискане върху текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxDirectorLastName_MouseDown(object sender, MouseEventArgs e)
         {
             if (textBoxDirectorLastName.ForeColor == Color.Silver || textBoxDirectorLastName.ForeColor == Color.Red)
@@ -46,6 +68,11 @@ namespace MoviesApp.Presentation
                 textBoxDirectorLastName.ForeColor = Color.Black;
             }
         }
+        /// <summary>
+        /// Метод който при напускане на курсора на мишката от текстбокса, променя текстът и вида на текста 
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxDirectorLastName_Leave(object sender, EventArgs e)
         {
             if (textBoxDirectorLastName.Text == "")
@@ -54,6 +81,11 @@ namespace MoviesApp.Presentation
                 textBoxDirectorLastName.Text = "Фамилия";
             }
         }
+        /// <summary>
+        /// Метод който при натискане върху текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxActorMan_MouseDown(object sender, MouseEventArgs e)
         {
             if (textBoxActorMan.ForeColor == Color.Silver || textBoxActorMan.ForeColor == Color.Red)
@@ -62,6 +94,11 @@ namespace MoviesApp.Presentation
                 textBoxActorMan.ForeColor = Color.Black;
             }
         }
+        /// <summary>
+        /// Метод който при напускане на курсора на мишката от текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxActorMan_Leave(object sender, EventArgs e)
         {
             if (textBoxActorMan.Text == "")
@@ -70,6 +107,11 @@ namespace MoviesApp.Presentation
                 textBoxActorMan.Text = "Мъже";
             }
         }
+        /// <summary>
+        /// Метод който при натискане върху текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxActorWoman_MouseDown(object sender, MouseEventArgs e)
         {
             if (textBoxActorWoman.ForeColor == Color.Silver || textBoxActorWoman.ForeColor == Color.Red)
@@ -78,6 +120,11 @@ namespace MoviesApp.Presentation
                 textBoxActorWoman.ForeColor = Color.Black;
             }
         }
+        /// <summary>
+        /// Метод който при напускане на курсора на мишката от текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxActorWoman_Leave(object sender, EventArgs e)
         {
             if (textBoxActorWoman.Text == "")
@@ -86,6 +133,11 @@ namespace MoviesApp.Presentation
                 textBoxActorWoman.Text = "Жени";
             }
         }
+        /// <summary>
+        /// Метод който при натискане върху текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxMovieName_MouseDown(object sender, MouseEventArgs e)
         {
             if (textBoxMovieName.ForeColor == Color.Silver || textBoxMovieName.ForeColor == Color.Red)
@@ -96,6 +148,11 @@ namespace MoviesApp.Presentation
                 textBoxMovieName.ForeColor = Color.Black;
             }
         }
+        /// <summary>
+        /// Метод който при напускане на курсора на мишката от текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxMovieName_Leave(object sender, EventArgs e)
         {
             if (textBoxMovieName.Text == "")
@@ -104,6 +161,11 @@ namespace MoviesApp.Presentation
                 textBoxMovieName.Text = "Име";
             }
         }
+        /// <summary>
+        /// Метод който при натискане върху текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxMovieCountry_MouseDown(object sender, MouseEventArgs e)
         {
             if (textBoxMovieCountry.ForeColor == Color.Silver || textBoxMovieCountry.ForeColor == Color.Red)
@@ -114,6 +176,11 @@ namespace MoviesApp.Presentation
                 textBoxMovieCountry.ForeColor = Color.Black;
             }
         }
+        /// <summary>
+        /// Метод който при напускане на курсора на мишката от текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxMovieCountry_Leave(object sender, EventArgs e)
         {
             if (textBoxMovieCountry.Text == "")
@@ -122,6 +189,11 @@ namespace MoviesApp.Presentation
                 textBoxMovieCountry.Text = "Държава";
             }
         }
+        /// <summary>
+        /// Метод който при натискане върху текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxMovieDuration_MouseDown(object sender, MouseEventArgs e)
         {
             if (textBoxMovieDuration.ForeColor == Color.Silver || textBoxMovieDuration.ForeColor == Color.Red)
@@ -132,6 +204,11 @@ namespace MoviesApp.Presentation
                 textBoxMovieDuration.ForeColor = Color.Black;
             }
         }
+        /// <summary>
+        /// Метод който при натискане върху текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxMovieYear_MouseDown_1(object sender, MouseEventArgs e)
         {
             if (textBoxMovieYear.ForeColor == Color.Silver || textBoxMovieYear.ForeColor == Color.Red)
@@ -142,6 +219,11 @@ namespace MoviesApp.Presentation
                 textBoxMovieYear.ForeColor = Color.Black;
             }
         }
+        /// <summary>
+        /// Метод който при напускане на курсора на мишката от текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxMovieYear_Leave(object sender, EventArgs e)
         {
             if (textBoxMovieYear.Text == "")
@@ -150,6 +232,11 @@ namespace MoviesApp.Presentation
                 textBoxMovieYear.Text = "Година";
             }
         }
+        /// <summary>
+        /// Метод който при натискане върху текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxMovieDiscription_MouseDown(object sender, MouseEventArgs e)
         {
             if (textBoxMovieDiscription.ForeColor == Color.Silver || textBoxMovieDiscription.ForeColor == Color.Red)
@@ -158,6 +245,11 @@ namespace MoviesApp.Presentation
                 textBoxMovieDiscription.ForeColor = Color.Black;
             }
         }
+        /// <summary>
+        /// Метод който при напускане на курсора на мишката от текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxMovieDiscription_Leave(object sender, EventArgs e)
         {
             if (textBoxMovieDiscription.Text == "")
@@ -166,6 +258,11 @@ namespace MoviesApp.Presentation
                 textBoxMovieDiscription.Text = "Описание";
             }
         }
+        /// <summary>
+        /// Метод който при напускане на курсора на мишката от текстбокса, променя текстът и вида на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void textBoxMovieDuration_Leave_1(object sender, EventArgs e)
         {
             if (textBoxMovieDuration.Text == "")
@@ -174,13 +271,21 @@ namespace MoviesApp.Presentation
                 textBoxMovieDuration.Text = "Времетраене";
             }
         }
+        /// <summary>
+        /// Метод който се пуска при зареждането на формата
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void AddMovieForm_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.CenterToScreen();
             pictureBoxDragDrob.AllowDrop = true;
         }
         string previousFormType;
+        /// <summary>
+        /// Метод при който при натискане върху снимката се изпълнява дадения код
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -196,6 +301,11 @@ namespace MoviesApp.Presentation
         bool isFind = true;
         object data;
         MovieBusiness mb = new MovieBusiness();
+        /// <summary>
+        /// Метод при който при натискане върху снимката се изпълнява дадения код
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxApply_Click(object sender, EventArgs e)
         {
             if (textBoxActorMan.ForeColor == Color.Silver || textBoxActorMan.ForeColor == Color.Red)
@@ -372,11 +482,21 @@ namespace MoviesApp.Presentation
                 }
             }
         }
+        /// <summary>
+        /// Метод при които при избиране на елемент се променя цветът на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void checkedListBoxMovieGenre_ItemCheck(object sender, ItemCheckEventArgs e)
         {
 
             checkedListBoxMovieGenre.ForeColor = Color.Black;
         }
+        /// <summary>
+        /// Метод който при напускане на курсора на мишката от чекбокс листа, промен цвета на текста
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void checkedListBoxMovieGenre_Leave(object sender, EventArgs e)
         {
             if (checkedListBoxMovieGenre.CheckedItems.Count == 0)
@@ -384,14 +504,29 @@ namespace MoviesApp.Presentation
                 checkedListBoxMovieGenre.ForeColor = Color.Silver;
             }
         }
+        /// <summary>
+        /// Метод който следи за поставянето на изображение от потребителя
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxDragDrob_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
         }
+        /// <summary>
+        /// Метод който запазва влаченето от потребителя изображение
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxDragDrob_DragDrop(object sender, DragEventArgs e)
         {
             data = e.Data.GetData(DataFormats.FileDrop);
         }
+        /// <summary>
+        /// Метод който отваря директория "C:" на потребителя
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxDragDrob_Click(object sender, EventArgs e)
         {
             var psi = new ProcessStartInfo
@@ -401,32 +536,38 @@ namespace MoviesApp.Presentation
             };
             Process.Start(psi);
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Филм_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Метот извикващ се при навлизането на курсора на мишката в границите на обекта
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxApply_MouseEnter(object sender, EventArgs e)
         {
             textBoxAddFilm.Visible = true;
         }
-
+        /// <summary>
+        /// Метот извикващ се при напускането на курсора на мишката границите на обекта
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxApply_MouseLeave(object sender, EventArgs e)
         {
             textBoxAddFilm.Visible = false;
         }
-
+        /// <summary>
+        /// Метот извикващ се при навлизането на курсора на мишката в границите на обекта
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxDragDrob_MouseEnter(object sender, EventArgs e)
         {
             textBoxAddPhoto.Visible = true;
         }
-
+        /// <summary>
+        /// Метот извикващ се при напускането на курсора на мишката границите на обекта
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxDragDrob_MouseLeave(object sender, EventArgs e)
         {
             textBoxAddPhoto.Visible = false;

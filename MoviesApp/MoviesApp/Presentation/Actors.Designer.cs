@@ -72,7 +72,6 @@ namespace MoviesApp.Presentation
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Избери...";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.MouseEnter += new System.EventHandler(this.textBox1_MouseEnter);
             // 
             // textBox2
             // 

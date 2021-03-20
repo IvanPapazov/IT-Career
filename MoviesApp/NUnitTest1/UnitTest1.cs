@@ -11,7 +11,6 @@ namespace NUnitTest1
     {
         MovieContext movieContext;
         MovieBusiness bc = new MovieBusiness();
-
         [Test]
         public void TestGetMovie()
         {
@@ -360,7 +359,6 @@ namespace NUnitTest1
                 Assert.AreEqual(movieGenres.Count, bc.FindMoviesFromGenre(1).Count(), "FindMoviesFromGenre does not return all genres");
             }
         }
-
         [Test]
         public void TestIfDatabaseReturnsAllMoviePlaylists()
         {
@@ -371,7 +369,6 @@ namespace NUnitTest1
                 Assert.AreEqual(moviePlaylistsFromDatabase.Count, moviePlaylistsFromDatabase.Count, "Does not return all movie-Playlists relationships value");
             }
         }
-
         [Test]
         public void TestIfMapMovieAndGenresMapsTheRecords()
         {
@@ -392,8 +389,6 @@ namespace NUnitTest1
                 Assert.AreNotEqual(countOfMovieGenres, countOfMovieGenresAfterTesting, "Does not map the movie with genres!");
             }
         }
-
-
         [Test]
         public void TestIfCollectionOfGenresForOneMovieIsReturned()
         {
@@ -402,6 +397,24 @@ namespace NUnitTest1
             int countOfGenresFromMethod = bc.FindGenresOfMovie(1).Count;
 
             Assert.AreEqual(countOfGenres, countOfGenresFromMethod, "Does not return the accurate genres for movie!");
+        }
+        [Test]
+        public void AddActorsForMovie()
+        {
+
+            using (movieContext = new MovieContext())
+            {
+                int count = bc.GetAllActors().Count;
+                List<string> actor = new List<string> { "Мат Джеймсън мъж" };
+                Movie movie = new Movie("sdw", 1234, 123, "swvv", 2, "fwag");
+                bc.Add(movie);
+                bc.AddActorsForMovie(actor, movie.Id);
+                int count1 = bc.GetAllActors().Count;
+                movieContext.Movies.Remove(movie);
+                movieContext.Actors.Remove(bc.GetAllActors().Last());
+                movieContext.SaveChanges();
+                Assert.AreNotEqual(count, count1, "AddActorsForMovie does not bring actors into the base");
+            }
         }
     }
 }

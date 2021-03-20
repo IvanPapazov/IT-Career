@@ -5703,19 +5703,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User_1\\.nuget\\packages\\": {}
+    "C:\\Users\\i_pap\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User_1\\Desktop\\ProjectFullDatabase\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+      "projectUniqueName": "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
       "projectName": "MoviesApp",
-      "projectPath": "C:\\Users\\User_1\\Desktop\\ProjectFullDatabase\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
-      "packagesPath": "C:\\Users\\User_1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User_1\\Desktop\\ProjectFullDatabase\\MoviesApp\\MoviesApp\\obj\\",
+      "projectPath": "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\MoviesApp\\MoviesApp.csproj",
+      "packagesPath": "C:\\Users\\i_pap\\.nuget\\packages\\",
+      "outputPath": "E:\\Visual Studio\\Projects\\MoviesApp\\MoviesApp\\MoviesApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\User_1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\i_pap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

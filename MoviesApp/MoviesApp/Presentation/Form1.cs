@@ -26,7 +26,6 @@ namespace MoviesApp
         public Form1()
         {
             InitializeComponent();
-
         }
         /// <summary>
         /// Метод, активиращ се при зареждане на началната форма
@@ -46,7 +45,6 @@ namespace MoviesApp
         MovieBusiness bc;
         string description = "";
         int countMovieInCollection = 1;
-
         /// <summary>
         /// Метод, който попълва базтата данни.
         /// </summary>
@@ -564,7 +562,6 @@ namespace MoviesApp
             Playlist playlist = new Playlist("Favourites");
             bc.Add(playlist);
         }
-
         /// <summary>
         /// Метод, проверяващ дали базата е попълнена и ако не е, се извиква метод, който я попълва
         /// </summary>
@@ -576,11 +573,6 @@ namespace MoviesApp
                 FullDatabase();
             }
         }
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// Метод, активиращ се при навлизането на курсора на мишката върху бутона "Филми"
         /// </summary>
@@ -966,14 +958,12 @@ namespace MoviesApp
             }
             textBoxSearch.Text = "";
         }
-
-        private List<Movie> SearchMovie(string name)
         /// <summary>
         /// Метод, търсещ филм в базата по име
         /// </summary>
         /// <param name="name">Име на филм</param>
         /// <returns>Обект от тип филм</returns>
-        private Movie SearchMovie(string name)
+        private List<Movie> SearchMovie(string name)
         {
             List<Movie> movies = bc.GetAllMovies();
             List<string> moviesTitles = new List<string>();
@@ -1015,7 +1005,6 @@ namespace MoviesApp
             moviesSearched.Distinct();
             return moviesSearched;
         }
-
         /// <summary>
         /// Метод, дефиниращ полетата в помощния клас MovieInformation, служещи за определяне жанра на филма и намирането на съответното изображение
         /// </summary>
@@ -1070,7 +1059,6 @@ namespace MoviesApp
                     break;
             }
         }
-
         /// <summary>
         /// Метод, намиращ филм по име при подадена колекция от филми
         /// </summary>
@@ -1089,7 +1077,6 @@ namespace MoviesApp
             }
             return null;
         }
-
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {    
             string name = textBoxSearch.Text;
@@ -1135,7 +1122,6 @@ namespace MoviesApp
                 }
             }
         }
-
         /// <summary>
         /// Метод, активиращ се при навлизането на курсора на мишката върху бутона
         /// </summary>
