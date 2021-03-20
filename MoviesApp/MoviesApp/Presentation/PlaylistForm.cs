@@ -40,6 +40,7 @@ namespace MoviesApp.Presentation
         /// <param name="e">Данни на събитието</param>
         private void PlaylistForm_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
             UpdateGrid();
             ClearTextBoxes();

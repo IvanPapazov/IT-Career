@@ -64,6 +64,7 @@ namespace MoviesApp.Presentation
         /// <param name="e">Данни на събитието</param>
         private void AddPlaylistForm_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
             UpdateGrid();
         }
@@ -78,6 +79,11 @@ namespace MoviesApp.Presentation
             List<MoviePlaylist> moviePlaylists = mb.GetAllMoviePlaylists();
 
             // checks if this movie already exists in this playlist
+            if (currPlaylist==null)
+            {
+                MessageBox.Show("Изберете правилен плейлист!");
+                return;
+            }
             foreach (var mp in moviePlaylists)
             {
                 if (movie.Id == mp.MovieId && currPlaylist.Id == mp.PlaylistId)
@@ -86,16 +92,21 @@ namespace MoviesApp.Presentation
                     string title = "Добави филм";
                     MessageBoxButtons buttons = MessageBoxButtons.OK;
                     DialogResult result = MessageBox.Show(message, title, buttons);
+                    this.Hide();
                     return;
                 }
             }
-
+            if (currPlaylist.Name=="Favourites")
+            {
+                movie.IsLiked = true;
+            }
             MoviePlaylist newMovie = new MoviePlaylist(currPlaylist.Id, movie.Id);
             mb.Add(newMovie);
             string message2 = $"Филмът {movie.MovieTitle} e добавен в {currPlaylist.Name}!";
             string title2 = "Добави филм";
             MessageBoxButtons buttons2 = MessageBoxButtons.OK;
             DialogResult result2 = MessageBox.Show(message2, title2, buttons2);
+            this.Hide();
         }
     }
 }

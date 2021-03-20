@@ -20,6 +20,7 @@ namespace MoviesApp.Presentation
 
         private void DescriptionForm_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
             textBoxForm1first.ForeColor = Color.Black;
             textBoxForm1first.Font = new Font(textBoxForm1first.Font, FontStyle.Bold);
             textBoxForm1first.Enabled = false;
@@ -88,6 +89,11 @@ namespace MoviesApp.Presentation
             {
                 MovieInformation.formAction.Show();
             }
+        }
+
+        private void textBoxDescription_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

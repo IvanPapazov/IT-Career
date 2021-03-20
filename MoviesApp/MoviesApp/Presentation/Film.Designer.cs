@@ -48,6 +48,7 @@ namespace MoviesApp.Resources
             this.pictureBoxClock = new System.Windows.Forms.PictureBox();
             this.pictureBoxYear = new System.Windows.Forms.PictureBox();
             this.pictureBoxCountry = new System.Windows.Forms.PictureBox();
+            this.pictureBoxGoLink = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
@@ -56,10 +57,12 @@ namespace MoviesApp.Resources
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCountry)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoLink)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Location = new System.Drawing.Point(486, 86);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(475, 459);
@@ -67,17 +70,18 @@ namespace MoviesApp.Resources
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // labelYear
             // 
             this.labelYear.AutoSize = true;
             this.labelYear.Enabled = false;
-            this.labelYear.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.labelYear.Font = new System.Drawing.Font("Segoe UI", 13.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.labelYear.Location = new System.Drawing.Point(37, 105);
             this.labelYear.Name = "labelYear";
-            this.labelYear.Size = new System.Drawing.Size(99, 35);
+            this.labelYear.Size = new System.Drawing.Size(0, 30);
             this.labelYear.TabIndex = 3;
-            this.labelYear.Text = "kkkkkk";
             this.labelYear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelYear.Click += new System.EventHandler(this.labelYear_Click);
             // 
@@ -121,18 +125,17 @@ namespace MoviesApp.Resources
             // 
             this.labelDuration.AutoSize = true;
             this.labelDuration.Enabled = false;
-            this.labelDuration.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.labelDuration.Font = new System.Drawing.Font("Segoe UI", 13.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.labelDuration.Location = new System.Drawing.Point(165, 105);
             this.labelDuration.Name = "labelDuration";
-            this.labelDuration.Size = new System.Drawing.Size(127, 35);
+            this.labelDuration.Size = new System.Drawing.Size(0, 30);
             this.labelDuration.TabIndex = 8;
-            this.labelDuration.Text = "kkkkkkkk";
             this.labelDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelDuration.Click += new System.EventHandler(this.labelDuration_Click);
             // 
             // textBoxActors
             // 
-            this.textBoxActors.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxActors.BackColor = System.Drawing.Color.Azure;
             this.textBoxActors.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxActors.Enabled = false;
             this.textBoxActors.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
@@ -147,7 +150,7 @@ namespace MoviesApp.Resources
             // 
             // textBoxDirector
             // 
-            this.textBoxDirector.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxDirector.BackColor = System.Drawing.Color.Azure;
             this.textBoxDirector.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDirector.Enabled = false;
             this.textBoxDirector.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
@@ -162,7 +165,7 @@ namespace MoviesApp.Resources
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxDescription.BackColor = System.Drawing.Color.Azure;
             this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDescription.Enabled = false;
             this.textBoxDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
@@ -177,7 +180,9 @@ namespace MoviesApp.Resources
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Azure;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(920, 680);
             this.pictureBox2.Name = "pictureBox2";
@@ -189,7 +194,7 @@ namespace MoviesApp.Resources
             // 
             // textBoxTitle
             // 
-            this.textBoxTitle.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxTitle.BackColor = System.Drawing.Color.Azure;
             this.textBoxTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTitle.Enabled = false;
             this.textBoxTitle.Font = new System.Drawing.Font("Segoe UI", 16.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
@@ -205,6 +210,7 @@ namespace MoviesApp.Resources
             // 
             // pictureBoxBack
             // 
+            this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxBack.Image")));
             this.pictureBoxBack.Location = new System.Drawing.Point(11, 10);
             this.pictureBoxBack.Name = "pictureBoxBack";
@@ -216,10 +222,10 @@ namespace MoviesApp.Resources
             // 
             // textBoxCountry
             // 
-            this.textBoxCountry.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxCountry.BackColor = System.Drawing.Color.Azure;
             this.textBoxCountry.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCountry.Enabled = false;
-            this.textBoxCountry.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.textBoxCountry.Font = new System.Drawing.Font("Segoe UI", 13.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.textBoxCountry.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBoxCountry.Location = new System.Drawing.Point(270, 105);
             this.textBoxCountry.Multiline = true;
@@ -227,10 +233,10 @@ namespace MoviesApp.Resources
             this.textBoxCountry.ReadOnly = true;
             this.textBoxCountry.Size = new System.Drawing.Size(210, 54);
             this.textBoxCountry.TabIndex = 19;
-            this.textBoxCountry.Text = "kkkkk";
             // 
             // pictureBoxHeart
             // 
+            this.pictureBoxHeart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxHeart.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHeart.Image")));
             this.pictureBoxHeart.Location = new System.Drawing.Point(898, 15);
             this.pictureBoxHeart.Name = "pictureBoxHeart";
@@ -244,6 +250,8 @@ namespace MoviesApp.Resources
             // 
             // pictureBoxPlus
             // 
+            this.pictureBoxPlus.BackColor = System.Drawing.Color.Azure;
+            this.pictureBoxPlus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxPlus.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPlus.Image")));
             this.pictureBoxPlus.Location = new System.Drawing.Point(831, 15);
             this.pictureBoxPlus.Name = "pictureBoxPlus";
@@ -255,7 +263,7 @@ namespace MoviesApp.Resources
             // 
             // pictureBoxClock
             // 
-            this.pictureBoxClock.Image = global::MoviesApp.Properties.Resources.clock1;
+            this.pictureBoxClock.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxClock.Image")));
             this.pictureBoxClock.Location = new System.Drawing.Point(129, 110);
             this.pictureBoxClock.Name = "pictureBoxClock";
             this.pictureBoxClock.Size = new System.Drawing.Size(30, 30);
@@ -265,7 +273,7 @@ namespace MoviesApp.Resources
             // 
             // pictureBoxYear
             // 
-            this.pictureBoxYear.Image = global::MoviesApp.Properties.Resources.year21;
+            this.pictureBoxYear.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxYear.Image")));
             this.pictureBoxYear.Location = new System.Drawing.Point(1, 110);
             this.pictureBoxYear.Name = "pictureBoxYear";
             this.pictureBoxYear.Size = new System.Drawing.Size(30, 30);
@@ -275,7 +283,7 @@ namespace MoviesApp.Resources
             // 
             // pictureBoxCountry
             // 
-            this.pictureBoxCountry.Image = global::MoviesApp.Properties.Resources.flag1;
+            this.pictureBoxCountry.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCountry.Image")));
             this.pictureBoxCountry.Location = new System.Drawing.Point(234, 110);
             this.pictureBoxCountry.Name = "pictureBoxCountry";
             this.pictureBoxCountry.Size = new System.Drawing.Size(30, 30);
@@ -283,12 +291,25 @@ namespace MoviesApp.Resources
             this.pictureBoxCountry.TabIndex = 24;
             this.pictureBoxCountry.TabStop = false;
             // 
+            // pictureBoxGoLink
+            // 
+            this.pictureBoxGoLink.Image = global::MoviesApp.Properties.Resources.goLink;
+            this.pictureBoxGoLink.Location = new System.Drawing.Point(706, 291);
+            this.pictureBoxGoLink.Name = "pictureBoxGoLink";
+            this.pictureBoxGoLink.Size = new System.Drawing.Size(49, 48);
+            this.pictureBoxGoLink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxGoLink.TabIndex = 25;
+            this.pictureBoxGoLink.TabStop = false;
+            this.pictureBoxGoLink.Visible = false;
+            this.pictureBoxGoLink.Click += new System.EventHandler(this.pictureBoxGoLink_Click);
+            // 
             // Film
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(963, 713);
+            this.Controls.Add(this.pictureBoxGoLink);
             this.Controls.Add(this.pictureBoxCountry);
             this.Controls.Add(this.pictureBoxYear);
             this.Controls.Add(this.pictureBoxClock);
@@ -307,9 +328,12 @@ namespace MoviesApp.Resources
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelYear);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Film";
-            this.Text = "Film";
+            this.Text = "MovieApp";
             this.Load += new System.EventHandler(this.Film_Load);
+            this.MouseEnter += new System.EventHandler(this.Film_MouseEnter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
@@ -318,6 +342,7 @@ namespace MoviesApp.Resources
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCountry)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoLink)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,5 +369,6 @@ namespace MoviesApp.Resources
         private System.Windows.Forms.PictureBox pictureBoxClock;
         private System.Windows.Forms.PictureBox pictureBoxYear;
         private System.Windows.Forms.PictureBox pictureBoxCountry;
+        private System.Windows.Forms.PictureBox pictureBoxGoLink;
     }
 }

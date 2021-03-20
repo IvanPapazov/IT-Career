@@ -15,13 +15,16 @@ namespace MoviesApp.Presentation
 {
     public partial class Actors : Form
     {
-        public Actors()
+        string previousPage;
+        public Actors(string previousPage)
         {
             InitializeComponent();
+            this.previousPage = previousPage;
         }
         MovieBusiness mb = new MovieBusiness();
         private void Actors_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
             UpdateGrid();
         }
@@ -90,7 +93,14 @@ namespace MoviesApp.Presentation
 
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
-            MovieInformation.form1.Show();
+            if (previousPage=="Form1")
+            {
+                MovieInformation.form1.Show();
+            }
+            else if (previousPage=="FormAction")
+            {
+                MovieInformation.formAction.Show();
+            }
             this.Hide();
         }
     }

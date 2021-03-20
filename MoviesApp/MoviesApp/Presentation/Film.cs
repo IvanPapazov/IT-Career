@@ -17,15 +17,17 @@ namespace MoviesApp.Resources
     {
         Movie movie;
         MovieBusiness bc = new MovieBusiness();
-
-        public Film(Movie movie)
+        string previousForm;
+        public Film(Movie movie,string previousForm)
         {
             this.movie = movie;
+            this.previousForm = previousForm;
             InitializeComponent();
         }
 
         private void Film_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
 
             textBoxTitle.Text = movie.MovieTitle;
@@ -81,12 +83,16 @@ namespace MoviesApp.Resources
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             MovieInformation.film = this; 
-            if (MovieInformation.formAction!=null)
+            if (previousForm=="Form1")
+            {
+               Form1 form1 = MovieInformation.form1;
+                form1.Show();
+            }
+            else if (previousForm=="FormAction")
             {
                 FormAction formAction = MovieInformation.formAction;
                 formAction.Show();
             }
-           
             this.Close();
         }
 
@@ -189,6 +195,39 @@ namespace MoviesApp.Resources
         {
             var playlistForm = new AddPlaylistForm(this.movie);
             playlistForm.Show();
+        }
+
+        private void Film_MouseEnter(object sender, EventArgs e)
+        {
+            if (movie.IsLiked)
+            {
+                pictureBoxHeart.Image = Image.FromFile("otherResources\\heart1.png");
+            }
+            else
+            {
+                pictureBoxHeart.Image = Image.FromFile("otherResources\\heart2.png");
+            }
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBoxGoLink.Visible = true;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBoxGoLink.Visible = false;
+        }
+
+        private void pictureBoxGoLink_Click(object sender, EventArgs e)
+        {
+            var psi2 = new ProcessStartInfo
+            {
+                FileName = "https://filmi7.com",                                                                  //correct link - https://filmi7.com/filmi/3638-titanic-titanik-1997.html
+                UseShellExecute = true
+            };
+
+            Process.Start(psi2);
         }
     }
 }

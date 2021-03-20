@@ -29,6 +29,7 @@ namespace MoviesApp.Presentation
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DescriptionForm));
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.groupBoxForm1 = new System.Windows.Forms.GroupBox();
             this.textBoxForm1first = new System.Windows.Forms.TextBox();
@@ -51,16 +52,18 @@ namespace MoviesApp.Presentation
             // 
             // textBoxDescription
             // 
+            this.textBoxDescription.BackColor = System.Drawing.Color.Azure;
             this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDescription.Enabled = false;
             this.textBoxDescription.Font = new System.Drawing.Font("Rockwell", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.textBoxDescription.Location = new System.Drawing.Point(220, 12);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(885, 39);
+            this.textBoxDescription.Size = new System.Drawing.Size(885, 50);
             this.textBoxDescription.TabIndex = 0;
             this.textBoxDescription.Text = "Описание на приложението";
             this.textBoxDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
             // groupBoxForm1
             // 
@@ -75,7 +78,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxForm1first
             // 
-            this.textBoxForm1first.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBoxForm1first.BackColor = System.Drawing.Color.Azure;
             this.textBoxForm1first.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxForm1first.Font = new System.Drawing.Font("Perpetua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxForm1first.Location = new System.Drawing.Point(6, 42);
@@ -98,7 +101,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxFAction
             // 
-            this.textBoxFAction.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBoxFAction.BackColor = System.Drawing.Color.Azure;
             this.textBoxFAction.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxFAction.Location = new System.Drawing.Point(6, 42);
             this.textBoxFAction.Multiline = true;
@@ -119,7 +122,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxFilm
             // 
-            this.textBoxFilm.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBoxFilm.BackColor = System.Drawing.Color.Azure;
             this.textBoxFilm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxFilm.Location = new System.Drawing.Point(6, 42);
             this.textBoxFilm.Multiline = true;
@@ -129,7 +132,7 @@ namespace MoviesApp.Presentation
             // 
             // groupBoxPlaylist
             // 
-            this.groupBoxPlaylist.BackColor = System.Drawing.SystemColors.Menu;
+            this.groupBoxPlaylist.BackColor = System.Drawing.Color.Azure;
             this.groupBoxPlaylist.Controls.Add(this.textBoxPlaylist);
             this.groupBoxPlaylist.Font = new System.Drawing.Font("Modern No. 20", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxPlaylist.Location = new System.Drawing.Point(427, 307);
@@ -141,7 +144,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxPlaylist
             // 
-            this.textBoxPlaylist.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBoxPlaylist.BackColor = System.Drawing.Color.Azure;
             this.textBoxPlaylist.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPlaylist.Location = new System.Drawing.Point(6, 42);
             this.textBoxPlaylist.Multiline = true;
@@ -162,7 +165,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxAddFilm
             // 
-            this.textBoxAddFilm.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBoxAddFilm.BackColor = System.Drawing.Color.Azure;
             this.textBoxAddFilm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAddFilm.Location = new System.Drawing.Point(6, 42);
             this.textBoxAddFilm.Multiline = true;
@@ -172,6 +175,7 @@ namespace MoviesApp.Presentation
             // 
             // pictureBoxBack
             // 
+            this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxBack.Image = global::MoviesApp.Properties.Resources.backArrows;
             this.pictureBoxBack.Location = new System.Drawing.Point(18, 5);
             this.pictureBoxBack.Name = "pictureBoxBack";
@@ -185,6 +189,7 @@ namespace MoviesApp.Presentation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1252, 651);
             this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.groupBox2);
@@ -193,8 +198,10 @@ namespace MoviesApp.Presentation
             this.Controls.Add(this.groupBoxFormAction);
             this.Controls.Add(this.groupBoxForm1);
             this.Controls.Add(this.textBoxDescription);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "DescriptionForm";
-            this.Text = "Форма: Филм";
+            this.Text = "MovieApp";
             this.Load += new System.EventHandler(this.DescriptionForm_Load);
             this.groupBoxForm1.ResumeLayout(false);
             this.groupBoxForm1.PerformLayout();

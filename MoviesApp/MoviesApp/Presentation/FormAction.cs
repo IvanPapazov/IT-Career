@@ -25,7 +25,7 @@ namespace MoviesApp.Presentation
         private void button5_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Program.myForm.Show();
+            MovieInformation.form1.Show();
         }
         MovieBusiness mb = new MovieBusiness();
         bool canOpenPage = true;//next
@@ -42,8 +42,8 @@ namespace MoviesApp.Presentation
 
         private void FormAction_Load(object sender, EventArgs e)
         {
-            
-
+            textBox3.Text = MovieInformation.GenreName;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             filmPictureBoxes = new List<PictureBox>();
             countPages = (mb.FindMoviesFromGenre(MovieInformation.IndexGenre).Count / 10);
             if ((mb.FindMoviesFromGenre(MovieInformation.IndexGenre).Count % 10) != 0)
@@ -96,170 +96,6 @@ namespace MoviesApp.Presentation
             {
                 ShowImagesBefore(genreId, genreLetter, locationImageX, locationImageY, locationTextX, locationTextY);
             }
-            //MessageBox.Show(indexImage.ToString());
-            /*
-            if (canOpenPage)
-            {
-                for (int i = 1; i <= countMoviesOnPage; i++)
-                {
-                    string fileName = $"fotos{genreLetter}\\{genreLetter}{indexImage}.jpg";
-                    PictureBox pictureBoxAction = new PictureBox();
-                    pictureBoxAction.Name = $"{genreLetter}{indexImage}";
-                    pictureBoxAction.Image = Image.FromFile(fileName);
-                    pictureBoxAction.Location = new Point(locationImageX, locationImageY);
-                    pictureBoxAction.Size = new Size(150, 150);
-                    pictureBoxAction.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBoxAction.Parent = this;
-                    pictureBoxAction.Visible = true;
-                    pictureBoxAction.BringToFront();
-                    locationImageX += 160;
-                    Movie movie = mb.FindMoviesFromGenre(genreId)[indexImage - 1];
-                    int indexer = indexImage;
-                    pictureBoxAction.Click += (s, e) =>
-                    {
-                        MovieInformation.IndexMovie = indexer;
-                        MovieInformation.LetterMovie = genreLetter;
-
-                        MovieInformation.formAction = this;
-                        var film = new Film(movie);
-                        MovieInformation.film = film;
-                        MovieInformation.film.Show();
-                        this.Hide();
-                    };
-
-                    filmPictureBoxes.Add(pictureBoxAction);
-
-                    Label label = new Label();
-                    label.Name = $"{genreLetter}{indexImage}";
-                    label.Location = new Point(locationTextX, locationTextY);
-                    label.Size = new Size(150, 50);
-                    label.Parent = this;
-                    label.Visible = true;
-                    label.BringToFront();
-                    label.Text = mb.FindMoviesFromGenre(genreId)[indexImage - 1].MovieTitle;
-                    label.TextAlign = ContentAlignment.TopCenter;
-                    locationTextX += 160;
-
-
-                    if (locationImageX > 700)
-                    {
-                        locationImageY += 200;
-                        locationImageX = 40;
-                        locationTextY = locationImageY + 160;
-                        locationTextX = 40;
-                    }
-                    indexImage++;
-                }
-
-                button5.Text = indexImage.ToString();//show images next 
-
-                for (int i = 1; i <= 10 - countMoviesOnPage; i++)
-                {
-                    //string fileName = $"fotos{genreLetter}\\{genreLetter}{indexImage}.jpg";
-                    PictureBox pictureBoxAction = new PictureBox();
-                    pictureBoxAction.Name = $"empty{indexImage}";
-                    //pictureBoxAction.Image = Image.FromFile(fileName);
-                    pictureBoxAction.Location = new Point(locationImageX, locationImageY);
-                    pictureBoxAction.Size = new Size(150, 150);
-                    //  pictureBoxAction.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBoxAction.Parent = this;
-                    pictureBoxAction.Visible = true;
-                    pictureBoxAction.BringToFront();
-                    locationImageX += 160;
-                    // Movie movie = mb.FindMoviesFromGenre(genreId)[indexImage - 1];
-                    //int indexer = indexImage;   
-
-                    filmPictureBoxes.Add(pictureBoxAction);
-
-                    Label label = new Label();
-                    label.Name = $"empty{indexImage}";
-                    label.Location = new Point(locationTextX, locationTextY);
-                    label.Size = new Size(150, 50);
-                    label.Parent = this;
-                    label.Visible = true;
-                    label.BringToFront();
-                    //label.Text = mb.FindMoviesFromGenre(genreId)[indexImage - 1].MovieTitle;
-                    //label.TextAlign = ContentAlignment.TopCenter;
-                    locationTextX += 160;
-
-
-                    if (locationImageX > 700)
-                    {
-                        locationImageY += 200;
-                        locationImageX = 40;
-                        locationTextY = locationImageY + 160;
-                        locationTextX = 40;
-                    }
-                }//show images empty
-                countMoviesToLoad -= countMoviesOnPage;
-                //if (countMoviesToLoad < 10)
-                //{
-                //    countMoviesOnPage = countMoviesToLoad;
-                //}
-            }
-            //!
-            if (canReturnPage)
-            {
-                locationImageX = 40;
-                locationImageY = 100;
-                locationTextX = 40;
-                locationTextY = 260;
-
-                index = indexImage - countMoviesOnPage;
-                for (int i = index - 10; i < index; i++)
-                {
-                    string fileName = $"fotos{genreLetter}\\{genreLetter}{i}.jpg";
-                    PictureBox pictureBoxAction = new PictureBox();
-                    pictureBoxAction.Name = $"{genreLetter}{indexImage}";
-                    pictureBoxAction.Image = Image.FromFile(fileName);
-                    pictureBoxAction.Location = new Point(locationImageX, locationImageY);
-                    pictureBoxAction.Size = new Size(150, 150);
-                    pictureBoxAction.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBoxAction.Parent = this;
-                    pictureBoxAction.Visible = true;
-                    pictureBoxAction.BringToFront();
-                    locationImageX += 160;
-                    //Movie movie = mb.FindMoviesFromGenre(genreId)[indexImage - 1];
-                    //int indexer = indexImage;
-                    //pictureBoxAction.Click += (s, e) =>
-                    //{
-                    //    MovieInformation.IndexMovie = indexer;
-                    //    MovieInformation.LetterMovie = genreLetter;
-
-                    //    MovieInformation.formAction = this;
-                    //    var film = new Film(movie);
-                    //    MovieInformation.film = film;
-                    //    MovieInformation.film.Show();
-                    //    this.Hide();
-                    //};
-
-                    //filmPictureBoxes.Add(pictureBoxAction);
-
-                    //Label label = new Label();
-                    //label.Name = $"{genreLetter}{indexImage}";
-                    //label.Location = new Point(locationTextX, locationTextY);
-                    //label.Size = new Size(150, 50);
-                    //label.Parent = this;
-                    //label.Visible = true;
-                    //label.BringToFront();
-                    //label.Text = mb.FindMoviesFromGenre(genreId)[indexImage - 1].MovieTitle;
-                    //label.TextAlign = ContentAlignment.TopCenter;
-                    //locationTextX += 160;
-
-
-                    if (locationImageX > 700)
-                    {
-                        locationImageY += 200;
-                        locationImageX = 40;
-                        locationTextY = locationImageY + 160;
-                        locationTextX = 40;
-                    }
-                }
-
-                indexImage -= (index + countMoviesOnPage - 1);
-                button5.Text = indexImage.ToString();
-            }//show images previous
-            */
         }
         public void ShowImagesNext(int genreId, string genreLetter, int locationImageX, int locationImageY, int locationTextX, int locationTextY)
         {
@@ -290,7 +126,7 @@ namespace MoviesApp.Presentation
                     MovieInformation.LetterMovie = genreLetter;
 
                     MovieInformation.formAction = this;
-                    var film = new Film(movie);
+                    var film = new Film(movie,"FormAction");
                     MovieInformation.film = film;
                     MovieInformation.film.Show();
                     this.Hide();
@@ -307,6 +143,8 @@ namespace MoviesApp.Presentation
                 label.BringToFront();
                 label.Text = mb.FindMoviesFromGenre(genreId)[indexImage - 1].MovieTitle;
                 label.TextAlign = ContentAlignment.TopCenter;
+                label.Font = new Font(label.Font, FontStyle.Italic);
+                label.Font = new Font(label.Font, FontStyle.Bold);
                 locationTextX += 160;
 
                 if (locationImageX > 700)
@@ -379,6 +217,7 @@ namespace MoviesApp.Presentation
                 pictureBoxAction.Parent = this;
                 pictureBoxAction.Visible = true;
                 pictureBoxAction.BringToFront();
+                
                 locationImageX += 160;
 
 
@@ -391,7 +230,7 @@ namespace MoviesApp.Presentation
                     MovieInformation.LetterMovie = genreLetter;
 
                     MovieInformation.formAction = this;
-                    var film = new Film(movie);
+                    var film = new Film(movie,"FormAction");
                     MovieInformation.film = film;
                     MovieInformation.film.Show();
                     this.Hide();
@@ -408,6 +247,8 @@ namespace MoviesApp.Presentation
                 label.BringToFront();
                 label.Text = mb.FindMoviesFromGenre(genreId)[i - 1].MovieTitle;
                 label.TextAlign = ContentAlignment.TopCenter;
+                label.Font = new Font(label.Font, FontStyle.Italic);
+                label.Font = new Font(label.Font, FontStyle.Bold);
                 locationTextX += 160;
 
                 if (locationImageX > 700)
@@ -424,6 +265,7 @@ namespace MoviesApp.Presentation
                 countMoviesToLoad += countMoviesOnPage;
             }
         }
+        
         private void button19_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -449,6 +291,7 @@ namespace MoviesApp.Presentation
 
         private void button1_MouseEnter(object sender, EventArgs e)
         {
+            button1.BackColor = Color.FromArgb(135, 206, 250);
             groupBox1.Visible = true;
             groupBox1.BringToFront();
         }
@@ -469,9 +312,11 @@ namespace MoviesApp.Presentation
 
         private void button6_Click(object sender, EventArgs e)//екшън
         {
+           
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 1;
             MovieInformation.GenreLetter = "A";
+            MovieInformation.GenreName = "Екшън";
             formAction.Show();
             this.Hide();
         }
@@ -481,6 +326,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 2;
             MovieInformation.GenreLetter = "Adv";
+            MovieInformation.GenreName = "Приключенски";
             formAction.Show();
             this.Hide();
         }
@@ -490,6 +336,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 3;
             MovieInformation.GenreLetter = "Comedy";
+            MovieInformation.GenreName = "Комедии";
             formAction.Show();
             this.Hide();
         }
@@ -499,6 +346,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 4;
             MovieInformation.GenreLetter = "Criminal";
+            MovieInformation.GenreName = "Криминални";
             formAction.Show();
             this.Hide();
         }
@@ -508,6 +356,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 5;
             MovieInformation.GenreLetter = "Fantasy";
+            MovieInformation.GenreName = "Фентъзи";
             formAction.Show();
             this.Hide();
         }
@@ -516,6 +365,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 6;
             MovieInformation.GenreLetter = "Sci";
+            MovieInformation.GenreName = "Научна фантастика";
             formAction.Show();
             this.Hide();
         }
@@ -524,6 +374,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 7;
             MovieInformation.GenreLetter = "History";
+            MovieInformation.GenreName = "Исторически";
             formAction.Show();
             this.Hide();
         }
@@ -533,6 +384,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 8;
             MovieInformation.GenreLetter = "Horror";
+            MovieInformation.GenreName = "Ужаси";
             formAction.Show();
             this.Hide();
         }
@@ -541,13 +393,16 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 9;
             MovieInformation.GenreLetter = "Romance";
+            MovieInformation.GenreName = "Романтика";
             formAction.Show();
+            this.Hide();
         }
         private void button15_Click(object sender, EventArgs e)//трилър
         {
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 10;
             MovieInformation.GenreLetter = "Thriller";
+            MovieInformation.GenreName = "Трилъри";
             formAction.Show();
             this.Hide();
         }
@@ -556,6 +411,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 11;
             MovieInformation.GenreLetter = "Cartoon";
+            MovieInformation.GenreName = "Анимации";
             formAction.Show();
             this.Hide();
         }
@@ -564,6 +420,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 12;
             MovieInformation.GenreLetter = "Drama";
+            MovieInformation.GenreName = "Драма";
             formAction.Show();
             this.Hide();
         }
@@ -670,6 +527,40 @@ namespace MoviesApp.Presentation
             MovieInformation.formAction = this;
             addMovieForm.Show();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MovieInformation.formAction = this;
+            var formActors = new Actors("FormAction");
+            MovieInformation.actors = formActors;
+            MovieInformation.actors.Show();
+            this.Hide();
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.FromArgb(135, 206, 250);
+        }
+
+        private void button5_MouseEnter(object sender, EventArgs e)
+        {
+            button5.BackColor = Color.FromArgb(135, 206, 250);
+        }
+
+        private void button5_MouseLeave(object sender, EventArgs e)
+        {
+            button5.BackColor = Color.FromArgb(240, 255, 255);
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.FromArgb(240, 255, 255);
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.FromArgb(240, 255, 255);
         }
     }
 }

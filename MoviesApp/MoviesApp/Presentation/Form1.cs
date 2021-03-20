@@ -36,6 +36,7 @@ namespace MoviesApp
         /// <param name="e">Данни на събитието</param>
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             labelError.Visible = false;
             this.CenterToScreen();
             EnsureDateBaseIsCreated();
@@ -587,7 +588,7 @@ namespace MoviesApp
         /// <param name="e">Данни на събитието</param>
         private void button1_MouseEnter(object sender, EventArgs e)
         {
-            button1.BackColor = Color.Gray;
+            button1.BackColor = Color.FromArgb(135, 206, 250);
             groupBox1.Visible = true;
         }
         /// <summary>
@@ -597,7 +598,7 @@ namespace MoviesApp
         /// <param name="e">Данни на събитието</param>
         private void button1_MouseLeave(object sender, EventArgs e)//филми
         {
-            button1.BackColor = Color.Silver;
+            button1.BackColor = Color.FromArgb(240, 255, 255);
         }
         private void groupBox1_MouseHover(object sender, EventArgs e)
         {
@@ -622,9 +623,10 @@ namespace MoviesApp
         private void button2_Click(object sender, EventArgs e)
         {
             MovieInformation.form1 = this;
-            var formActors = new Actors();
+            var formActors = new Actors("Form1");
             MovieInformation.actors = formActors;
             MovieInformation.actors.Show();
+            this.Hide();
         }
 
         /// <summary>
@@ -716,6 +718,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 1;
             MovieInformation.GenreLetter = "A";
+            MovieInformation.GenreName = "Екшън";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -730,6 +733,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 2;
             MovieInformation.GenreLetter = "Adv";
+            MovieInformation.GenreName = "Приключенски";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -744,6 +748,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 3;
             MovieInformation.GenreLetter = "Comedy";
+            MovieInformation.GenreName = "Комедии";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -758,6 +763,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 4;
             MovieInformation.GenreLetter = "Criminal";
+            MovieInformation.GenreName = "Криминални";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -772,6 +778,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 5;
             MovieInformation.GenreLetter = "Fantasy";
+            MovieInformation.GenreName = "Фентъзи";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -786,6 +793,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 6;
             MovieInformation.GenreLetter = "Sci";
+            MovieInformation.GenreName = "Научна фантастика";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -800,6 +808,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 7;
             MovieInformation.GenreLetter = "History";
+            MovieInformation.GenreName = "Исторически";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -814,6 +823,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 8;
             MovieInformation.GenreLetter = "Horror";
+            MovieInformation.GenreName = "Ужаси";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -828,6 +838,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 9;
             MovieInformation.GenreLetter = "Romance";
+            MovieInformation.GenreName = "Романтика";
             MovieInformation.form1 = this;
             formAction.Show();
         }
@@ -841,6 +852,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 10;
             MovieInformation.GenreLetter = "Thriller";
+            MovieInformation.GenreName = "Трилъри";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -855,6 +867,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 11;
             MovieInformation.GenreLetter = "Cartoon";
+            MovieInformation.GenreName = "Анимации";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -869,6 +882,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 12;
             MovieInformation.GenreLetter = "Drama";
+            MovieInformation.GenreName = "Драма";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -895,7 +909,7 @@ namespace MoviesApp
         /// <param name="e">Данни на събитието</param>
         private void button2_MouseEnter(object sender, EventArgs e)
         {
-            button2.BackColor = Color.Gray;
+            button2.BackColor = Color.FromArgb(135, 206, 250);
             groupBox1.Visible = false;
         }
         /// <summary>
@@ -905,7 +919,7 @@ namespace MoviesApp
         /// <param name="e">Данни на събитието</param>
         private void button2_MouseLeave(object sender, EventArgs e)
         {
-            button2.BackColor = Color.Silver;
+            button2.BackColor = Color.FromArgb(240, 255, 255);
         }
 
         /// <summary>
@@ -915,12 +929,14 @@ namespace MoviesApp
         /// <param name="e">Данни на събитието</param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "Няма съвпадения";
+            textBox3.Text = "";
             countMovieInCollection = 1;
             string name = textBoxSearch.Text;
+            textBox7.Visible = false;
+            pictureBox3.Visible = false;
             MovieInformation.form1 = this;
             ShowMovieInForm(name);
-           
+
         }
         /// <summary>
         /// Метод, активиращ се при натискането на клавиш от клавиатурата
@@ -930,42 +946,28 @@ namespace MoviesApp
         /// <param name="e">Данни на събитието</param>
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                string name = textBoxSearch.Text;
-                MovieInformation.form1 = this;
-                ShowMovieInForm(name);
-            }
         }
-
-      
         public void ShowMovieInForm(string name)
         {
-            Movie movie = SearchMovie(name);
-            if (movie!=null)
+            Movie movie = bc.GetAllMovies().Where(m => m.MovieTitle.Equals(name)).FirstOrDefault();
+
+            if (movie != null)
             {
-                textBox3.Text = movie.MovieTitle;
+                Genre movieGenre = bc.FindGenresOfMovie(movie.Id)[0];
+                DefineGenre(movieGenre, movie);
+                var film = new Film(movie, "Form1");
+                MovieInformation.film = film;
+                MovieInformation.film.Show();
+                labelError.Visible = false;
             }
-            
-            //Movie movie = bc.GetAllMovies().Where(m => m.MovieTitle.Equals(name)).FirstOrDefault();
-            ////Movie movie = SearchMovie(name);
-            //Genre movieGenre = bc.FindGenresOfMovie(movie.Id)[0];
-
-            //if (movie!=null)
-            //{
-            //    DefineGenre(movieGenre,movie);
-            //    var film = new Film(movie);
-            //    MovieInformation.film = film;
-            //    MovieInformation.film.Show();
-            //    labelError.Visible = false;
-            //}
-            //else
-            //{
-            //    labelError.Visible = true;
-            //}
-
+            else
+            {
+                labelError.Visible = true;
+            }
+            textBoxSearch.Text = "";
         }
 
+        private List<Movie> SearchMovie(string name)
         /// <summary>
         /// Метод, търсещ филм в базата по име
         /// </summary>
@@ -975,37 +977,43 @@ namespace MoviesApp
         {
             List<Movie> movies = bc.GetAllMovies();
             List<string> moviesTitles = new List<string>();
-            
+            List<Movie> moviesSearched = new List<Movie>();
+            Movie movieSearched = null;
+
+            if (name.Length == 1)
+            {
+                return null;
+            }
+
             foreach (var movie in movies)
             {
-                moviesTitles.Add(movie.MovieTitle);
-                
+                moviesTitles.Add(movie.MovieTitle.ToLower());
             }
             int countMovie = 0;
             foreach (var movie in moviesTitles)
             {
-                if (movie.Split(' ').Length > 1)
+                if (movie.ToLower() == name.ToLower())
+                {
+                    movieSearched = movies[countMovie];
+                    moviesSearched.Add(movieSearched);
+                }
+                else
                 {
                     string[] words = movie.Split(' ').ToArray();
                     foreach (var word in words)
                     {
-                        //movieSplitName.Add(word);
-                        if (word.Contains(name))
+                        if (word.Contains(name.ToLower()))
                         {
-                            return movies[countMovie];
+                            movieSearched = movies[countMovie];
+                            moviesSearched.Add(movieSearched);
                         }
                     }
-
                 }
                 countMovie++;
             }
-            return null;
-           // textBox3.Text = string.Join(",  ", movieSplitName);
-
-            //foreach (var item in movieSplitName)
-            //{
-            //    textBox3.Text += item;
-            //}
+            countMovie = 0;
+            moviesSearched.Distinct();
+            return moviesSearched;
         }
 
         /// <summary>
@@ -1017,7 +1025,7 @@ namespace MoviesApp
         {
             countMovieInCollection = 1;
             List<Movie> movies = bc.FindMoviesFromGenre(genre.Id).ToList();
-            Movie currMovie=FindMovie(movie.MovieTitle,movies);
+            Movie currMovie = FindMovie(movie.MovieTitle, movies);
             MovieInformation.IndexMovie = countMovieInCollection;
 
             switch (genre.Title)
@@ -1073,7 +1081,7 @@ namespace MoviesApp
         {
             foreach (var movie in movies)
             {
-                if (movie.MovieTitle==name)
+                if (movie.MovieTitle == name)
                 {
                     return movie;
                 }
@@ -1083,8 +1091,49 @@ namespace MoviesApp
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
-        {
-
+        {    
+            string name = textBoxSearch.Text;
+            textBox3.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox3.Visible = false;
+            textBox5.Visible = false;
+            textBox6.Visible = false;
+            textBox7.Text = textBoxSearch.Text;
+            textBox7.Font = new Font(textBox7.Font.FontFamily, 10);
+            if (textBoxSearch.Text.Length > 10)
+            {
+                textBox7.Visible = true;
+                pictureBox3.Visible = true;
+            }
+            else
+            {
+                textBox7.Visible=false;
+                pictureBox3.Visible = false;
+            }
+            List<Movie> moviesSearched = SearchMovie(name);
+            int countMovie = 1;
+            if (moviesSearched != null && name != "")
+            {
+                  
+                if (moviesSearched.Count >= 1)
+                {
+                    textBox3.Visible = true;
+                    textBox3.Text = moviesSearched[0].MovieTitle;
+                    countMovie++;
+                }
+                if (moviesSearched.Count >= 2 && moviesSearched[1] != moviesSearched[0])
+                {
+                    textBox5.Visible = true;
+                    textBox5.Text = moviesSearched[1].MovieTitle;
+                    countMovie++;
+                }
+                if (moviesSearched.Count == 3)
+                {
+                    textBox6.Visible = true;
+                    textBox6.Text = moviesSearched[2].MovieTitle;
+                }
+            }
         }
 
         /// <summary>
@@ -1094,7 +1143,7 @@ namespace MoviesApp
         /// <param name="e">Данни на събитието</param>
         private void button5_MouseEnter(object sender, EventArgs e)
         {
-            button5.BackColor = Color.Gray;
+            button5.BackColor = Color.FromArgb(135, 206, 250);
         }
 
         /// <summary>
@@ -1104,7 +1153,7 @@ namespace MoviesApp
         /// <param name="e">Данни на събитието</param>
         private void button5_MouseLeave(object sender, EventArgs e)
         {
-            button5.BackColor = Color.Silver;
+            button5.BackColor = Color.FromArgb(240, 255, 255);
         }
 
         /// <summary>
@@ -1187,7 +1236,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[0].Id)[0];
                             DefineGenre(firstGenre, randomMovies[0]);
-                            var film = new Film(randomMovies[0]);
+                            var film = new Film(randomMovies[0],"Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1201,7 +1250,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[1].Id)[0];
                             DefineGenre(firstGenre, randomMovies[1]);
-                            var film = new Film(randomMovies[1]);
+                            var film = new Film(randomMovies[1],"Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1214,7 +1263,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[2].Id)[0];
                             DefineGenre(firstGenre, randomMovies[2]);
-                            var film = new Film(randomMovies[2]);
+                            var film = new Film(randomMovies[2],"Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1226,7 +1275,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[3].Id)[0];
                             DefineGenre(firstGenre, randomMovies[3]);
-                            var film = new Film(randomMovies[3]);
+                            var film = new Film(randomMovies[3], "Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1238,7 +1287,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[4].Id)[0];
                             DefineGenre(firstGenre, randomMovies[4]);
-                            var film = new Film(randomMovies[4]);
+                            var film = new Film(randomMovies[4], "Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1250,7 +1299,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[5].Id)[0];
                             DefineGenre(firstGenre, randomMovies[5]);
-                            var film = new Film(randomMovies[5]);
+                            var film = new Film(randomMovies[5], "Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1262,7 +1311,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[6].Id)[0];
                             DefineGenre(firstGenre, randomMovies[6]);
-                            var film = new Film(randomMovies[6]);
+                            var film = new Film(randomMovies[6], "Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1274,7 +1323,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[7].Id)[0];
                             DefineGenre(firstGenre, randomMovies[7]);
-                            var film = new Film(randomMovies[7]);
+                            var film = new Film(randomMovies[7], "Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1286,7 +1335,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[8].Id)[0];
                             DefineGenre(firstGenre, randomMovies[8]);
-                            var film = new Film(randomMovies[8]);
+                            var film = new Film(randomMovies[8], "Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1298,7 +1347,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[9].Id)[0];
                             DefineGenre(firstGenre, randomMovies[9]);
-                            var film = new Film(randomMovies[9]);
+                            var film = new Film(randomMovies[9], "Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1310,7 +1359,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[10].Id)[0];
                             DefineGenre(firstGenre, randomMovies[10]);
-                            var film = new Film(randomMovies[10]);
+                            var film = new Film(randomMovies[10], "Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1322,7 +1371,7 @@ namespace MoviesApp
                         {   // works but is it ok if we use this
                             Genre firstGenre = bc.FindGenresOfMovie(randomMovies[11].Id)[0];
                             DefineGenre(firstGenre, randomMovies[11]);
-                            var film = new Film(randomMovies[11]);
+                            var film = new Film(randomMovies[11], "Form1");
                             MovieInformation.form1 = this;
                             film.Show();
                             this.Hide();
@@ -1332,6 +1381,65 @@ namespace MoviesApp
                         break;
                 }
             }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelError_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_Click(object sender, EventArgs e)
+        {
+            string nameMovieSearch = textBox3.Text;
+            textBox3.Text = "";
+            textBox3.Visible = false;
+            textBoxSearch.Text = nameMovieSearch;
+        }
+
+        private void textBox5_Click(object sender, EventArgs e)
+        {
+            string nameMovieSearch = textBox5.Text;
+            textBox5.Text = "";
+            textBox5.Visible = false;
+            textBoxSearch.Text = nameMovieSearch;
+        }
+
+        private void textBox6_Click(object sender, EventArgs e)
+        {
+            string nameMovieSearch = textBox6.Text;
+            textBox6.Text = "";
+            textBox6.Visible = false;
+            textBoxSearch.Text = nameMovieSearch;
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxSearch_MouseEnter(object sender, EventArgs e)
+        {
+            if (textBoxSearch.Text.Length > 9)
+            {
+                textBox7.Visible = true;
+                pictureBox3.Visible = true;
+            }
+        }
+
+        private void textBoxSearch_MouseLeave(object sender, EventArgs e)
+        {
+                textBox7.Visible = false;
+            pictureBox3.Visible = false;
+        }
+
+        private void textBox7_MouseLeave(object sender, EventArgs e)
+        {
+            
         }
     }
 }

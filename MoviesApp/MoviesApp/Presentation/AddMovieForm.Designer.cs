@@ -29,6 +29,7 @@ namespace MoviesApp.Presentation
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMovieForm));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBoxDirectorLastName = new System.Windows.Forms.TextBox();
@@ -47,6 +48,8 @@ namespace MoviesApp.Presentation
             this.pictureBoxDragDrob = new System.Windows.Forms.PictureBox();
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.pictureBoxApply = new System.Windows.Forms.PictureBox();
+            this.textBoxAddFilm = new System.Windows.Forms.TextBox();
+            this.textBoxAddPhoto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Филм.SuspendLayout();
@@ -58,10 +61,10 @@ namespace MoviesApp.Presentation
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox1.BackColor = System.Drawing.Color.Azure;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(-2, 1);
+            this.textBox1.Location = new System.Drawing.Point(-2, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -69,6 +72,7 @@ namespace MoviesApp.Presentation
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "Добави филм";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 
@@ -84,6 +88,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxDirectorLastName
             // 
+            this.textBoxDirectorLastName.BackColor = System.Drawing.Color.Azure;
             this.textBoxDirectorLastName.ForeColor = System.Drawing.Color.Silver;
             this.textBoxDirectorLastName.Location = new System.Drawing.Point(6, 108);
             this.textBoxDirectorLastName.Multiline = true;
@@ -96,6 +101,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxDirectorFirstName
             // 
+            this.textBoxDirectorFirstName.BackColor = System.Drawing.Color.Azure;
             this.textBoxDirectorFirstName.ForeColor = System.Drawing.Color.Silver;
             this.textBoxDirectorFirstName.Location = new System.Drawing.Point(6, 48);
             this.textBoxDirectorFirstName.Multiline = true;
@@ -120,6 +126,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxActorWoman
             // 
+            this.textBoxActorWoman.BackColor = System.Drawing.Color.Azure;
             this.textBoxActorWoman.ForeColor = System.Drawing.Color.Silver;
             this.textBoxActorWoman.Location = new System.Drawing.Point(6, 239);
             this.textBoxActorWoman.Multiline = true;
@@ -133,6 +140,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxActorMan
             // 
+            this.textBoxActorMan.BackColor = System.Drawing.Color.Azure;
             this.textBoxActorMan.ForeColor = System.Drawing.Color.Silver;
             this.textBoxActorMan.Location = new System.Drawing.Point(6, 48);
             this.textBoxActorMan.Multiline = true;
@@ -159,9 +167,11 @@ namespace MoviesApp.Presentation
             this.Филм.TabIndex = 6;
             this.Филм.TabStop = false;
             this.Филм.Text = "Филм";
+            this.Филм.Enter += new System.EventHandler(this.Филм_Enter);
             // 
             // checkedListBoxMovieGenre
             // 
+            this.checkedListBoxMovieGenre.BackColor = System.Drawing.Color.Azure;
             this.checkedListBoxMovieGenre.ForeColor = System.Drawing.Color.Silver;
             this.checkedListBoxMovieGenre.FormattingEnabled = true;
             this.checkedListBoxMovieGenre.Items.AddRange(new object[] {
@@ -186,6 +196,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxMovieDiscription
             // 
+            this.textBoxMovieDiscription.BackColor = System.Drawing.Color.Azure;
             this.textBoxMovieDiscription.ForeColor = System.Drawing.Color.Silver;
             this.textBoxMovieDiscription.Location = new System.Drawing.Point(10, 227);
             this.textBoxMovieDiscription.Multiline = true;
@@ -199,6 +210,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxMovieDuration
             // 
+            this.textBoxMovieDuration.BackColor = System.Drawing.Color.Azure;
             this.textBoxMovieDuration.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxMovieDuration.ForeColor = System.Drawing.Color.Silver;
             this.textBoxMovieDuration.Location = new System.Drawing.Point(192, 108);
@@ -212,6 +224,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxMovieYear
             // 
+            this.textBoxMovieYear.BackColor = System.Drawing.Color.Azure;
             this.textBoxMovieYear.ForeColor = System.Drawing.Color.Silver;
             this.textBoxMovieYear.Location = new System.Drawing.Point(10, 108);
             this.textBoxMovieYear.Multiline = true;
@@ -224,6 +237,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxMovieCountry
             // 
+            this.textBoxMovieCountry.BackColor = System.Drawing.Color.Azure;
             this.textBoxMovieCountry.ForeColor = System.Drawing.Color.Silver;
             this.textBoxMovieCountry.Location = new System.Drawing.Point(192, 48);
             this.textBoxMovieCountry.Multiline = true;
@@ -236,6 +250,7 @@ namespace MoviesApp.Presentation
             // 
             // textBoxMovieName
             // 
+            this.textBoxMovieName.BackColor = System.Drawing.Color.Azure;
             this.textBoxMovieName.ForeColor = System.Drawing.Color.Silver;
             this.textBoxMovieName.Location = new System.Drawing.Point(10, 48);
             this.textBoxMovieName.Multiline = true;
@@ -259,19 +274,24 @@ namespace MoviesApp.Presentation
             // 
             // pictureBoxDragDrob
             // 
+            this.pictureBoxDragDrob.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDragDrob.Image = global::MoviesApp.Properties.Resources.images;
-            this.pictureBoxDragDrob.Location = new System.Drawing.Point(6, 40);
+            this.pictureBoxDragDrob.Location = new System.Drawing.Point(6, 39);
             this.pictureBoxDragDrob.Name = "pictureBoxDragDrob";
             this.pictureBoxDragDrob.Size = new System.Drawing.Size(203, 198);
             this.pictureBoxDragDrob.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxDragDrob.TabIndex = 0;
             this.pictureBoxDragDrob.TabStop = false;
+            this.pictureBoxDragDrob.Click += new System.EventHandler(this.pictureBoxDragDrob_Click);
             this.pictureBoxDragDrob.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxDragDrob_DragDrop);
             this.pictureBoxDragDrob.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxDragDrob_DragEnter);
+            this.pictureBoxDragDrob.MouseEnter += new System.EventHandler(this.pictureBoxDragDrob_MouseEnter);
+            this.pictureBoxDragDrob.MouseLeave += new System.EventHandler(this.pictureBoxDragDrob_MouseLeave);
             // 
             // pictureBoxBack
             // 
-            this.pictureBoxBack.Image = global::MoviesApp.Properties.Resources.backArrows1;
+            this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxBack.Image = global::MoviesApp.Properties.Resources.backArrows;
             this.pictureBoxBack.Location = new System.Drawing.Point(42, 508);
             this.pictureBoxBack.Name = "pictureBoxBack";
             this.pictureBoxBack.Size = new System.Drawing.Size(64, 62);
@@ -282,21 +302,48 @@ namespace MoviesApp.Presentation
             // 
             // pictureBoxApply
             // 
+            this.pictureBoxApply.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxApply.Image = global::MoviesApp.Properties.Resources.img_464408;
-            this.pictureBoxApply.Location = new System.Drawing.Point(782, 508);
+            this.pictureBoxApply.Location = new System.Drawing.Point(767, 508);
             this.pictureBoxApply.Name = "pictureBoxApply";
-            this.pictureBoxApply.Size = new System.Drawing.Size(64, 62);
+            this.pictureBoxApply.Size = new System.Drawing.Size(79, 62);
             this.pictureBoxApply.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxApply.TabIndex = 9;
             this.pictureBoxApply.TabStop = false;
             this.pictureBoxApply.Click += new System.EventHandler(this.pictureBoxApply_Click);
+            this.pictureBoxApply.MouseEnter += new System.EventHandler(this.pictureBoxApply_MouseEnter);
+            this.pictureBoxApply.MouseLeave += new System.EventHandler(this.pictureBoxApply_MouseLeave);
+            // 
+            // textBoxAddFilm
+            // 
+            this.textBoxAddFilm.BackColor = System.Drawing.Color.Azure;
+            this.textBoxAddFilm.Location = new System.Drawing.Point(699, 508);
+            this.textBoxAddFilm.Multiline = true;
+            this.textBoxAddFilm.Name = "textBoxAddFilm";
+            this.textBoxAddFilm.Size = new System.Drawing.Size(68, 29);
+            this.textBoxAddFilm.TabIndex = 10;
+            this.textBoxAddFilm.Text = "добави";
+            this.textBoxAddFilm.Visible = false;
+            // 
+            // textBoxAddPhoto
+            // 
+            this.textBoxAddPhoto.BackColor = System.Drawing.Color.Azure;
+            this.textBoxAddPhoto.Location = new System.Drawing.Point(161, 480);
+            this.textBoxAddPhoto.Multiline = true;
+            this.textBoxAddPhoto.Name = "textBoxAddPhoto";
+            this.textBoxAddPhoto.Size = new System.Drawing.Size(69, 49);
+            this.textBoxAddPhoto.TabIndex = 11;
+            this.textBoxAddPhoto.Text = "добави снимка";
+            this.textBoxAddPhoto.Visible = false;
             // 
             // AddMovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(888, 585);
+            this.Controls.Add(this.textBoxAddPhoto);
+            this.Controls.Add(this.textBoxAddFilm);
             this.Controls.Add(this.pictureBoxApply);
             this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.groupBox3);
@@ -304,8 +351,10 @@ namespace MoviesApp.Presentation
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddMovieForm";
-            this.Text = "AddMovieForm";
+            this.Text = "MovieApp";
             this.Load += new System.EventHandler(this.AddMovieForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -342,5 +391,7 @@ namespace MoviesApp.Presentation
         private System.Windows.Forms.PictureBox pictureBoxDragDrob;
         private System.Windows.Forms.PictureBox pictureBoxBack;
         private System.Windows.Forms.PictureBox pictureBoxApply;
+        private System.Windows.Forms.TextBox textBoxAddFilm;
+        private System.Windows.Forms.TextBox textBoxAddPhoto;
     }
 }
