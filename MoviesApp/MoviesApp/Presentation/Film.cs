@@ -18,6 +18,11 @@ namespace MoviesApp.Resources
         Movie movie;
         MovieBusiness bc = new MovieBusiness();
         string previousForm;
+        /// <summary>
+        /// Конструктор, приемащ два параметъра
+        /// </summary>
+        /// <param name="movie"> Обект от филм</param>
+        /// <param name="previousForm"> Променлива, пазеща предходната страница</param>
         public Film(Movie movie,string previousForm)
         {
             this.movie = movie;
@@ -25,6 +30,11 @@ namespace MoviesApp.Resources
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Метод за зареждане на формата
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитията</param>
+        /// <param name="e">Данни за събитието</param>
         private void Film_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -68,11 +78,17 @@ namespace MoviesApp.Resources
             }
         }
 
+       
         private void button2_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на поле за изображение 2
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Size = new Size(979, 900);
@@ -80,6 +96,11 @@ namespace MoviesApp.Resources
             pictureBox2.Visible = false;
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на поле за изображение Назад
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             MovieInformation.film = this; 
@@ -101,15 +122,18 @@ namespace MoviesApp.Resources
 
         }
 
+
         private void labelYear_Click(object sender, EventArgs e)
         {
 
         }
 
+
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
+
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -126,6 +150,7 @@ namespace MoviesApp.Resources
 
         }
 
+
         private void textBoxTitle_TextChanged(object sender, EventArgs e)
         {
 
@@ -141,6 +166,11 @@ namespace MoviesApp.Resources
 
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на поле за изображение 1
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             var psi = new ProcessStartInfo
@@ -152,11 +182,17 @@ namespace MoviesApp.Resources
             Process.Start(psi);
         }
 
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на поле за изображение 3
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             if (!movie.IsLiked)
@@ -177,11 +213,21 @@ namespace MoviesApp.Resources
 
         }
 
+        /// <summary>
+        /// Метод, извикващ се при навлизане на курсора на мишката в поле за изображение Харесано
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void pictureBoxHeart_MouseEnter(object sender, EventArgs e)
         {
             pictureBoxHeart.Image = Image.FromFile("otherResources\\heart1.png");
         }
 
+        /// <summary>
+        /// Метод, извикващ се при излизане на курсора на мишката от поле за изображение Харесано
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void pictureBoxHeart_MouseLeave(object sender, EventArgs e)
         {
             if (!movie.IsLiked)
@@ -191,12 +237,22 @@ namespace MoviesApp.Resources
 
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на поле за изображение Плюс
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void pictureBoxPlus_Click_1(object sender, EventArgs e)
         {
             var playlistForm = new AddPlaylistForm(this.movie);
             playlistForm.Show();
         }
 
+        /// <summary>
+        /// Метод, извикващ се при зареждане на формата
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void Film_MouseEnter(object sender, EventArgs e)
         {
             if (movie.IsLiked)
@@ -209,16 +265,31 @@ namespace MoviesApp.Resources
             }
         }
 
+        /// <summary>
+        /// Метод, извикващ се при навлизане на курсора на мишката в поле за изображение 1
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             pictureBoxGoLink.Visible = true;
         }
 
+        /// <summary>
+        /// Метод, извикващ се при излизане на курсора на мишката от поле за изображение 1
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
             pictureBoxGoLink.Visible = false;
         }
 
+        /// <summary>
+        /// Метод, служещ за извършване на действие при натискане на изображение
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxGoLink_Click(object sender, EventArgs e)
         {
             var psi2 = new ProcessStartInfo

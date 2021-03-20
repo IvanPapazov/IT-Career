@@ -160,6 +160,7 @@ namespace MoviesApp.Presentation
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Форма: Добави филм";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // textBoxAddFilm
             // 
@@ -174,7 +175,6 @@ namespace MoviesApp.Presentation
             // pictureBoxBack
             // 
             this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxBack.Image = global::MoviesApp.Properties.Resources.backArrows;
             this.pictureBoxBack.Location = new System.Drawing.Point(18, 5);
             this.pictureBoxBack.Name = "pictureBoxBack";
             this.pictureBoxBack.Size = new System.Drawing.Size(56, 46);
