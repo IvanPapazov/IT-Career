@@ -75,7 +75,6 @@ namespace MoviesApp.Presentation
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
             // 
             // buttonDescription
@@ -355,7 +354,6 @@ namespace MoviesApp.Presentation
             this.button1.TabIndex = 23;
             this.button1.Text = "Филми";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 

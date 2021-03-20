@@ -14,19 +14,21 @@ using System.Diagnostics;
 
 namespace MoviesApp.Presentation
 {
+    /// <summary>
+    ///Клас, служещ за показване на всички филми от даден жанр 
+    /// </summary>
     public partial class FormAction : Form
     {
         public List<PictureBox> filmPictureBoxes;
+        /// <summary>
+        /// Конструктор без параметри, служещ за инициализиране на обектите
+        /// върху формата (бутони, тексови полета и др.)
+        /// </summary>
         public FormAction()
         {
             InitializeComponent();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MovieInformation.form1.Show();
-        }
         MovieBusiness mb = new MovieBusiness();
         bool canOpenPage = true;//next
         bool canReturnPage = false;//back
@@ -40,6 +42,11 @@ namespace MoviesApp.Presentation
         bool isLastPage = false;
         bool isMiddlePage = false;
 
+        /// <summary>
+        ///Метод, който извършва действието си при първоначалното зареждане на формата  
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void FormAction_Load(object sender, EventArgs e)
         {
             textBox3.Text = MovieInformation.GenreName;
@@ -81,6 +88,12 @@ namespace MoviesApp.Presentation
             ShowImages(MovieInformation.IndexGenre, MovieInformation.GenreLetter);
         }
 
+        /// <summary>
+        /// Метод, който служи за зареждане на изображения при смяната на страниците
+        /// В зависимост от входа извиква друг метод
+        /// </summary>
+        /// <param name="genreId">Индентификационен номер на жанр</param>
+        /// <param name="genreLetter">Абревиатура, или съкращение на името на жанра</param>
         private void ShowImages(int genreId, string genreLetter)
         {
             int locationImageX = 40;
@@ -97,6 +110,16 @@ namespace MoviesApp.Presentation
                 ShowImagesBefore(genreId, genreLetter, locationImageX, locationImageY, locationTextX, locationTextY);
             }
         }
+
+        /// <summary>
+        /// Метод, служещ за зареждане на изображения на филми при отиване на следваща страница
+        /// </summary>
+        /// <param name="genreId">Индемтификационен номер на жанра на показваните филми</param>
+        /// <param name="genreLetter">Абревиатура, или съкращение на името на жанра</param>
+        /// <param name="locationImageX">Координати за начално появяване на изображение спрямо х оста</param>
+        /// <param name="locationImageY">Координати за начално появяване на изображение спрямо y оста</param>
+        /// <param name="locationTextX">Координати за начално появяване на текстовото поле спрямо х оста</param>
+        /// <param name="locationTextY">Координати за начално появяване на текстовото поле спрямо y оста</param>
         public void ShowImagesNext(int genreId, string genreLetter, int locationImageX, int locationImageY, int locationTextX, int locationTextY)
         {
             if (countMoviesToLoad < 10)//check if the page is last, and loads <10 images on it
@@ -126,7 +149,7 @@ namespace MoviesApp.Presentation
                     MovieInformation.LetterMovie = genreLetter;
 
                     MovieInformation.formAction = this;
-                    var film = new Film(movie,"FormAction");
+                    var film = new Film(movie, "FormAction");
                     MovieInformation.film = film;
                     MovieInformation.film.Show();
                     this.Hide();
@@ -191,6 +214,15 @@ namespace MoviesApp.Presentation
             countMoviesToLoad -= countMoviesOnPage;
         }
 
+        /// <summary>
+        /// Метод, служещ за зареждане на изображения на филми при отиване на предишна страница
+        /// </summary>
+        /// <param name="genreId">Индемтификационен номер на жанра на показваните филми</param>
+        /// <param name="genreLetter">Абревиатура, или съкращение на името на жанра</param>
+        /// <param name="locationImageX">Координати за начално появяване на изображение спрямо х оста</param>
+        /// <param name="locationImageY">Координати за начално появяване на изображение спрямо y оста</param>
+        /// <param name="locationTextX">Координати за начално появяване на текстовото поле спрямо х оста</param>
+        /// <param name="locationTextY">Координати за начално появяване на текстовото поле спрямо y оста</param>
         public void ShowImagesBefore(int genreId, string genreLetter, int locationImageX, int locationImageY, int locationTextX, int locationTextY)
         {
 
@@ -217,7 +249,7 @@ namespace MoviesApp.Presentation
                 pictureBoxAction.Parent = this;
                 pictureBoxAction.Visible = true;
                 pictureBoxAction.BringToFront();
-                
+
                 locationImageX += 160;
 
 
@@ -230,7 +262,7 @@ namespace MoviesApp.Presentation
                     MovieInformation.LetterMovie = genreLetter;
 
                     MovieInformation.formAction = this;
-                    var film = new Film(movie,"FormAction");
+                    var film = new Film(movie, "FormAction");
                     MovieInformation.film = film;
                     MovieInformation.film.Show();
                     this.Hide();
@@ -265,30 +297,34 @@ namespace MoviesApp.Presentation
                 countMoviesToLoad += countMoviesOnPage;
             }
         }
-        
+
+        /// <summary>
+        /// Метод при натискане на бутон
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void button19_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Метод, извикващ се при навлизане на курсора на мишката
+        /// в рамките на изображението
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             groupBox2.Visible = true;
             groupBox2.BringToFront();
         }
 
+        /// <summary>
+        /// Метод, извикващ се при навлизане на курсора на мишката в рамките на бутона
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button1_MouseEnter(object sender, EventArgs e)
         {
             button1.BackColor = Color.FromArgb(135, 206, 250);
@@ -296,23 +332,46 @@ namespace MoviesApp.Presentation
             groupBox1.BringToFront();
         }
 
+        /// <summary>
+        /// Метод, извикващ се при навлизане на курсора на мишката в рамките на формата
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void FormAction_MouseEnter(object sender, EventArgs e)
         {
             groupBox1.Visible = false;
             groupBox2.Visible = false;
         }
 
+        /// <summary>
+        /// Метод, извикващ се при навлизане на курсора на мишката в границите на текстовото поле
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void textBox1_MouseEnter(object sender, EventArgs e)
         {
             groupBox1.Visible = false;
             groupBox2.Visible = false;
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон5
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MovieInformation.form1.Show();
+        }
 
-
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 6
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button6_Click(object sender, EventArgs e)//екшън
         {
-           
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 1;
             MovieInformation.GenreLetter = "A";
@@ -321,6 +380,11 @@ namespace MoviesApp.Presentation
             this.Hide();
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 7
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button7_Click(object sender, EventArgs e)//приключенски
         {
             var formAction = new FormAction();
@@ -331,6 +395,11 @@ namespace MoviesApp.Presentation
             this.Hide();
         }
 
+        /// <summary>
+        ///  Метод, извикващ се при натискане на бутон 8
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button8_Click(object sender, EventArgs e)//комедии
         {
             var formAction = new FormAction();
@@ -341,6 +410,11 @@ namespace MoviesApp.Presentation
             this.Hide();
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 9
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button9_Click(object sender, EventArgs e)//криминални
         {
             var formAction = new FormAction();
@@ -351,6 +425,11 @@ namespace MoviesApp.Presentation
             this.Hide();
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 10
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button10_Click(object sender, EventArgs e)//фентъзи
         {
             var formAction = new FormAction();
@@ -360,6 +439,12 @@ namespace MoviesApp.Presentation
             formAction.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 11
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button11_Click(object sender, EventArgs e)//научна фантастика
         {
             var formAction = new FormAction();
@@ -369,6 +454,12 @@ namespace MoviesApp.Presentation
             formAction.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 12
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button12_Click(object sender, EventArgs e)//исторически
         {
             var formAction = new FormAction();
@@ -379,6 +470,11 @@ namespace MoviesApp.Presentation
             this.Hide();
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 13
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button13_Click(object sender, EventArgs e)//ужаси
         {
             var formAction = new FormAction();
@@ -388,6 +484,12 @@ namespace MoviesApp.Presentation
             formAction.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 14
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button14_Click(object sender, EventArgs e)//романтика
         {
             var formAction = new FormAction();
@@ -397,6 +499,12 @@ namespace MoviesApp.Presentation
             formAction.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 15
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button15_Click(object sender, EventArgs e)//трилър
         {
             var formAction = new FormAction();
@@ -406,6 +514,12 @@ namespace MoviesApp.Presentation
             formAction.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 16
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button16_Click(object sender, EventArgs e)//анимация детско
         {
             var formAction = new FormAction();
@@ -415,6 +529,12 @@ namespace MoviesApp.Presentation
             formAction.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 17
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button17_Click(object sender, EventArgs e)//драма
         {
             var formAction = new FormAction();
@@ -425,6 +545,11 @@ namespace MoviesApp.Presentation
             this.Hide();
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void buttonPlaylist_Click(object sender, EventArgs e)
         {
             var playlistForm = new PlaylistForm("FormAction");
@@ -433,6 +558,11 @@ namespace MoviesApp.Presentation
             this.Hide();
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон описание
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void buttonDescription_Click(object sender, EventArgs e)
         {
             var formDescription = new DescriptionForm("FormAction");
@@ -440,6 +570,12 @@ namespace MoviesApp.Presentation
             formDescription.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Метод, извикващ се при натискане на поле за изображение 2(отиване на следваща страница)
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void pictureBox2_Click(object sender, EventArgs e)//NEXT
         {
             //defining what is the NEXT page
@@ -485,6 +621,12 @@ namespace MoviesApp.Presentation
             //do the actions
 
         }
+
+        /// <summary>
+        /// Метод, извикващ се при натискане на поле за изображение 3(отиване на предходна страница)
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void pictureBox3_Click(object sender, EventArgs e)//BACK
         {
             //defining which is the PREVIOUS page
@@ -521,6 +663,11 @@ namespace MoviesApp.Presentation
             }
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон добави филм
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void buttonAddMovie_Click(object sender, EventArgs e)
         {
             var addMovieForm = new AddMovieForm("FormAction");
@@ -529,6 +676,11 @@ namespace MoviesApp.Presentation
             this.Hide();
         }
 
+        /// <summary>
+        /// Метод, извикващ се при натискане на бутон 2
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button2_Click(object sender, EventArgs e)
         {
             MovieInformation.formAction = this;
@@ -538,26 +690,51 @@ namespace MoviesApp.Presentation
             this.Hide();
         }
 
+        /// <summary>
+        /// Метод, викащ се при навлизане на курсора на мишката в границите на бутон 2
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button2_MouseEnter(object sender, EventArgs e)
         {
             button2.BackColor = Color.FromArgb(135, 206, 250);
         }
 
+        /// <summary>
+        /// Метод, викащ се при навлизане на курсора на мишката в границите на бутон 5
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button5_MouseEnter(object sender, EventArgs e)
         {
             button5.BackColor = Color.FromArgb(135, 206, 250);
         }
 
+        /// <summary>
+        /// Метод, викащ се при излизане на курсора на мишката от границите на бутон 5
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button5_MouseLeave(object sender, EventArgs e)
         {
             button5.BackColor = Color.FromArgb(240, 255, 255);
         }
 
+        /// <summary>
+        /// Метод, викащ се при излизане на курсора на мишката от границите на бутон 2
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button2_MouseLeave(object sender, EventArgs e)
         {
             button2.BackColor = Color.FromArgb(240, 255, 255);
         }
 
+        /// <summary>
+        /// Метод, викащ се при излизане на курсора на мишката от границите на бутон 1
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             button1.BackColor = Color.FromArgb(240, 255, 255);
