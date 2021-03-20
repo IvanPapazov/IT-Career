@@ -17,6 +17,7 @@ namespace MoviesApp.Presentation
         public static string GenreLetter { get; set; }
         public static int IndexMovie { get; set; }
         public static string LetterMovie { get; set; }
+        public static string GenreName { get; set; }
 
 
 

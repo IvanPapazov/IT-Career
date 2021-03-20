@@ -42,6 +42,7 @@ namespace MoviesApp.Presentation
 
         private void FormAction_Load(object sender, EventArgs e)
         {
+            textBox3.Text = MovieInformation.GenreName;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             filmPictureBoxes = new List<PictureBox>();
             countPages = (mb.FindMoviesFromGenre(MovieInformation.IndexGenre).Count / 10);
@@ -315,6 +316,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 1;
             MovieInformation.GenreLetter = "A";
+            MovieInformation.GenreName = "Екшън";
             formAction.Show();
             this.Hide();
         }
@@ -324,6 +326,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 2;
             MovieInformation.GenreLetter = "Adv";
+            MovieInformation.GenreName = "Приключенски";
             formAction.Show();
             this.Hide();
         }
@@ -333,6 +336,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 3;
             MovieInformation.GenreLetter = "Comedy";
+            MovieInformation.GenreName = "Комедии";
             formAction.Show();
             this.Hide();
         }
@@ -342,6 +346,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 4;
             MovieInformation.GenreLetter = "Criminal";
+            MovieInformation.GenreName = "Криминални";
             formAction.Show();
             this.Hide();
         }
@@ -351,6 +356,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 5;
             MovieInformation.GenreLetter = "Fantasy";
+            MovieInformation.GenreName = "Фентъзи";
             formAction.Show();
             this.Hide();
         }
@@ -359,6 +365,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 6;
             MovieInformation.GenreLetter = "Sci";
+            MovieInformation.GenreName = "Научна фантастика";
             formAction.Show();
             this.Hide();
         }
@@ -367,6 +374,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 7;
             MovieInformation.GenreLetter = "History";
+            MovieInformation.GenreName = "Исторически";
             formAction.Show();
             this.Hide();
         }
@@ -376,6 +384,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 8;
             MovieInformation.GenreLetter = "Horror";
+            MovieInformation.GenreName = "Ужаси";
             formAction.Show();
             this.Hide();
         }
@@ -384,6 +393,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 9;
             MovieInformation.GenreLetter = "Romance";
+            MovieInformation.GenreName = "Романтика";
             formAction.Show();
             this.Hide();
         }
@@ -392,6 +402,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 10;
             MovieInformation.GenreLetter = "Thriller";
+            MovieInformation.GenreName = "Трилъри";
             formAction.Show();
             this.Hide();
         }
@@ -400,6 +411,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 11;
             MovieInformation.GenreLetter = "Cartoon";
+            MovieInformation.GenreName = "Анимации";
             formAction.Show();
             this.Hide();
         }
@@ -408,6 +420,7 @@ namespace MoviesApp.Presentation
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 12;
             MovieInformation.GenreLetter = "Drama";
+            MovieInformation.GenreName = "Драма";
             formAction.Show();
             this.Hide();
         }

@@ -656,6 +656,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 1;
             MovieInformation.GenreLetter = "A";
+            MovieInformation.GenreName = "Екшън";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -665,6 +666,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 2;
             MovieInformation.GenreLetter = "Adv";
+            MovieInformation.GenreName = "Приключенски";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -675,6 +677,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 3;
             MovieInformation.GenreLetter = "Comedy";
+            MovieInformation.GenreName = "Комедии";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -685,6 +688,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 4;
             MovieInformation.GenreLetter = "Criminal";
+            MovieInformation.GenreName = "Криминални";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -695,6 +699,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 5;
             MovieInformation.GenreLetter = "Fantasy";
+            MovieInformation.GenreName = "Фентъзи";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -705,6 +710,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 6;
             MovieInformation.GenreLetter = "Sci";
+            MovieInformation.GenreName = "Научна фантастика";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -715,6 +721,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 7;
             MovieInformation.GenreLetter = "History";
+            MovieInformation.GenreName = "Исторически";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -724,6 +731,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 8;
             MovieInformation.GenreLetter = "Horror";
+            MovieInformation.GenreName = "Ужаси";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -733,6 +741,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 9;
             MovieInformation.GenreLetter = "Romance";
+            MovieInformation.GenreName = "Романтика";
             MovieInformation.form1 = this;
             formAction.Show();
         }
@@ -741,6 +750,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 10;
             MovieInformation.GenreLetter = "Thriller";
+            MovieInformation.GenreName = "Трилъри";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -751,6 +761,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 11;
             MovieInformation.GenreLetter = "Cartoon";
+            MovieInformation.GenreName = "Анимации";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
@@ -761,6 +772,7 @@ namespace MoviesApp
             var formAction = new FormAction();
             MovieInformation.IndexGenre = 12;
             MovieInformation.GenreLetter = "Drama";
+            MovieInformation.GenreName = "Драма";
             MovieInformation.form1 = this;
             formAction.Show();
             this.Hide();
