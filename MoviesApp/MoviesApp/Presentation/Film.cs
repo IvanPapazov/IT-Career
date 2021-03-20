@@ -27,6 +27,7 @@ namespace MoviesApp.Resources
 
         private void Film_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
 
             textBoxTitle.Text = movie.MovieTitle;
@@ -206,6 +207,27 @@ namespace MoviesApp.Resources
             {
                 pictureBoxHeart.Image = Image.FromFile("otherResources\\heart2.png");
             }
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBoxGoLink.Visible = true;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBoxGoLink.Visible = false;
+        }
+
+        private void pictureBoxGoLink_Click(object sender, EventArgs e)
+        {
+            var psi2 = new ProcessStartInfo
+            {
+                FileName = "https://filmi7.com",                                                                  //correct link - https://filmi7.com/filmi/3638-titanic-titanik-1997.html
+                UseShellExecute = true
+            };
+
+            Process.Start(psi2);
         }
     }
 }

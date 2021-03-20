@@ -176,6 +176,8 @@ namespace MoviesApp.Presentation
         }
         private void AddMovieForm_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.CenterToScreen();
             pictureBoxDragDrob.AllowDrop = true;
         }
         string previousFormType;
@@ -398,6 +400,37 @@ namespace MoviesApp.Presentation
                 UseShellExecute = true
             };
             Process.Start(psi);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Филм_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxApply_MouseEnter(object sender, EventArgs e)
+        {
+            textBoxAddFilm.Visible = true;
+        }
+
+        private void pictureBoxApply_MouseLeave(object sender, EventArgs e)
+        {
+            textBoxAddFilm.Visible = false;
+        }
+
+        private void pictureBoxDragDrob_MouseEnter(object sender, EventArgs e)
+        {
+            textBoxAddPhoto.Visible = true;
+        }
+
+        private void pictureBoxDragDrob_MouseLeave(object sender, EventArgs e)
+        {
+            textBoxAddPhoto.Visible = false;
+
         }
     }
 }

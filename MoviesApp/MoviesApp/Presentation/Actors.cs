@@ -24,6 +24,7 @@ namespace MoviesApp.Presentation
         MovieBusiness mb = new MovieBusiness();
         private void Actors_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
             UpdateGrid();
         }

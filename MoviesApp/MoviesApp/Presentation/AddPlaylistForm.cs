@@ -46,6 +46,7 @@ namespace MoviesApp.Presentation
 
         private void AddPlaylistForm_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
             UpdateGrid();
         }
