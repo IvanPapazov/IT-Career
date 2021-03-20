@@ -15,6 +15,11 @@ namespace MoviesApp.Presentation
     {
 
         string previousFormType = "";
+
+        /// <summary>
+        /// Конструктор на формата за добавяне на плейлисти.
+        /// </summary>
+        /// <param name="previousFormType">Име на формата, от която се отваря текущата</param>
         public PlaylistForm(string previousFormType)
         {
             InitializeComponent();
@@ -27,23 +32,27 @@ namespace MoviesApp.Presentation
         Playlist currPlaylist;
         List<MoviePlaylist> moviePlaylists = new List<MoviePlaylist>();
         List<Movie> movies = new List<Movie>();
+
+        /// <summary>
+        /// Метод, който се извиква при първоначално зареждане на формата.
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void PlaylistForm_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
             UpdateGrid();
             ClearTextBoxes();
             textBoxName.Enabled = false;
-
-            //labelFilms.Visible = false;
-            //dataGridViewFilms.Visible = false;
-
             textBoxFilm.Enabled = false;
-            //textBoxFilm.Visible = false;
-
             buttonDeleteMovie.Enabled = false;
-            //buttonDeleteMovie.Visible = false;
 
         }
+
+        /// <summary>
+        /// Метод, който презарежда таблицата (dataGridViewPlaylist контролата), като взима информацията 
+        /// от таблицата в базата, която съдържа плейлистите в приложението.
+        /// </summary>
         private void UpdateGrid()
         {
             dataGridViewPlaylist.DataSource = mb.GetAllPlaylists();
@@ -53,6 +62,9 @@ namespace MoviesApp.Presentation
             dataGridViewPlaylist.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
+        /// <summary>
+        /// Метод, който презарежда таблицата (dataGridViewFilms контролата) с филми от избран плейлист. 
+        /// </summary>
         private void UpdateGrid2()
         {
             labelFilms.Visible = true;
@@ -70,6 +82,10 @@ namespace MoviesApp.Presentation
 
             dataGridViewFilms.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
+        /// <summary>
+        /// Метод, който прави бутоните и текстовото поле по-долу невидими и недостъпни. 
+        /// </summary>
         private void ClearTextBoxes()
         {
             textBoxAdd.Visible = false;
@@ -82,14 +98,15 @@ namespace MoviesApp.Presentation
             buttonSave2.Visible = false;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при натискане на клетка от контролата dataGridViewPlaylist
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void dataGridViewPlaylist_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             textBoxFilm.Text = "";
-            textBoxFilm.Visible = false;
-            //if (dataGridViewFilms.SelectedRows.Count > 0)
-            //{
-            //    dataGridViewFilms.Focus();
-            //}           
+            textBoxFilm.Visible = false;           
 
             textBoxName.Text = "";
 
@@ -103,12 +120,16 @@ namespace MoviesApp.Presentation
                 int playListId = currPlaylist.Id;
 
                 // extracts the movies in the current playlist
-
                 FullCurrentMovies();
                 UpdateGrid2();
             }
         }
 
+        /// <summary>
+        /// Метод, който активира метод за запазване на новодобавен плейлист.
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             textBoxAdd.Text = "";
@@ -121,6 +142,11 @@ namespace MoviesApp.Presentation
             buttonAdd.Enabled = false;
         }
 
+        /// <summary>
+        /// Метод за запазване на новодобавен плейлист в базата.
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
             string playListName = textBoxAdd.Text;
@@ -156,6 +182,11 @@ namespace MoviesApp.Presentation
             buttonAdd.Enabled = true;
         }
 
+        /// <summary>
+        /// Метод, който дава възможност за преименуване на даден плейлист и активира метод за запазване на промените.
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void buttonRename_Click(object sender, EventArgs e)
         {
             if (dataGridViewPlaylist.SelectedRows.Count > 0)
@@ -172,9 +203,12 @@ namespace MoviesApp.Presentation
                 textBoxName.Focus();
                 ToggleSaveUpdate();
                 dataGridViewPlaylist.Enabled = false;
-                // TODO
             }
         }
+
+        /// <summary>
+        /// Метод, който сменя видимостта на бутоните, отговарящи за преименуването на плейлист и запазването на промените.
+        /// </summary>
         private void ToggleSaveUpdate()
         {
             if (buttonRename.Visible)
@@ -193,6 +227,11 @@ namespace MoviesApp.Presentation
             }
 
         }
+        /// <summary>
+        /// Метод за запазване на промените при преименуване на плейлист.
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void buttonSave2_Click(object sender, EventArgs e)
         {
             string newName = textBoxName.Text;
@@ -209,6 +248,11 @@ namespace MoviesApp.Presentation
             textBoxName.Enabled = false;
         }
 
+        /// <summary>
+        /// Метод, позволяващ изтриване на плейлист от базата.
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void buttonDelete_Click(object sender, EventArgs e) // DeletePlaylist
         {
             if (dataGridViewPlaylist.SelectedRows.Count > 0)
@@ -219,19 +263,19 @@ namespace MoviesApp.Presentation
                 editId = id;
                 string name = playLists[0].Name;
               
-                //textBoxName.Enabled = true;
                 textBoxName.Visible = true;
                 textBoxName.Text = name;
-                //textBoxName.Focus();
                 dataGridViewPlaylist.Enabled = false;
 
-
-                // TODO
                 ShowMessageBox(name);
 
             }
         }
 
+        /// <summary>
+        /// Метод, който визуализира съобщение при опит за изтриване на плейлист.
+        /// </summary>
+        /// <param name="name">Име на плейлист</param>
         private void ShowMessageBox(string name)
         {
             string message = $"Сигурни ли сте, че искате да изтриете плейлист \"{name}\"";
@@ -247,6 +291,11 @@ namespace MoviesApp.Presentation
             dataGridViewPlaylist.Enabled = true;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при натискане на клетка от контролата dataGridViewFilms
+        /// </summary>
+        /// <param name="sender">Обект, зареждащ събитието</param>
+        /// <param name="e">Данни за събитието</param>
         private void dataGridViewFilms_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -261,6 +310,11 @@ namespace MoviesApp.Presentation
             }
         }
 
+        /// <summary>
+        /// Метод, поволяващ изтриването на филм от избран плейлист.
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonDeleteMovie_Click(object sender, EventArgs e)
         {
             if (dataGridViewFilms.SelectedRows.Count > 0)
@@ -275,6 +329,11 @@ namespace MoviesApp.Presentation
             }
         }
 
+        /// <summary>
+        /// Метод, визуализиращ съобщение при опит да се изтрие филм от плейлист
+        /// </summary>
+        /// <param name="movieName">име на филма</param>
+        /// <param name="movieId">номер на филма</param>
         private void ShowMessageBoxForFilm(string movieName, int movieId)
         {
             string playListName = currPlaylist.Name;
@@ -299,6 +358,9 @@ namespace MoviesApp.Presentation
             buttonDeleteMovie.Visible = false;
         }
 
+        /// <summary>
+        /// Метод, който намира и запазва в колекция от "Филми" филмите, които се намират в избран плейлист
+        /// </summary>
         private void FullCurrentMovies()
         {
             moviePlaylists = mb.GetAllMoviePlaylists();
@@ -319,6 +381,11 @@ namespace MoviesApp.Presentation
             }
         }
 
+        /// <summary>
+        /// Метод, който се зарежда при натискане на изображението "стрелка назад", който ни връща към предишната форма
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {       
             this.Hide();
@@ -332,66 +399,121 @@ namespace MoviesApp.Presentation
             }
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при вкарване на курсора на мишката върху бутона за добавяне на плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonAdd_MouseEnter(object sender, EventArgs e)
         {
             buttonAdd.BackColor = Color.Gray;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при премахване на курсора на мишката от бутона за добавяне на плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonAdd_MouseLeave(object sender, EventArgs e)
         {
             buttonAdd.BackColor = Color.Silver;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при вкарване на курсора на мишката върху бутона за запзване на новодобавен плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonSave_MouseEnter(object sender, EventArgs e)
         {
             buttonSave.BackColor = Color.Gray;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при напускане на курсора на мишката от бутона за запзване на новодобавен плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonSave_MouseLeave(object sender, EventArgs e)
         {
             buttonSave.BackColor = Color.Silver;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при вкарване на курсора на мишката върху бутона за преименуване на плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonRename_MouseEnter(object sender, EventArgs e)
         {
             buttonRename.BackColor = Color.Gray;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при напускане на курсора на мишката от бутона за преименуване на плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonRename_MouseLeave(object sender, EventArgs e)
         {
             buttonRename.BackColor = Color.Silver;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при вкарване на курсора на мишката върху бутона за запазване на промяната на името
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonSave2_MouseEnter(object sender, EventArgs e)
         {
             buttonSave2.BackColor = Color.Gray;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при напускане на курсора на мишката от бутона за запазване на промяната на името
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonSave2_MouseLeave(object sender, EventArgs e)
         {
             buttonSave2.BackColor = Color.Silver;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при вкарване на курсора на мишката върху бутона за изтриване на плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonDelete_MouseEnter(object sender, EventArgs e)
         {
             buttonDelete.BackColor = Color.Gray;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при напускане на курсора на мишката от бутона за изтриване на плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonDelete_MouseLeave(object sender, EventArgs e)
         {
             buttonDelete.BackColor = Color.Silver;
         }
 
-        private void textBoxAdd_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Метод, зареждащ се при вкарване на курсора на мишката върху бутона за изтриване на филм от плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonDeleteMovie_MouseEnter(object sender, EventArgs e)
         {
             buttonDeleteMovie.BackColor = Color.Gray;
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при напускане на курсора на мишката от бутона за изтриване на филм от плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonDeleteMovie_MouseLeave(object sender, EventArgs e)
         {
             buttonDeleteMovie.BackColor = Color.Silver;

@@ -32,7 +32,7 @@ namespace NUnitTest1
         }
         [Test]
         public void TestGetGenre()
-        {     
+        {
             using (movieContext = new MovieContext())
             {
                 Genre genre = movieContext.Genres.Find(2);
@@ -347,7 +347,7 @@ namespace NUnitTest1
         {
             using (movieContext = new MovieContext())
             {
-               List<MovieActor> movieActors=bc.GetAllMovieActors().Where(a=>a.MovieId==1).ToList();
+                List<MovieActor> movieActors = bc.GetAllMovieActors().Where(a => a.MovieId == 1).ToList();
                 Assert.AreEqual(movieActors.Count, bc.FindActorsFromMovie(1).Count(), "FindActorsFromMovie does not return all actors");
             }
         }
@@ -359,6 +359,49 @@ namespace NUnitTest1
                 List<MovieGenre> movieGenres = bc.GetAllMovieGenre().Where(a => a.GenreId == 1).ToList();
                 Assert.AreEqual(movieGenres.Count, bc.FindMoviesFromGenre(1).Count(), "FindMoviesFromGenre does not return all genres");
             }
+        }
+
+        [Test]
+        public void TestIfDatabaseReturnsAllMoviePlaylists()
+        {
+            using (movieContext = new MovieContext())
+            {
+                List<MoviePlaylist> moviePlaylistsFromDatabase = movieContext.MoviesPlaylists.ToList();
+                List<Director> moviePlaylists = bc.GetAllDirectors();
+                Assert.AreEqual(moviePlaylistsFromDatabase.Count, moviePlaylistsFromDatabase.Count, "Does not return all movie-Playlists relationships value");
+            }
+        }
+
+        [Test]
+        public void TestIfMapMovieAndGenresMapsTheRecords()
+        {
+            using (movieContext = new MovieContext())
+            {
+                int countOfMovieGenres = bc.GetAllMovieGenre().Count;
+                Movie movie = new Movie("Test", 2005, 120, "USA", 1, "Interesting");
+                bc.Add(movie);
+
+                bc.MapMovieAndGenre(movie.Id, new List<int> { 1 });
+
+                int countOfMovieGenresAfterTesting = bc.GetAllMovieGenre().Count;
+
+                MovieGenre movieGenre = bc.GetAllMovieGenre().Where(mg => mg.MovieId == movie.Id && mg.GenreId == 1).FirstOrDefault();
+                movieContext.MoviesGenres.Remove(movieGenre);
+                movieContext.Movies.Remove(movie);
+                movieContext.SaveChanges();
+                Assert.AreNotEqual(countOfMovieGenres, countOfMovieGenresAfterTesting, "Does not map the movie with genres!");
+            }
+        }
+
+
+        [Test]
+        public void TestIfCollectionOfGenresForOneMovieIsReturned()
+        {
+            int countOfGenres = bc.GetAllMovieGenre().Where(mg => mg.MovieId == 1).Count();
+
+            int countOfGenresFromMethod = bc.FindGenresOfMovie(1).Count;
+
+            Assert.AreEqual(countOfGenres, countOfGenresFromMethod, "Does not return the accurate genres for movie!");
         }
     }
 }

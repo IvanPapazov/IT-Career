@@ -145,7 +145,7 @@ namespace MoviesApp
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(1, 0);
+            this.textBox2.Location = new System.Drawing.Point(831, 331);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(322, 292);
@@ -155,7 +155,7 @@ namespace MoviesApp
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(21, 38);
+            this.button6.Location = new System.Drawing.Point(0, 26);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(121, 31);
             this.button6.TabIndex = 7;
@@ -278,6 +278,7 @@ namespace MoviesApp
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button8);
+            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.button17);
             this.groupBox1.Controls.Add(this.button16);
@@ -287,7 +288,6 @@ namespace MoviesApp
             this.groupBox1.Controls.Add(this.button12);
             this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.button10);
-            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Location = new System.Drawing.Point(92, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(323, 311);
@@ -301,9 +301,8 @@ namespace MoviesApp
             this.groupBox2.Controls.Add(this.buttonDescription);
             this.groupBox2.Controls.Add(this.buttonAddMovie);
             this.groupBox2.Controls.Add(this.buttonPlaylist);
-            this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Location = new System.Drawing.Point(825, 90);
+            this.groupBox2.Location = new System.Drawing.Point(821, 87);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(192, 227);
             this.groupBox2.TabIndex = 0;
@@ -345,10 +344,10 @@ namespace MoviesApp
             // 
             this.textBox4.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(0, 1);
+            this.textBox4.Location = new System.Drawing.Point(-92, 13);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(191, 208);
+            this.textBox4.Size = new System.Drawing.Size(234, 214);
             this.textBox4.TabIndex = 22;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -520,7 +519,7 @@ namespace MoviesApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(842, 708);
+            this.ClientSize = new System.Drawing.Size(1059, 713);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.pictureBox2);
@@ -534,6 +533,7 @@ namespace MoviesApp
             this.Controls.Add(this.pictureBoxFilm2);
             this.Controls.Add(this.pictureBoxFilm3);
             this.Controls.Add(this.pictureBoxFilm4);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.pictureBoxFilm5);
             this.Controls.Add(this.pictureBoxFilm6);
@@ -552,7 +552,6 @@ namespace MoviesApp
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilm1)).EndInit();
