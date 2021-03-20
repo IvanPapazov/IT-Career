@@ -63,7 +63,6 @@ namespace MoviesApp.Presentation
             this.textBoxDescription.TabIndex = 0;
             this.textBoxDescription.Text = "Описание на приложението";
             this.textBoxDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
             // groupBoxForm1
             // 
@@ -86,7 +85,6 @@ namespace MoviesApp.Presentation
             this.textBoxForm1first.Name = "textBoxForm1first";
             this.textBoxForm1first.Size = new System.Drawing.Size(713, 184);
             this.textBoxForm1first.TabIndex = 0;
-            this.textBoxForm1first.TextChanged += new System.EventHandler(this.textBoxForm1first_TextChanged);
             // 
             // groupBoxFormAction
             // 

@@ -103,7 +103,6 @@ namespace MoviesApp.Presentation
             this.textBoxAdd.Name = "textBoxAdd";
             this.textBoxAdd.Size = new System.Drawing.Size(182, 38);
             this.textBoxAdd.TabIndex = 4;
-            this.textBoxAdd.TextChanged += new System.EventHandler(this.textBoxAdd_TextChanged);
             // 
             // buttonSave
             // 

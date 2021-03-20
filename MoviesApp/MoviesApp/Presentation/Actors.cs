@@ -13,21 +13,36 @@ using System.Linq;
 
 namespace MoviesApp.Presentation
 {
+    /// <summary>
+    /// Това е класът на формата за актьорите
+    /// </summary>
     public partial class Actors : Form
     {
         string previousPage;
+        /// <summary>
+        /// Консртуктор на формата
+        /// </summary>
+        /// <param name="previousPage">Име на предишната форма</param>
         public Actors(string previousPage)
         {
             InitializeComponent();
             this.previousPage = previousPage;
         }
         MovieBusiness mb = new MovieBusiness();
+        /// <summary>
+        ///  Метод който се стартира при пускането на формата
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void Actors_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CenterToScreen();
             UpdateGrid();
         }
+        /// <summary>
+        /// Ъпдейтва визуализацията на грида
+        /// </summary>
         private void UpdateGrid()
         {
             dataGridView1.DataSource = mb.GetAllActors();
@@ -37,12 +52,13 @@ namespace MoviesApp.Presentation
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
         }
-
+        /// <summary>
+        /// Метод който извършва действие при натискане върху определена клетка от грида
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //List<string> rowsInfo = new List<string>();
-            //rowsInfo.Add(dataGridView1.SelectedRows.ToString());
-            //textBox1.Text = rowsInfo.ToString();
             MovieBusiness mb = new MovieBusiness();
             List<MovieActor> moviesActors = new List<MovieActor>();
             moviesActors = mb.GetAllMovieActors();
@@ -80,17 +96,11 @@ namespace MoviesApp.Presentation
                 textBox3.Text = string.Join(", ",outputMovies);
             }
         }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_MouseEnter(object sender, EventArgs e)
-        {
-            //textBox1.ForeColor = Color.Black;
-        }
-
+        /// <summary>
+        /// Метод при който при натискане връща предишната форма
+        /// </summary>
+        /// <param name="sender">Обект изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             if (previousPage=="Form1")

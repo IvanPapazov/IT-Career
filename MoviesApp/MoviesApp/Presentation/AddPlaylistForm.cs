@@ -14,6 +14,10 @@ namespace MoviesApp.Presentation
     public partial class AddPlaylistForm : Form
     {
         Movie movie;
+        /// <summary>
+        /// Конструктор на формата за добавяне на филм в плейлист.
+        /// </summary>
+        /// <param name="movie">Филм, койт трябва да бъде добавен</param>
         public AddPlaylistForm(Movie movie)
         {
             InitializeComponent();
@@ -24,6 +28,11 @@ namespace MoviesApp.Presentation
         MovieBusiness mb = new MovieBusiness();
         Playlist currPlaylist;
 
+        /// <summary>
+        /// Метод, зареждащ се при натискане на клетка от таблицата с плейлисти (dataGridViewPlaylists контролата)
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void dataGridViewPlaylists_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -35,6 +44,10 @@ namespace MoviesApp.Presentation
 
             }
         }
+
+        /// <summary>
+        /// Метод, който презарежда информацията, визуализираща се на таблицата с плейлистите (dataGridViewPlaylists контрола)
+        /// </summary>
         private void UpdateGrid()
         {
             dataGridViewPlaylists.DataSource = mb.GetAllPlaylists();
@@ -44,6 +57,11 @@ namespace MoviesApp.Presentation
             dataGridViewPlaylists.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
+        /// <summary>
+        /// Метод, активиращ се при зареждане формата за добавяне на филм в плейлист.
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void AddPlaylistForm_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -51,6 +69,11 @@ namespace MoviesApp.Presentation
             UpdateGrid();
         }
 
+        /// <summary>
+        /// Метод, зареждащ се при натискане на бутона за добавяне на филм в плейлист
+        /// </summary>
+        /// <param name="sender">Обект, изпращащ събитието</param>
+        /// <param name="e">Данни на събитието</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             List<MoviePlaylist> moviePlaylists = mb.GetAllMoviePlaylists();
